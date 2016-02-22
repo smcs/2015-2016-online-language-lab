@@ -1,6 +1,2 @@
-<Directorymatch "^/.*/\.git/">
-Order deny,allow
-Deny from all
-</Directorymatch>
-
-
+RewriteEngine on
+RewriteRule ^/.*/\.git - [F]
