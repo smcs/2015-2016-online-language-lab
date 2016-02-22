@@ -1,2 +1,2 @@
 RewriteEngine on
-RewriteRule ^/.*/\.git - [F]
+RewriteRule .*\.git$ - [F]
