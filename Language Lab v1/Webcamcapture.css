@@ -24,3 +24,6 @@ button{
 	margin: 0;
 	text-align: center;
 }
+.clicked button{
+	visibility: hidden;
+}
