@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="index.css">
+
+</head>
+
+
+<body>
+	<h1>This is language lab.</h1>
+	<p>You can record your audio.</p>
+	<p>Click button below to record audio.</p>
+	<p><button type="button" onclick="recordStream()">Record</button>
+</p>
+
+	
+  	<script src="WebRTC samples/src/js/adapter.js"></script>
+  	<script src="WebRTC samples/src/js/common.js"></script>
+	<script type="text/javascript" scr ="index.js"></script>
+
+
+
+		
+	<div id="swap">
+			<button onclick="swap('#swap')">Record</button>
+		</div>
+		
+		<script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+		<script>
+			function swap(e) {
+				$(e).empty();
+				$(e).append('<p>Hello world</p>');
+			}
+		</script>
+	
+</html>
+
+</body>
+
+
+
+
+
+
+</html>
