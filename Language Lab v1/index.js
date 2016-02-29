@@ -5,9 +5,9 @@
  *  that can be found in the LICENSE file in the root of the source
  *  tree.
  */
-
+ 
 'use strict';
-
+ 
 function videoFunction(){
   var video = document.querySelector('video');
 var constraints = window.constraints = {
@@ -15,7 +15,7 @@ var constraints = window.constraints = {
   video: true
 };
 var errorElement = document.querySelector('#errorMsg');
-
+ 
 navigator.mediaDevices.getUserMedia(constraints)
 .then(function(stream) {
   var videoTracks = stream.getVideoTracks();
@@ -38,7 +38,7 @@ navigator.mediaDevices.getUserMedia(constraints)
   }
   errorMsg('getUserMedia error: ' + error.name, error);
 });
-
+ 
 function errorMsg(msg, error) {
   errorElement.innerHTML += '<p>' + msg + '</p>';
   if (typeof error !== 'undefined') {
@@ -46,7 +46,9 @@ function errorMsg(msg, error) {
   }
 }
 }
-
-
+ 
+ 
 // Put variables in global scope to make them available to the browser console.
+
+
 

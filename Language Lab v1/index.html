@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <link rel="stylesheet" type="text/css" href="Webcamcapture.css" />
+ 
+ 
+</head>
+<body>
+        <h1>This is a language lab website.</h1>
+        <h3>It has a webcam capture feature.</h3>
+        <p>Click the button below to enable your webcam.</p>
+ 
+        <div id="swap"><button type="button" onclick="swap('#swap')"><img src="images/button_webcam.gif"></button></div>
+         
+ 
+ 
+ 
+         <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+         <script src="../webrtc-samples/js/adapter.js"></script>
+         <script src="../webrtc-samples/js/common.js"></script>
+         <script type="text/javascript" src="index.js"></script>
+		 <script>
+			function swap(e) {
+				$(e).empty();
+				$(e).append('<video id="gum-local" autoplay></video>');
+				videoFunction();
+			}
+		</script>
+</body>
+ 
+</html>
