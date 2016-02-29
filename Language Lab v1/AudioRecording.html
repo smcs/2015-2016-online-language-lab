@@ -2,6 +2,12 @@
 <html>
 <head>
 	<link rel="stylesheet" type="text/css" href="index.css">
+	<link rel=next   type="Webcamcapture"href="Language Lab v1/Webcamcapture.html">
+	<link rel="icon" sizes="192x192" href="../webrtc-samples/images/webrtc-icon-192x192.png">
+  	<link href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet" type="text/css">
+  	<link rel="stylesheet" href="../webrtc-samples/css/main.css">
+  	<link rel="stylesheet" href="css/main.css">
+
 
 </head>
 
@@ -9,37 +15,22 @@
 <body>
 	<h1>This is language lab.</h1>
 	<p>You can record your audio.</p>
-	<p>Click button below to record audio.</p>
-	<p><button type="button" onclick="recordStream()">Record</button>
-</p>
-
-	
-  	<script src="WebRTC samples/src/js/adapter.js"></script>
-  	<script src="WebRTC samples/src/js/common.js"></script>
-	<script type="text/javascript" scr ="index.js"></script>
-
-
-
-		
+	<p>Click button below to start recording audio.</p>
 	<div id="swap">
-			<button onclick="swap('#swap')">Record</button>
-		</div>
+		<button onclick="swap('#swap')">Record</button>
+	</div>
 		
-		<script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
-		<script>
-			function swap(e) {
-				$(e).empty();
-				$(e).append('<p>Hello world</p>');
-			}
-		</script>
-	
-</html>
-
+	<script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+	<script src="../webrtc-samples/js/adapter.js"></script>
+		<script src="AudioRecording.js"></script>
+	<script>
+	function swap(e) {
+			$(e).empty();
+			$(e).append('<video id="recorded" autoplay loop></video>');
+			recordStream();
+		}		
+	</script>
+		<script src="../webrtc-samples/js/lib/ga.js"></script>
 </body>
-
-
-
-
-
 
 </html>
