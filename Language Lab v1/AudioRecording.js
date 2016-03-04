@@ -6,12 +6,12 @@
  *  tree.
  */
 
-'use strict';
+ 'use strict';
 
 
-function startRecording() {
+ function recordStream() {
   var options = {mimeType: 'video/webm'};
-  recordedBlobs = [];
+  var recordedBlobs = [];
   try {
     mediaRecorder = new MediaRecorder(window.stream, options);
   } catch (e0) {
@@ -26,7 +26,7 @@ function startRecording() {
         mediaRecorder = new MediaRecorder(window.stream, options);
       } catch (e2) {
         alert('MediaRecorder is not supported by this browser.\n\n' +
-            'Try Firefox 29 or later, or Chrome 47 or later, with Enable experimental Web Platform features enabled from chrome://flags.');
+          'Try Firefox 29 or later, or Chrome 47 or later, with Enable experimental Web Platform features enabled from chrome://flags.');
         console.error('Exception while creating MediaRecorder:', e2);
         return;
       }
@@ -66,7 +66,4 @@ function download() {
     document.body.removeChild(a);
     window.URL.revokeObjectURL(url);
   }, 100);
-}}
-
 }
-
