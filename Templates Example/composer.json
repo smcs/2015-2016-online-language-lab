@@ -1,0 +1,15 @@
+{
+    "name": "battis/template-example",
+    "description": "An example of using templates to make your life easier",
+    "require": {
+        "battis/bootstrapsmarty": "^1.0"
+    },
+    "license": "GPL-3.0",
+    "authors": [
+        {
+            "name": "Seth Battis",
+            "email": "sethbattis@stmarksschool.org"
+        }
+    ],
+    "minimum-stability": "dev"
+}
