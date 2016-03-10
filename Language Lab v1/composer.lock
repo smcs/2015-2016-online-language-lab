@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "08d246d369d7d5455bd98227eb1b5d19",
-    "content-hash": "4e8269133e45600a554125faa41abf9a",
+    "hash": "d1265e766cd6d1ace730ea3221431b9c",
+    "content-hash": "97f349c2aa881dc35bce7ab4f782830d",
     "packages": [
         {
             "name": "battis/bootstrapsmarty",
@@ -134,12 +134,47 @@
                 "templating"
             ],
             "time": "2016-03-09 03:03:37"
+        },
+        {
+            "name": "smtech/stmarks-colors",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/smtech/stmarks-colors.git",
+                "reference": "efbcce5b1a9289dfa64ba33d385613b7cbc93a8a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/smtech/stmarks-colors/zipball/efbcce5b1a9289dfa64ba33d385613b7cbc93a8a",
+                "reference": "efbcce5b1a9289dfa64ba33d385613b7cbc93a8a",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "smtech\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Seth Battis",
+                    "email": "sethbattis@stmarksschool.org"
+                }
+            ],
+            "description": "An object-ified, consistent set of hex colors for St. Mark’s projects",
+            "time": "2015-08-20 20:17:08"
         }
     ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "smtech/stmarks-colors": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
