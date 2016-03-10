@@ -1,0 +1,15 @@
+{
+    "name": "abishigayeva/language_lab",
+    "description": "This is app that allows to learn languages",
+    "require": {
+        "battis/bootstrapsmarty": "^1.0"
+    },
+    "license": "GPL-3.0",
+    "authors": [
+        {
+            "name": "aigerim",
+            "email": "aigerimbishigayeva@stmarksschool.org"
+        }
+    ],
+    "minimum-stability": "dev"
+}
