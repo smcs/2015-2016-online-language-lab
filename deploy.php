@@ -16,7 +16,7 @@
 		'git submodule sync',
 		'git submodule update',
 		'git submodule status',
-		'cd Language\ Lab\ v1; composer install'
+		'cd Language\ Lab\ v1 && composer install'
 	);
 
 	// Run the commands for output
