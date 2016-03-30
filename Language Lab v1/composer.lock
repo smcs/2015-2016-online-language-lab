@@ -4,21 +4,21 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "08d246d369d7d5455bd98227eb1b5d19",
-    "content-hash": "4e8269133e45600a554125faa41abf9a",
+    "hash": "c02af8532d3219f64181ef97e2a5815a",
+    "content-hash": "5f037bab37d71ca477a498d44396ab83",
     "packages": [
         {
             "name": "battis/bootstrapsmarty",
-            "version": "v1.1.1",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/battis/bootstrapsmarty.git",
-                "reference": "4ec58e1f225fa471a9714277b6555f1c3eb7fa1a"
+                "reference": "cd817fd84f2a4b0dd11a88eefaf668f262029e65"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/battis/bootstrapsmarty/zipball/4ec58e1f225fa471a9714277b6555f1c3eb7fa1a",
-                "reference": "4ec58e1f225fa471a9714277b6555f1c3eb7fa1a",
+                "url": "https://api.github.com/repos/battis/bootstrapsmarty/zipball/cd817fd84f2a4b0dd11a88eefaf668f262029e65",
+                "reference": "cd817fd84f2a4b0dd11a88eefaf668f262029e65",
                 "shasum": ""
             },
             "require": {
@@ -46,7 +46,7 @@
                 }
             ],
             "description": "A wrapper for Smarty to set (and maintain) defaults within a Bootstrap UI environment",
-            "time": "2016-03-30 14:40:29"
+            "time": "2016-03-30 16:22:41"
         },
         {
             "name": "battis/data-utilities",
@@ -54,13 +54,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/battis/data-utilities.git",
-                "reference": "6b98088af200389f394e40e5667987d4b8751d98"
+                "reference": "d1f10e9d8e976a9f74c2aa80f648183a69bc15e6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/battis/data-utilities/zipball/6b98088af200389f394e40e5667987d4b8751d98",
-                "reference": "6b98088af200389f394e40e5667987d4b8751d98",
+                "url": "https://api.github.com/repos/battis/data-utilities/zipball/d1f10e9d8e976a9f74c2aa80f648183a69bc15e6",
+                "reference": "d1f10e9d8e976a9f74c2aa80f648183a69bc15e6",
                 "shasum": ""
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~5.0"
             },
             "type": "library",
             "autoload": {
@@ -79,7 +82,7 @@
                 }
             ],
             "description": "A handful of useful helper functions to process data",
-            "time": "2016-03-16 14:17:11"
+            "time": "2016-03-30 16:13:10"
         },
         {
             "name": "bower-asset/bootstrap",
@@ -418,7 +421,9 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "battis/bootstrapsmarty": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],

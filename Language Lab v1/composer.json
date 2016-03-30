@@ -2,7 +2,7 @@
     "name": "abishigayeva/language_lab",
     "description": "This is app that allows to learn languages",
     "require": {
-        "battis/bootstrapsmarty": "^1.0"
+        "battis/bootstrapsmarty": "dev-master"
     },
     "license": "GPL-3.0",
     "authors": [
