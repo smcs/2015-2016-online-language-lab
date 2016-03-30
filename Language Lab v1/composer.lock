@@ -4,21 +4,21 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "c02af8532d3219f64181ef97e2a5815a",
-    "content-hash": "5f037bab37d71ca477a498d44396ab83",
+    "hash": "1b96b0a4fc953ab1bac3eef051a351af",
+    "content-hash": "b69d347894491a63ecf765368794762b",
     "packages": [
         {
             "name": "battis/bootstrapsmarty",
-            "version": "dev-master",
+            "version": "v1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/battis/bootstrapsmarty.git",
-                "reference": "322c5453380d4f7db82384925895b6b157db8482"
+                "reference": "621225461920581c2d9b8aef24eac6e624c5f6b5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/battis/bootstrapsmarty/zipball/322c5453380d4f7db82384925895b6b157db8482",
-                "reference": "322c5453380d4f7db82384925895b6b157db8482",
+                "url": "https://api.github.com/repos/battis/bootstrapsmarty/zipball/621225461920581c2d9b8aef24eac6e624c5f6b5",
+                "reference": "621225461920581c2d9b8aef24eac6e624c5f6b5",
                 "shasum": ""
             },
             "require": {
@@ -46,7 +46,7 @@
                 }
             ],
             "description": "A wrapper for Smarty to set (and maintain) defaults within a Bootstrap UI environment",
-            "time": "2016-03-30 18:57:20"
+            "time": "2016-03-30 20:04:01"
         },
         {
             "name": "battis/data-utilities",
@@ -421,9 +421,7 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "battis/bootstrapsmarty": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
