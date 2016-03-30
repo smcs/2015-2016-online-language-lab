@@ -13,12 +13,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/battis/bootstrapsmarty.git",
-                "reference": "cd817fd84f2a4b0dd11a88eefaf668f262029e65"
+                "reference": "322c5453380d4f7db82384925895b6b157db8482"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/battis/bootstrapsmarty/zipball/cd817fd84f2a4b0dd11a88eefaf668f262029e65",
-                "reference": "cd817fd84f2a4b0dd11a88eefaf668f262029e65",
+                "url": "https://api.github.com/repos/battis/bootstrapsmarty/zipball/322c5453380d4f7db82384925895b6b157db8482",
+                "reference": "322c5453380d4f7db82384925895b6b157db8482",
                 "shasum": ""
             },
             "require": {
@@ -46,7 +46,7 @@
                 }
             ],
             "description": "A wrapper for Smarty to set (and maintain) defaults within a Bootstrap UI environment",
-            "time": "2016-03-30 16:22:41"
+            "time": "2016-03-30 18:57:20"
         },
         {
             "name": "battis/data-utilities",
