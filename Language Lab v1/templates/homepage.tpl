@@ -20,10 +20,14 @@
 <div class="container">
 	<div class="row">
 		<div class="col-mg-12">
+<<<<<<< HEAD
 			<div class="text-center">
 			<button type="button" class="btn btn-info btn-lg" onclick="swap('#swap')">Log in</button>
 		</div>
 			
+=======
+			<a type="button" class="btn btn-default btn-lg" href="login.php">Log in</a>
+>>>>>>> 90a31236cf6f07a81a420d4748dd7a9417f95c5f
 		</div>
 		
 
