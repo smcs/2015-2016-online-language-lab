@@ -57,12 +57,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/battis/data-utilities.git",
-                "reference": "d1f10e9d8e976a9f74c2aa80f648183a69bc15e6"
+                "reference": "1de361ebe4e180a17d36a59b199f0abd02503c9f"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/battis/data-utilities/zipball/1de361ebe4e180a17d36a59b199f0abd02503c9f",
-                "reference": "d1f10e9d8e976a9f74c2aa80f648183a69bc15e6",
+                "reference": "1de361ebe4e180a17d36a59b199f0abd02503c9f",
                 "shasum": ""
             },
             "require-dev": {
@@ -85,7 +85,7 @@
                 }
             ],
             "description": "A handful of useful helper functions to process data",
-            "time": "2016-03-30 16:13:10"
+            "time": "2016-03-31 01:33:03"
         },
         {
             "name": "bower-asset/bootstrap",
