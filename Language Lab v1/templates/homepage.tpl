@@ -21,8 +21,8 @@
 	<div class="row">
 		<div class="col-mg-12">
 
-			
-			<a type="button" class="btn btn-info btn-lg" href="login.php">Log in</a>
+			<div class="text-align-center">
+			<a type="button" class="btn btn-info btn-lg" href="login.php">Log in</a></div>
 		</div>
 		
 
