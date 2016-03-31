@@ -4,21 +4,21 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "1b96b0a4fc953ab1bac3eef051a351af",
-    "content-hash": "b69d347894491a63ecf765368794762b",
+    "hash": "16f229045bb1ef5bf59b1a2ca34e4e65",
+    "content-hash": "1ede858b99048b1919702c38495cb4ff",
     "packages": [
         {
             "name": "battis/bootstrapsmarty",
-            "version": "v1.1.1",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
                 "url": "https://github.com/battis/bootstrapsmarty.git",
-                "reference": "621225461920581c2d9b8aef24eac6e624c5f6b5"
+                "reference": "56e99f92619ad057c9fa956df39fb22e6e825266"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/battis/bootstrapsmarty/zipball/621225461920581c2d9b8aef24eac6e624c5f6b5",
-                "reference": "621225461920581c2d9b8aef24eac6e624c5f6b5",
+                "url": "https://api.github.com/repos/battis/bootstrapsmarty/zipball/56e99f92619ad057c9fa956df39fb22e6e825266",
+                "reference": "56e99f92619ad057c9fa956df39fb22e6e825266",
                 "shasum": ""
             },
             "require": {
@@ -28,6 +28,9 @@
                 "bower-asset/xaguilars-bootstrap-colorpicker": "dev-master",
                 "fxp/composer-asset-plugin": "^1.1",
                 "smarty/smarty": "3.1.*"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~5.0"
             },
             "type": "library",
             "autoload": {
@@ -46,7 +49,7 @@
                 }
             ],
             "description": "A wrapper for Smarty to set (and maintain) defaults within a Bootstrap UI environment",
-            "time": "2016-03-30 20:04:01"
+            "time": "2016-03-31 01:34:39"
         },
         {
             "name": "battis/data-utilities",
@@ -58,7 +61,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/battis/data-utilities/zipball/d1f10e9d8e976a9f74c2aa80f648183a69bc15e6",
+                "url": "https://api.github.com/repos/battis/data-utilities/zipball/1de361ebe4e180a17d36a59b199f0abd02503c9f",
                 "reference": "d1f10e9d8e976a9f74c2aa80f648183a69bc15e6",
                 "shasum": ""
             },
@@ -421,7 +424,9 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "battis/bootstrapsmarty": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
