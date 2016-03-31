@@ -20,7 +20,7 @@
 <div class="container">
 	<div class="row">
 		<div class="col-mg-12">
-			<button type="button" class="btn btn-default btn-lg">Log in</button>
+			<a type="button" class="btn btn-default btn-lg" href="login.php">Log in</a>
 		</div>
 		
 
