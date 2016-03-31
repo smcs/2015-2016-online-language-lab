@@ -21,7 +21,7 @@
 	<div class="row">
 		<div class="col-mg-12">
 
-			<button>Log in</button>
+			<a class="btn btn-primary" href="login.php">Log in</a>
 		</div>
 		
 
