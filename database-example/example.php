@@ -18,3 +18,6 @@ if ($user['password'] == 'abc123') {
 } else {
 	echo 'boo!';
 }
+
+// store some data in the database
+$sql->query("INSERT INTO `users` (`username`, `password`) VALUES ('" . time() . "', '" . md5(time()) . "')");
