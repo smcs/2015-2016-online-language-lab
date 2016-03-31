@@ -10,7 +10,7 @@ UserID and Password*/
 function pasuser(form) {
 if (form.id.value=="ab") { 
 if (form.pass.value=="1234") {              
-location="page2.html" 
+location="homepage.tpl" 
 } else {
 alert("Invalid Password")
 }
