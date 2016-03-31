@@ -10,8 +10,8 @@
 <div class="row">
 <div class="col-mg-12">
 
-	<h1>Welcome to the Language Lab!</h1>
-	<h3>Please sign in with your St. Mark's School email and password.</h3>
+	<h1 class="text-center">Welcome to the Language Lab!</h1>
+	<h3 class="text-center">Please sign in with your St. Mark's School email and password.</h3>
 
 </div>
 </div>
@@ -20,8 +20,7 @@
 <div class="container">
 	<div class="row">
 		<div class="col-mg-12">
-
-			<a class="btn btn-primary" href="login.php">Log in</a>
+			<button type="button" class="btn btn-default btn-lg">Log in</button>
 		</div>
 		
 
