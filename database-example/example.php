@@ -10,6 +10,7 @@ if ($sql->connect_error !== false) {
 
 // ask the database for some information
 $result = $sql->query("SELECT * `users` WHERE `username` = 'minjaekim'");
+var_dump($result);exit;
 $user = $result->fetch_assoc();
 
 // use that information
