@@ -20,10 +20,9 @@
 <div class="container">
 	<div class="row">
 		<div class="col-mg-12">
-<<<<<<< HEAD
+
 			
 			<a type="button" class="btn btn-info btn-lg" href="login.php">Log in</a>
->>>>>>> 90a31236cf6f07a81a420d4748dd7a9417f95c5f
 		</div>
 		
 
