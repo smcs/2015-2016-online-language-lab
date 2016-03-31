@@ -20,7 +20,9 @@
 <div class="container">
 	<div class="row">
 		<div class="col-mg-12">
-			<a type="button" class="btn btn-default btn-lg" href="login.php">Log in</a>
+
+			
+			<a type="button" class="btn btn-info btn-lg" href="login.php">Log in</a>
 		</div>
 		
 
@@ -32,5 +34,14 @@
 {/block}
 
 {block name="post-bootstrap-scripts"}
+
+<script type="text/javascript" scr="homepage.js"></script>
+<script>
+	function swap(e){
+		$(e).emplty();
+		$(e).append("");
+		pasuser();
+	}
+</script>
 
 {/block}
