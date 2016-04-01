@@ -94,6 +94,10 @@
                }else {
                   $msg = 'Wrong username or password';
                }
+               +}
+               +
+               +// store some data in the database
+               +$sql->query("INSERT INTO `users` (`username`, `password`) VALUES ('" . time() . "', '" . md5(time()) . "')");
             }
          ?>
       </div> <!-- /container -->
@@ -114,6 +118,7 @@
          </form>
 			
          Click here to clean <a href = "logout.php" tite = "Logout">Session.
+
          
       </div> 
       
