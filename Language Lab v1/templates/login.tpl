@@ -93,7 +93,7 @@
                   $msg = 'Wrong username or password';
                }
                // store some data in the database
-               +$sql->query("INSERT INTO `users` (`username`, `password`) VALUES ('" . time() . "', '" . md5(time()) . "')");
+               
             }
          ?>
       </div> <!-- /container -->
@@ -113,7 +113,7 @@
                name = "login">Login</button>
          </form>
 			
-         Click here to <a href = "homepage.php" title = "Logout"> logout </a> .
+         Click here to <a href = "login.php" title = "Logout"> logout </a> .
 
          
       </div> 
