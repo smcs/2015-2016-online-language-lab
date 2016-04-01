@@ -22,7 +22,8 @@
 		<div class="col-mg-12">
 
 			<div class="text-align-center">
-			<a type="button" class="btn btn-info btn-lg" href="login.php">Log in</a></div>
+			function;
+		</div>
 		</div>
 		
 
