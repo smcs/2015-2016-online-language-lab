@@ -115,7 +115,7 @@
                name = "login">Login</button>
          </form>
 			
-         Click here to logout <a href = "homepage.php" title = "Logout">.
+         Click here to <a href = "homepage.php" title = "Logout"> logout .
 
          
       </div> 
