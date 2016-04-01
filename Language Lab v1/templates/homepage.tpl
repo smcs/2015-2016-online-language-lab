@@ -1,4 +1,4 @@
-/*  this is a template for log in/sign up page*/
+/*  this is a template for the homepage*/
 
 
 {extends file="page.tpl"}
@@ -11,7 +11,7 @@
 <div class="col-mg-12">
 
 	<h1 class="text-center">Welcome to the Language Lab!</h1>
-	<h3 class="text-center">Please sign in with your St. Mark's School email and password.</h3>
+	<h3 class="text-center">Please log in.</h3>
 
 </div>
 </div>
