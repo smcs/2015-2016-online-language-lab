@@ -53,16 +53,16 @@
          
          .form-signin input[type="email"] {
             margin-bottom: -1px;
-            border-bottom-right-radius: 0;
-            border-bottom-left-radius: 0;
-            border-color:#017572;
+            border-bottom-right-radius: 100;
+            border-bottom-left-radius: 100;
+            border-color:#00008B;
          }
          
          .form-signin input[type="password"] {
             margin-bottom: 10px;
-            border-top-left-radius: 0;
-            border-top-right-radius: 0;
-            border-color:#017572;
+            border-top-left-radius: 100;
+            border-top-right-radius: 100;
+            border-color:#00008B;
          }
          
          h2{
