@@ -7,6 +7,10 @@
    // error_reporting(E_ALL);
    // ini_set("display_errors", 1);
 ?>
+{extends file="page.tpl"}
+
+{block name="content"}
+
 
 <html lang = "en">
    
@@ -115,7 +119,7 @@
                name = "login">Login</button>
          </form>
 			
-         Click here to <a href = "homepage.php" title = "Logout"> logout </> .
+         Click here to <a href = "homepage.php" title = "Logout"> logout </a> .
 
          
       </div> 
