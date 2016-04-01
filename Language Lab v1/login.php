@@ -20,7 +20,7 @@
             padding-bottom: 40px;
             background-color: #F0FFFF;
          }
-         
+         =
          .form-signin {
             max-width: 330px;
             padding: 15px;
@@ -117,7 +117,7 @@
                name = "login">Login</button>
          </form>
 			
-         Click here to clean <a href = "logout.php" tite = "Logout">Session.
+         Click here to logout <a href = "homepage.php" tite = "Logout">.
 
          
       </div> 
