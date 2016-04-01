@@ -11,14 +11,14 @@
 <html lang = "en">
    
    <head>
-      <title>Tutorialspoint.com</title>
+      <title>Online Language Lab</title>
       <link href = "css/bootstrap.min.css" rel = "stylesheet">
       
       <style>
          body {
             padding-top: 40px;
             padding-bottom: 40px;
-            background-color: #00000;
+            background-color: #F0FFFF;
          }
          
          .form-signin {
