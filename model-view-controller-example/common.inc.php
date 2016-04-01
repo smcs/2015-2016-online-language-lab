@@ -5,3 +5,4 @@ require_once __DIR__ . '/../database-example/secrets.inc.php';
 
 $smarty = Battis\BootstrapSmarty\BootstrapSmarty::getSmarty();
 $smarty->addTemplateDir(__DIR__ . '/templates');
+$smarty->addStylesheet('mvc.css');
