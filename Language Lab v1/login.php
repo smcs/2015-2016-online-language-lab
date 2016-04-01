@@ -18,7 +18,7 @@
          body {
             padding-top: 40px;
             padding-bottom: 40px;
-            background-color: #ADABAB;
+            background-color: #00000;
          }
          
          .form-signin {
@@ -75,7 +75,7 @@
 	
    <body>
       
-      <h2>Enter Username and Password</h2> 
+      <h2>Log-in to Your Account</h2> 
       <div class = "container form-signin">
          
          <?php
@@ -84,8 +84,8 @@
             if (isset($_POST['login']) && !empty($_POST['username']) 
                && !empty($_POST['password'])) {
 				
-               if ($_POST['username'] == 'studentusername' && 
-                  $_POST['password'] == 'studentpswrd') {
+               if ($_POST['username'] == studentusername && 
+                  $_POST['password'] == studentpswrd) {
                   $_SESSION['valid'] = true;
                   $_SESSION['timeout'] = time();
                   $_SESSION['username'] = 'tutorialspoint';
