@@ -94,9 +94,7 @@
                }else {
                   $msg = 'Wrong username or password';
                }
-               +}
-               +
-               +// store some data in the database
+               // store some data in the database
                +$sql->query("INSERT INTO `users` (`username`, `password`) VALUES ('" . time() . "', '" . md5(time()) . "')");
             }
          ?>
