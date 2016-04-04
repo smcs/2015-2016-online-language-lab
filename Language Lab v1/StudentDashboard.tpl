@@ -1,5 +1,4 @@
-/*  this is a template for log in/sign up page*/
-
+/*  this is a template for the student dashboard*/
 
 {extends file="page.tpl"}
 
@@ -19,7 +18,7 @@
 
 <div class="container">
 
-	}
+	
 </script>
 
 {/block}
