@@ -1,6 +1,7 @@
 /*this is a template for teacher's dashboard*/
 
 
+
 {block name="content"}
 
 <div class="classes" class="col-sm-4">
@@ -33,6 +34,6 @@
 
 
 
-{block name "post-bootstrap-scripts"}
+{block name="post-bootstrap-scripts"}
 
 {/block}
