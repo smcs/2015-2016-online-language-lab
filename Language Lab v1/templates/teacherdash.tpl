@@ -11,7 +11,7 @@
  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Español 1 Verde <span class="caret"></span>
   </button>
-  <ul class="dropdown-menu-right">
+  <ul class="dropdown-menu">
     <li><a href="#">Action</a></li>
     <li><a href="#">Another action</a></li>
     <li><a href="#">Something else here</a></li>
@@ -21,7 +21,7 @@
   <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Español 2 Anaranjado <span class="caret"></span>
   </button>
-  <ul class="dropdown-menu-right">
+  <ul class="dropdown-menu">
     <li><a href="#">Action</a></li>
     <li><a href="#">Another action</a></li>
     <li><a href="#">Something else here</a></li>
@@ -31,7 +31,7 @@
   <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Español 3 Rojo <span class="caret"></span>
   </button>
-  <ul class="dropdown-menu-right">
+  <ul class="dropdown-menu">
     <li><a href="#">Action</a></li>
     <li><a href="#">Another action</a></li>
     <li><a href="#">Something else here</a></li>
@@ -41,7 +41,7 @@
   <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Español 4 Marron<span class="caret"></span>
   </button>
-  <ul class="dropdown-menu-right">
+  <ul class="dropdown-menu">
     <li><a href="#">Action</a></li>
     <li><a href="#">Another action</a></li>
     <li><a href="#">Something else here</a></li>
@@ -51,7 +51,7 @@
   <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Español 5 AP Amarillo <span class="caret"></span>
   </button>
-  <ul class="dropdown-menu-right">
+  <ul class="dropdown-menu">
     <li><a href="#">Action</a></li>
     <li><a href="#">Another action</a></li>
     <li><a href="#">Something else here</a></li>
@@ -67,7 +67,7 @@
   <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Action <span class="caret"></span>
   </button>
-  <ul class="dropdown-menu-right">
+  <ul class="dropdown-menu">
     <li><a href="#">Action</a></li>
     <li><a href="#">Another action</a></li>
     <li><a href="#">Something else here</a></li>
