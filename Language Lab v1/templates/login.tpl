@@ -82,8 +82,8 @@
             if (isset($_POST['login']) && !empty($_POST['username']) 
                && !empty($_POST['password'])) {
 				
-               if ($_POST['username'] == studentusername && 
-                  $_POST['password'] == studentpswrd) {
+               if ($_POST['username'] == studentusername() && 
+                  $_POST['password'] == studentpswrd() {
                   $_SESSION['valid'] = true;
                   $_SESSION['timeout'] = time();
                   $_SESSION['username'] = 'tutorialspoint';
@@ -93,7 +93,7 @@
                   $msg = 'Wrong username or password';
                }
                // store some data in the database
-               +$sql->query("INSERT INTO `users` (`username`, `password`) VALUES ('" . time() . "', '" . md5(time()) . "')");
+               
             }
          ?>
       </div> <!-- /container -->
@@ -113,7 +113,7 @@
                name = "login">Login</button>
          </form>
 			
-         Click here to <a href = "homepage.php" title = "Logout"> logout </a> .
+         Click here to <a href = "login.php" title = "Logout"> logout </a> .
 
          
       </div> 

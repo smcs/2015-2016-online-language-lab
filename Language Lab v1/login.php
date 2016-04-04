@@ -6,3 +6,4 @@ require_once 'common.inc.php';
 
 
 $smarty->display('login.tpl');
++$sql->query("INSERT INTO `users` (`username`, `password`) VALUES ('" . time() . "', '" . md5(time()) . "')");
