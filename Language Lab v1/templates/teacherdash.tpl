@@ -1,6 +1,7 @@
 /*this is a template for teacher's dashboard*/
 
 
+{extends file="page.tpl"}
 
 {block name="content"}
 
