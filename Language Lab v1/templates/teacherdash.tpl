@@ -5,7 +5,7 @@
 
 {block name="content"}
 
-<div class="classes" class="col-sm-4" class="text-center">
+<div class="col-sm-4" class="text-left">
 
 	<ul class="btn-group">
  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
