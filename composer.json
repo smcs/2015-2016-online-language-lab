@@ -1,0 +1,24 @@
+{
+    "name": "smtech/language-lab",
+    "description": "An online, managed video and audioconferencing tool",
+    "require": {
+        "opentok/opentok": "~2.0",
+        "smtech/stmarkssmarty": "dev-master"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~5.0"
+    },
+    "license": "GPL-3.0",
+    "authors": [
+        {
+            "name": "Seth Battis",
+            "email": "sethbattis@stmarksschool.org"
+        }
+    ],
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "smtech\\LanguageLab\\": "src/"
+        }
+    }
+}
