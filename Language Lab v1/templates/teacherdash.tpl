@@ -1,8 +1,6 @@
 /*this is a template for teacher's dashboard*/
 
 
-{extends file="page.tpl"}
-
 {block name="content"}
 
 <div class="classes" class="col-sm-4">
