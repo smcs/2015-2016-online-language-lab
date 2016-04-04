@@ -18,6 +18,7 @@
     <li role="separator" class="divider"></li>
     <li><a href="#">Separated link</a></li>
   </ul></li>
+   <li role="separator" class="divider"></li>
   <li><button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Español 2 Anaranjado <span class="caret"></span>
   </button>
@@ -28,7 +29,7 @@
     <li role="separator" class="divider"></li>
     <li><a href="#">Separated link</a></li>
   </ul></li>
-
+ <li role="separator" class="divider"></li>
   <li><button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Español 3 Rojo <span class="caret"></span>
   </button>
@@ -39,7 +40,7 @@
     <li role="separator" class="divider"></li>
     <li><a href="#">Separated link</a></li>
   </ul></li>
-  
+   <li role="separator" class="divider"></li>
   <li><button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Español 4 Marron<span class="caret"></span>
   </button>
@@ -50,6 +51,7 @@
     <li role="separator" class="divider"></li>
     <li><a href="#">Separated link</a></li>
   </ul></li>
+   <li role="separator" class="divider"></li>
   <li><button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Español 5 AP Amarillo <span class="caret"></span>
   </button>
