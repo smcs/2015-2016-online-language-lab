@@ -5,9 +5,9 @@
 
 {block name="content"}
 
-<div class="classes" class="col-sm-4">
+<div class="classes" class="col-sm-4" class="text-center">
 
-	<ul class="list-group">
+	<ul class="btn-group">
  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Español 1 Verde <span class="caret"></span>
   </button>
