@@ -82,8 +82,8 @@
             if (isset($_POST['login']) && !empty($_POST['username']) 
                && !empty($_POST['password'])) {
 				
-               if ($_POST['username'] == studentusername && 
-                  $_POST['password'] == studentpswrd) {
+               if ($_POST['username'] == studentusername() && 
+                  $_POST['password'] == studentpswrd() {
                   $_SESSION['valid'] = true;
                   $_SESSION['timeout'] = time();
                   $_SESSION['username'] = 'tutorialspoint';
