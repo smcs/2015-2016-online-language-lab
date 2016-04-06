@@ -8,7 +8,7 @@
 <div class="col-sm-4" class="text-left">
 
 	<ul class="btn-group">
- <li><button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+ <ul><button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Español 1 Verde <span class="caret"></span>
   </button>
   <ul class="dropdown-menu">
@@ -17,9 +17,10 @@
     <li><a href="#">Something else here</a></li>
     <li role="separator" class="divider"></li>
     <li><a href="#">Separated link</a></li>
-  </ul></li>
-   <li role="separator" class="divider"></li>
-  <li><button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  </ul></ul>
+   <ul role="separator" class="divider"></ul>
+  <ul>
+    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Español 2 Anaranjado <span class="caret"></span>
   </button>
   <ul class="dropdown-menu">
@@ -28,9 +29,9 @@
     <li><a href="#">Something else here</a></li>
     <li role="separator" class="divider"></li>
     <li><a href="#">Separated link</a></li>
-  </ul></li>
- <li role="separator" class="divider"></li>
-  <li><button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  </ul></ul>
+ <ul role="separator" class="divider"></ul>
+  <ul><button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Español 3 Rojo <span class="caret"></span>
   </button>
   <ul class="dropdown-menu">
@@ -39,9 +40,9 @@
     <li><a href="#">Something else here</a></li>
     <li role="separator" class="divider"></li>
     <li><a href="#">Separated link</a></li>
-  </ul></li>
-   <li role="separator" class="divider"></li>
-  <li><button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  </ul></ul>
+   <ul role="separator" class="divider"></ul>
+  <ul><button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Español 4 Marron<span class="caret"></span>
   </button>
   <ul class="dropdown-menu">
@@ -50,9 +51,9 @@
     <li><a href="#">Something else here</a></li>
     <li role="separator" class="divider"></li>
     <li><a href="#">Separated link</a></li>
-  </ul></li>
-   <li role="separator" class="divider"></li>
-  <li><button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  </ul></ul>
+   <ul role="separator" class="divider"></ul>
+  <ul><button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Español 5 AP Amarillo <span class="caret"></span>
   </button>
   <ul class="dropdown-menu">
@@ -61,7 +62,7 @@
     <li><a href="#">Something else here</a></li>
     <li role="separator" class="divider"></li>
     <li><a href="#">Separated link</a></li>
-  </ul></li>
+  </ul></ul>
   
   
 </ul>
