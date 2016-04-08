@@ -9,7 +9,7 @@
 
 <title>Homepage</title>
 
-<link rel="stylesheet" href="teacherdash.css">
+<link rel="stylesheet" type="text/css" href="teacherdash.css">
 
 
 <nav class="navbar navbar-inverse navbar-fixed-top">
