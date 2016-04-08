@@ -4,14 +4,15 @@
 {extends file="page.tpl"}
 
 {block name="content"}
-
+<head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>Homepage</title>
 
-<link rel="stylesheet" type="text/css" href=".../teacherdash.css">
+<link rel="stylesheet" type="text/css" href="teacherdash.css">
+</head>
 
 <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container-fluid">
@@ -37,6 +38,7 @@
   <div class="container-fluid">
       <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
+          <h1 class="page-header">Dashboard</h1>
           <ul class="nav nav-sidebar">
             <li class="active"><a href="#">Español 1 Verde <span class="sr-only">(current)</span></a></li>
             <li><a href="#">Español 2 Anaranjado </a></li>
