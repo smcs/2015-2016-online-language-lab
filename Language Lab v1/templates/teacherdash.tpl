@@ -1,17 +1,18 @@
 /*this is a template for teacher's dashboard*/
 
 
-{block name="content"}
+{extends file="page.tpl"}
 
+{block name="content"}
+<head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>Homepage</title>
 
-<link rel="stylesheet" type="text/css" href="teacherdash.css">
-
-
+<link rel="stylesheet" type="text/css" href=".../teacherdash.css">
+</head>
 <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-header">
