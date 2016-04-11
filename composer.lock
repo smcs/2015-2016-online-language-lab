@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "7a886bed4899579554a2bbcadb763526",
-    "content-hash": "a9f883f62a2d751980ee0b16a4450394",
+    "hash": "46ccec86ac99d249f2297935138a7476",
+    "content-hash": "66395368cab4426748179fa07bf3f60f",
     "packages": [
         {
             "name": "aoberoi/json-works",
@@ -95,6 +95,39 @@
             ],
             "description": "A wrapper for Smarty to set (and maintain) defaults within a Bootstrap UI environment",
             "time": "2016-03-31 01:34:39"
+        },
+        {
+            "name": "battis/configxml",
+            "version": "v1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/battis/configxml.git",
+                "reference": "431ba4bbbfb6068b9d20df5b8f30cf2a16ab12c1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/battis/configxml/zipball/431ba4bbbfb6068b9d20df5b8f30cf2a16ab12c1",
+                "reference": "431ba4bbbfb6068b9d20df5b8f30cf2a16ab12c1",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Battis\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Seth Battis",
+                    "email": "seth@battis.net"
+                }
+            ],
+            "description": "Load a configuration XML file for quick use",
+            "time": "2016-03-30 04:22:53"
         },
         {
             "name": "battis/data-utilities",
@@ -692,12 +725,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/event-dispatcher.git",
-                "reference": "47d2d8cade9b1c3987573d2943bb9352536cdb87"
+                "reference": "81c4c51f7fd6d0d40961bd53dd60cade32db6ed6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/47d2d8cade9b1c3987573d2943bb9352536cdb87",
-                "reference": "47d2d8cade9b1c3987573d2943bb9352536cdb87",
+                "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/81c4c51f7fd6d0d40961bd53dd60cade32db6ed6",
+                "reference": "81c4c51f7fd6d0d40961bd53dd60cade32db6ed6",
                 "shasum": ""
             },
             "require": {
@@ -744,7 +777,7 @@
             ],
             "description": "Symfony EventDispatcher Component",
             "homepage": "https://symfony.com",
-            "time": "2016-03-07 14:04:32"
+            "time": "2016-04-05 16:36:54"
         }
     ],
     "packages-dev": [
@@ -1202,12 +1235,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "1206dd340c6f02b1322025bfaa2a3c2b244e874f"
+                "reference": "beb7683ca88fd9901dccf296806d1e484bd00d11"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/1206dd340c6f02b1322025bfaa2a3c2b244e874f",
-                "reference": "1206dd340c6f02b1322025bfaa2a3c2b244e874f",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/beb7683ca88fd9901dccf296806d1e484bd00d11",
+                "reference": "beb7683ca88fd9901dccf296806d1e484bd00d11",
                 "shasum": ""
             },
             "require": {
@@ -1269,7 +1302,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2016-04-04 14:34:35"
+            "time": "2016-04-05 14:37:38"
         },
         {
             "name": "phpunit/phpunit-mock-objects",

@@ -3,7 +3,8 @@
     "description": "An online, managed video and audioconferencing tool",
     "require": {
         "opentok/opentok": "~2.0",
-        "smtech/stmarkssmarty": "dev-master"
+        "smtech/stmarkssmarty": "dev-master",
+        "battis/configxml": "~1.0"
     },
     "require-dev": {
         "phpunit/phpunit": "~5.0"
