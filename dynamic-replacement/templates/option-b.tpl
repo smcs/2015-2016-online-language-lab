@@ -1,9 +1,4 @@
-{extends file="subpage.tpl"}
-
-{block name="subcontent"}
-
 <div class="container">
+	<h1>Option B!</h1>
 	<p>Look at me!</p>
 </div>
-
-{/block}
