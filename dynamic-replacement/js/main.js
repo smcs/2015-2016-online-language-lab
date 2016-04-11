@@ -1,5 +1,5 @@
 function divReplaceWith(selector, url) {
 	$.get(url, function(response) {
-		$(selector).innerHTML = response;
+		$(selector).html(response);
 	})
 }
