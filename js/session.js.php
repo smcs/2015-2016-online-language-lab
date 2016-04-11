@@ -1,6 +1,22 @@
+<?php
+
+header('Content-type: text/javascript');
+	
+?>
+
 /* get credentials from server */
 $(document).ready(function() {
-	$.getJSON('https://area51.stmarksschool.org/sandbox/smtech/language-lab/api/v1/session?id=' + id, function(response) {
+	$.getJSON('<?= (!isset($_SERVER['HTTPS']) || $_SERVER['HTTPS'] != 'on' ?
+		'http://' :
+		'https://'
+	) .
+	$_SERVER['SERVER_NAME'] .
+	$_SERVER['CONTEXT_PREFIX'] .
+	str_replace(
+		$_SERVER['CONTEXT_DOCUMENT_ROOT'],
+		'',
+		dirname(__DIR__)
+	) ?>/api/v1/session?id=' + id, function(response) {
 		initializeSession(response.apiKey, response.sessionId, response.token);
 	});
 });
@@ -11,9 +27,18 @@ function appendToCarousel(session, stream = false) {
 		width: '100%',
 		height: '100%'
 	};
-	$('#carousel').append('<div class="carousel-item col-sm-2"><div class="embed-responsive embed-responsive-4by3"><div id="carousel-' + (stream == false ? 'publisher' : stream.streamId) + '" class="embed-responsive-item"></div></div></div>');
+	var identifier = (stream == false ? 'publisher' : stream.streamId);
+	$('#carousel').append('' +
+	'	<div class="carousel-item">' +
+	'		<span class="col-sm-2">' +
+	'			<div class="embed-responsive embed-responsive-4by3">' +
+	'				<div id="carousel-' + identifier + '" class="embed-responsive-item"></div>' +
+	'			</div>' +
+	'		</span>' +
+	'	</div>' +
+	'');
 	if (stream == false) {
-		var publisher = OT.initPublisher('carousel-publisher', options);
+		var publisher = OT.initPublisher('carousel-' + identifier, options);
 		session.publish(publisher);
 		publishedStreamId = publisher.streamId;
 	} else if(stream != null) {

@@ -66,6 +66,6 @@ switch($_REQUEST['endpoint']) {
 		break;
 }
 
-header( "Access-Control-Allow-Origin: https://area51.stmarksschool.org" );
+header("Access-Control-Allow-Origin: {$_SERVER['SERVER_NAME']}");
 echo json_encode($apiResponse);
 exit;
