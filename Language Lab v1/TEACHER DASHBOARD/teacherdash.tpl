@@ -60,7 +60,7 @@
         </div>
 </div>
 
-<div id="submenu" class="col-sm-8"></div>
+<div id="submenu" class="col-sm-8" style="left-margin: 200px;"></div>
     
 
 {/block}
