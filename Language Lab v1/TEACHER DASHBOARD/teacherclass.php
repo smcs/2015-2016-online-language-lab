@@ -1,6 +1,10 @@
+
+<link rel="stylesheet" type="text/css" href="teacherdash.css">
+
+
 <div class="container">
 	 <div class="row">
-        <div class="col-sm-4">
+        <div class="col-sm-8">
           <h1 class="page-header">Students</h1>
           <ul class="nav nav-sidebar">
             <li><a href="#">Student 1</a></li>
