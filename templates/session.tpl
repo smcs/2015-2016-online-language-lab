@@ -1,6 +1,7 @@
 {extends file="subpage.tpl"}
 
 {block name="head-scripts"}
+	<link rel="stylesheet" href="css/session.css" />
 	
 	<script>
 		var id = '{$id}';
@@ -9,19 +10,11 @@
 {/block}
 
 {block name="subcontent"}
-
-	<div id="videos" class="container">
-		<span class="col-sm-2">
-		<span class="embed-responsive embed-responsive-4by3">
-		<div id="subscriber" class="embed-responsive-item"></div>
-		</span>
-		</span>
-		<span class="col-sm-4">
-		<span class="embed-responsive embed-responsive-4by3">
-		<div id="publisher" class="embed-responsive-item"></div>
-		</span>
-		</span>
-	</div>
+	
+	<div class="container">
+		<div id="carousel"></div>
+		<div id="hero" class="embed-responsive embed-responsive-4by3"></div>
+	</div>	
 	
 {/block}
 

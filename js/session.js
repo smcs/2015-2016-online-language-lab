@@ -5,6 +5,22 @@ $(document).ready(function() {
 	});
 });
 
+function appendToCarousel(session, stream = false) {
+	var options = {
+		insertMode: 'append',
+		width: '100%',
+		height: '100%'
+	};
+	$('#carousel').append('<div class="carousel-item col-sm-2"><div class="embed-responsive embed-responsive-4by3"><div id="carousel-' + (stream == false ? 'publisher' : stream.streamId) + '" class="embed-responsive-item"></div></div></div>');
+	if (stream == false) {
+		var publisher = OT.initPublisher('carousel-publisher', options);
+		session.publish(publisher);
+		publishedStreamId = publisher.streamId;
+	} else if(stream != null) {
+		session.subscribe(stream, 'carousel-' + stream.streamId, options);
+	}
+}
+
 function initializeSession(apiKey, sessionId, token) {
 
 	/* create a new OpenTok session */
@@ -13,11 +29,13 @@ function initializeSession(apiKey, sessionId, token) {
 	/* define event-driven session behaviors */
 	
 	session.on('streamCreated', function(event) {
-		session.subscribe(event.stream, 'subscriber', {
-			insertMode: 'append',
-			width: '100%',
-			height: '100%'
-		});
+		if (event.stream.streamId != publishedStreamId) {
+			appendToCarousel(session, event.stream);
+		}
+	});
+	
+	session.on('streamDestroyed', function(event) {
+		$('.carousel-item:has(#carousel-' + event.stream.streamId + ')').remove();
 	});
 	
 	session.on('sessionDisconeected', function(event) {
@@ -27,14 +45,9 @@ function initializeSession(apiKey, sessionId, token) {
 	/* connect to the session */
 	session.connect(token, function(error) {
 		if (!error) {
-			var publisher = OT.initPublisher('publisher', {
-				insertMode: 'appendMode',
-				width: '100%',
-				height: '100%'
-			});
-			session.publish(publisher);
+			appendToCarousel(session);
 		} else {
-			console.log('There was an error connection to the session: ', error.code, error.message);
+			console.log('There was an error connecting to the session: ', error.code, error.message);
 		}
 	});
 }
