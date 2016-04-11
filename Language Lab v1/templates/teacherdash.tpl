@@ -39,10 +39,10 @@
         <div class="col-sm-3 col-md-2 sidebar">
           <h1 class="page-header">Dashboard</h1>
           <ul class="nav nav-sidebar">
-            <li class="active"><a href="#">Español 1 Verde <span class="sr-only">(current)</span></a></li>
-            <li><a href="#">Español 2 Anaranjado </a></li>
-            <li><a href="#">Español 3 Rojo</a></li>
-            <li><a href="#">Español 4 Marron</a></li>
+            <li class="active"><a href="javascript:divReplaceWith('#submenu', 'teacherclass.php);">Español 1 Verde <span class="sr-only">(current)</span></a></li>
+            <li><a href="javascript:divReplaceWith('#submenu', 'option-a.php');">Español 2 Anaranjado </a></li>
+            <li><a href="javascript:divReplaceWith('#submenu', 'option-a.php');">Español 3 Rojo</a></li>
+            <li><a href="javascript:divReplaceWith('#submenu', 'option-a.php');">Español 4 Marron</a></li>
           </ul>
           <ul class="nav nav-sidebar">
             <li><a href="">Nav item again</a></li>
@@ -55,13 +55,21 @@
 </button>
           </ul>
         </div>
+
+
+        <div id="submenu" class="col-sm-4"></div>
+
     </div>
 
 
+    
+
 {/block}
-
-
 
 {block name="post-bootstrap-scripts"}
 
+  <script src="js/teacherdash.js"></script>
+  
 {/block}
+
+
