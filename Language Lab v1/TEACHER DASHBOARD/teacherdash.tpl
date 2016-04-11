@@ -10,9 +10,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>Homepage</title>
-
 <link rel="stylesheet" type="text/css" href="teacherdash.css">
+
 </head>
+
+
+
 <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -55,11 +58,7 @@
 </button>
           </ul>
         </div>
-
-
-        
-
-    </div>
+</div>
 
 <div id="submenu" class="col-sm-8"></div>
     
@@ -68,7 +67,7 @@
 
 {block name="post-bootstrap-scripts"}
 
-  <script src="js/teacherdash.js"></script>
+  <script src="teacherdash.js"></script>
   
 {/block}
 
