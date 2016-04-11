@@ -5,8 +5,8 @@
           <ul class="nav nav-sidebar">
             <li><a href="#">Student 1</a></li>
             <li><a href="#">Student 2</a></li>
-            <li><a href="#">Español 3 Rojo</a></li>
-            <li><a href="#">Español 4 Marron</a></li>
+            <li><a href="#">student 3</a></li>
+            <li><a href="#">Student 4</a></li>
           </ul>
           <ul class="nav nav-sidebar">
             <li><a href="">Nav item again</a></li>
