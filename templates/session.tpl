@@ -2,7 +2,7 @@
 
 {block name="head-scripts"}
 	<script>
-		var id = '{$id}';
+		var id = '{$id|default:''}';
 	</script>
 	
 {/block}
