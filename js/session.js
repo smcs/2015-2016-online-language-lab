@@ -1,16 +1,15 @@
-<?php
-
-header('Content-type: text/javascript');
-	
-?>
 /* directives for http://JSLint.com */
 /*jslint browser, for, this, white, multivar */
-/*global $, OT, console, id */
+/*global $, OT, console */
 
-var app = {
+var app; // make JSLint shut up
+app = {
+	thumbnailContainerID: 'ot-streams',
+	thumbnailClass: 'ot-stream',
+	thumbnailPrefix: 'ot-stream-',
 	publishedStreamId: null,
 	
-	appendToCarousel: function(session, stream) {
+	appendToContainer: function(session, stream) {
 		"use strict";
 		var options = {
 			insertMode: 'append',
@@ -18,21 +17,21 @@ var app = {
 			height: '100%'
 		};
 		var identifier = (stream === undefined ? 'publisher' : stream.streamId);
-		$('#carousel').append('' +
-		'	<div class="carousel-item">' +
+		$('#' + this.thumbnailContainerID).append('' +
+		'	<div class="' +  this.thumbnailClass + '">' +
 		'		<span class="col-sm-2">' +
 		'			<div class="embed-responsive embed-responsive-4by3">' +
-		'				<div id="carousel-' + identifier + '" class="embed-responsive-item"></div>' +
+		'				<div id="' + this.thumbnailPrefix + identifier + '" class="embed-responsive-item"></div>' +
 		'			</div>' +
 		'		</span>' +
 		'	</div>' +
 		'');
 		if (stream === undefined) {
-			var publisher = OT.initPublisher('carousel-' + identifier, options);
+			var publisher = OT.initPublisher(this.thumbnailPrefix + identifier, options);
 			session.publish(publisher);
 			this.publishedStreamId = publisher.streamId;
 		} else if(stream !== null) {
-			session.subscribe(stream, 'carousel-' + stream.streamId, options);
+			session.subscribe(stream, this.thumbnailPrefix + stream.streamId, options);
 		}
 	},
 	
@@ -45,12 +44,12 @@ var app = {
 		/* define event-driven session behaviors */
 		session.on('streamCreated', function(event) {
 			if (event.stream.streamId !== app.publishedStreamId) {
-				app.appendToCarousel(session, event.stream);
+				app.appendToContainer(session, event.stream);
 			}
 		});
 		
 		session.on('streamDestroyed', function(event) {
-			$('.carousel-item:has(#carousel-' + event.stream.streamId + ')').remove();
+			$('.' + app.thumbnailClass + ':has(#' + app.thumbnailPrefix + event.stream.streamId + ')').remove();
 		});
 		
 		session.on('sessionDisconeected', function(event) {
@@ -60,28 +59,20 @@ var app = {
 		/* connect to the session */
 		session.connect(token, function(error) {
 			if (!error) {
-				app.appendToCarousel(session);
+				app.appendToContainer(session);
 			} else {
 				console.log('There was an error connecting to the session: ', error.code, error.message);
 			}
 		});
-	}
+	},
+	
+	init: function(rootURL, id) {
+		"use strict";
+		this.thumbnailPrefix = this.thumbnailClass + '-';
+		/* get credentials from server */
+		$(document).ready(function() {
+			$.getJSON(rootURL + '/api/v1/session?id=' + id, function(response) {
+				app.initializeSession(response.apiKey, response.sessionId, response.token);
+			});
+		});	}
 };
-
-/* get credentials from server */
-$(document).ready(function() {
-	"use strict";
-	$.getJSON('<?= (!isset($_SERVER['HTTPS']) || $_SERVER['HTTPS'] != 'on' ?
-		'http://' :
-		'https://'
-	) .
-	$_SERVER['SERVER_NAME'] .
-	$_SERVER['CONTEXT_PREFIX'] .
-	str_replace(
-		$_SERVER['CONTEXT_DOCUMENT_ROOT'],
-		'',
-		dirname(__DIR__)
-	) ?>/api/v1/session?id=' + id, function(response) {
-		app.initializeSession(response.apiKey, response.sessionId, response.token);
-	});
-});

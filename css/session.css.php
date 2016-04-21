@@ -8,7 +8,7 @@ header('Content-type: text/css');
 
 ?>
 
-#carousel-publisher {
+#ot-stream-publisher {
 	border: solid 0.5em <?= SM::get(SM::STMARKS_BLUE)->light()->hex() ?>;
 	border-radius: 0.5em;
 }
