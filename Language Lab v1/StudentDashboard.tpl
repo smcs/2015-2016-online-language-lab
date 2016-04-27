@@ -12,6 +12,8 @@
 	<h1 class="text-left">Welcome + get.StudentName()-@stmarksschool.org </h1>
 	<h3 class="text-left">Tu clase: get.ClassName()</h3>
 
+	<h3 class="text-right"> Aqui son sus tareas:
+
 </div>
 </div>
 </div>
