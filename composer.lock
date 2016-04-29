@@ -13,19 +13,19 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/battis/bootstrapsmarty.git",
-                "reference": "56e99f92619ad057c9fa956df39fb22e6e825266"
+                "reference": "097ff9d3931aedbc38677d207b5c4540b4de812c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/battis/bootstrapsmarty/zipball/56e99f92619ad057c9fa956df39fb22e6e825266",
-                "reference": "56e99f92619ad057c9fa956df39fb22e6e825266",
+                "url": "https://api.github.com/repos/battis/bootstrapsmarty/zipball/097ff9d3931aedbc38677d207b5c4540b4de812c",
+                "reference": "097ff9d3931aedbc38677d207b5c4540b4de812c",
                 "shasum": ""
             },
             "require": {
                 "battis/data-utilities": "dev-master",
+                "bower-asset/bootstrap-colorpicker": "dev-master",
                 "bower-asset/bootstrap-datepicker": "dev-master",
                 "bower-asset/bootstrap-sortable": "dev-master",
-                "bower-asset/xaguilars-bootstrap-colorpicker": "dev-master",
                 "fxp/composer-asset-plugin": "^1.1",
                 "smarty/smarty": "3.1.*"
             },
@@ -49,7 +49,7 @@
                 }
             ],
             "description": "A wrapper for Smarty to set (and maintain) defaults within a Bootstrap UI environment",
-            "time": "2016-03-31 01:34:39"
+            "time": "2016-04-14 02:09:19"
         },
         {
             "name": "battis/data-utilities",
@@ -137,17 +137,53 @@
             ]
         },
         {
+            "name": "bower-asset/bootstrap-colorpicker",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mjolnic/bootstrap-colorpicker.git",
+                "reference": "7847a84ab7ec3b17474fb16b7e68fc02838efe52"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mjolnic/bootstrap-colorpicker/zipball/7847a84ab7ec3b17474fb16b7e68fc02838efe52",
+                "reference": "7847a84ab7ec3b17474fb16b7e68fc02838efe52",
+                "shasum": ""
+            },
+            "require": {
+                "bower-asset/bootstrap": ">=2",
+                "bower-asset/jquery": ">=1.10"
+            },
+            "type": "bower-asset-library",
+            "extra": {
+                "bower-asset-main": [
+                    "dist/css/bootstrap-colorpicker.css",
+                    "dist/js/bootstrap-colorpicker.js"
+                ],
+                "bower-asset-ignore": [
+                    "\\.*",
+                    "/index.html",
+                    "/package.json",
+                    "/composer.json",
+                    "/Gruntfile.js",
+                    "/.travis.yml",
+                    "/travis.sh",
+                    "/server.js"
+                ]
+            }
+        },
+        {
             "name": "bower-asset/bootstrap-datepicker",
             "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/eternicode/bootstrap-datepicker.git",
-                "reference": "67a348a3bc51b34b1500186bc3a6ec0b18b54b47"
+                "reference": "fb7bf15b389104ccb38b4b89c6d40ca949d0232f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/eternicode/bootstrap-datepicker/zipball/67a348a3bc51b34b1500186bc3a6ec0b18b54b47",
-                "reference": "67a348a3bc51b34b1500186bc3a6ec0b18b54b47",
+                "url": "https://api.github.com/repos/eternicode/bootstrap-datepicker/zipball/fb7bf15b389104ccb38b4b89c6d40ca949d0232f",
+                "reference": "fb7bf15b389104ccb38b4b89c6d40ca949d0232f",
                 "shasum": ""
             },
             "require": {
@@ -211,12 +247,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/jquery/jquery-dist.git",
-                "reference": "086d381cd2f3b4b8b0af85ecb2c9593a61e5b4bd"
+                "reference": "af22a351b2ea5801ffb1695abb3bb34d5bed9198"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jquery/jquery-dist/zipball/086d381cd2f3b4b8b0af85ecb2c9593a61e5b4bd",
-                "reference": "086d381cd2f3b4b8b0af85ecb2c9593a61e5b4bd",
+                "url": "https://api.github.com/repos/jquery/jquery-dist/zipball/af22a351b2ea5801ffb1695abb3bb34d5bed9198",
+                "reference": "af22a351b2ea5801ffb1695abb3bb34d5bed9198",
                 "shasum": ""
             },
             "type": "bower-asset-library",
@@ -242,12 +278,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/moment/moment.git",
-                "reference": "b135bf1a6d58ff94287f0a21455bfa6a1ddc7226"
+                "reference": "d6651c21c6131fbb5db891b60971357739015688"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/moment/moment/zipball/b135bf1a6d58ff94287f0a21455bfa6a1ddc7226",
-                "reference": "b135bf1a6d58ff94287f0a21455bfa6a1ddc7226",
+                "url": "https://api.github.com/repos/moment/moment/zipball/d6651c21c6131fbb5db891b60971357739015688",
+                "reference": "d6651c21c6131fbb5db891b60971357739015688",
                 "shasum": ""
             },
             "type": "bower-asset-library",
@@ -274,53 +310,17 @@
             }
         },
         {
-            "name": "bower-asset/xaguilars-bootstrap-colorpicker",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/mjolnic/bootstrap-colorpicker.git",
-                "reference": "642c84bf4a84aaa54dd10079bf441385be8d5e69"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/mjolnic/bootstrap-colorpicker/zipball/642c84bf4a84aaa54dd10079bf441385be8d5e69",
-                "reference": "642c84bf4a84aaa54dd10079bf441385be8d5e69",
-                "shasum": ""
-            },
-            "require": {
-                "bower-asset/bootstrap": ">=2",
-                "bower-asset/jquery": ">=1.10"
-            },
-            "type": "bower-asset-library",
-            "extra": {
-                "bower-asset-main": [
-                    "dist/css/bootstrap-colorpicker.css",
-                    "dist/js/bootstrap-colorpicker.js"
-                ],
-                "bower-asset-ignore": [
-                    "\\.*",
-                    "/index.html",
-                    "/package.json",
-                    "/composer.json",
-                    "/Gruntfile.js"
-                ],
-                "branch-alias": {
-                    "dev-master": "2.3.0-dev"
-                }
-            }
-        },
-        {
             "name": "fxp/composer-asset-plugin",
             "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/francoispluchino/composer-asset-plugin.git",
-                "reference": "bae7a15712e9339a2439aeca3b7c5ecf65b087d1"
+                "reference": "c3d803cc890fad5a7fb61a4036c5d973faae34af"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/francoispluchino/composer-asset-plugin/zipball/bae7a15712e9339a2439aeca3b7c5ecf65b087d1",
-                "reference": "bae7a15712e9339a2439aeca3b7c5ecf65b087d1",
+                "url": "https://api.github.com/repos/francoispluchino/composer-asset-plugin/zipball/c3d803cc890fad5a7fb61a4036c5d973faae34af",
+                "reference": "c3d803cc890fad5a7fb61a4036c5d973faae34af",
                 "shasum": ""
             },
             "require": {
@@ -328,7 +328,7 @@
                 "php": ">=5.3.3"
             },
             "require-dev": {
-                "composer/composer": "~1.0@dev"
+                "composer/composer": "^1.0.0"
             },
             "type": "composer-plugin",
             "extra": {
@@ -363,7 +363,7 @@
                 "npm",
                 "package"
             ],
-            "time": "2016-02-25 16:35:08"
+            "time": "2016-04-22 08:48:58"
         },
         {
             "name": "smarty/smarty",
@@ -371,12 +371,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/smarty-php/smarty.git",
-                "reference": "a36d9bc8092a359d9d753cf1aae42122f0fa9a7f"
+                "reference": "2cb03512f73bb6bd1617ae009ceacd2c5e2eac4d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/smarty-php/smarty/zipball/a36d9bc8092a359d9d753cf1aae42122f0fa9a7f",
-                "reference": "a36d9bc8092a359d9d753cf1aae42122f0fa9a7f",
+                "url": "https://api.github.com/repos/smarty-php/smarty/zipball/2cb03512f73bb6bd1617ae009ceacd2c5e2eac4d",
+                "reference": "2cb03512f73bb6bd1617ae009ceacd2c5e2eac4d",
                 "shasum": ""
             },
             "require": {
@@ -418,7 +418,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2016-03-27 16:53:53"
+            "time": "2016-04-28 22:24:47"
         }
     ],
     "packages-dev": [],
