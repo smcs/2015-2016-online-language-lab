@@ -68,6 +68,8 @@
 {block name="post-bootstrap-scripts"}
 
   <script src="teacherdash.js"></script>
+  <script src="teacherdash.js"></script>
+
   
 {/block}
 
