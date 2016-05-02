@@ -10,7 +10,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>Homepage</title>
-<link rel="stylesheet" type="text/css" href="teacherdash.css">
+<link rel="stylesheet" type="text/css" href="css/teacherdash.css">
 
 </head>
 
@@ -66,7 +66,7 @@
 {/block}
 
 {block name="post-bootstrap-scripts"}
-<script src="teacherdash.js"></script>
+<script src="js/teacherdash.js"></script>
 
   
 {/block}
