@@ -4,7 +4,7 @@
 <div class="container">
 	 <div class="row">
         <div class="col-sm-3">
-          <hq1 class="page-header">Students</h1>
+          <h1 class="page-header">Students</h1>
           <ul class="nav nav-sidebar">
             <li><a href="#">Student 1</a></li>
             <li><a href="#">Student 2</a></li>
