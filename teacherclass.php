@@ -1,11 +1,9 @@
 <!-- this should be templated -- SDB 4/29 -->
 
-<link rel="stylesheet" type="text/css" href="teacherclass.css">
-
 
 <div class="container">
 	 <div class="row">
-        <div class="col-sm-8">
+        <div class="col-sm-8"s>
           <hq1 class="page-header">Students</h1>
           <ul class="nav nav-sidebar">
             <li><a href="#">Student 1</a></li>
