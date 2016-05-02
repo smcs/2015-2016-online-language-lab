@@ -31,6 +31,11 @@
         <li><a href="">One more nav</a></li>
         <li><a href="">Another nav item</a></li>
       </ul>
+      <ul class="nav nav-sidebar">
+        <button id="addclass" type="button" class="btn btn-primary btn-lg">
+          <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>New Assignment
+        </button>
+      </ul>
 
     </div>
 

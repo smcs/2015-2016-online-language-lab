@@ -32,7 +32,7 @@
 
 <div class="container-fluid">
   <div class="row">
-  <div id="sidebar" class="col-sm-2">
+    <div id="sidebar" class="col-sm-2">
       <h1 class="page-header">Classes</h1>
       <div class="container-fluid">
         <ul class="nav nav-sidebar">
@@ -45,11 +45,6 @@
           <li><a href="">Nav item again</a></li>
           <li><a href="">One more nav</a></li>
           <li><a href="">Another nav item</a></li>
-        </ul>
-        <ul class="nav nav-sidebar">
-          <button id="addclass" type="button" class="btn btn-primary btn-lg">
-            <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Add class.
-          </button>
         </ul>
       </div>
     </div>
