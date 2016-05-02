@@ -3,7 +3,7 @@
 
 <div class="container">
 	 <div class="row">
-        <div class="col-sm-8"s>
+        <div class="col-sm-3">
           <hq1 class="page-header">Students</h1>
           <ul class="nav nav-sidebar">
             <li><a href="#">Student 1</a></li>

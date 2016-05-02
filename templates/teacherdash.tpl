@@ -31,28 +31,30 @@
 </nav>
 
 <div class="container-fluid">
-  <div id="sidebar" class="col-md-2">
-    <h1 class="page-header">Dashboard</h1>
-    <div class="container-fluid">
-      <ul class="nav nav-sidebar">
-        <li class="active"><a href="javascript:divReplaceWith('#submenu', 'teacherclass.php);">Español 1 Verde <span class="sr-only">(current)</span></a></li>
-        <li><a href="javascript:divReplaceWith('#submenu', 'teacherclass.php');">Español 2 Anaranjado </a></li>
-        <li><a href="javascript:divReplaceWith('#submenu', 'teacherclass.php');">Español 3 Rojo</a></li>
-        <li><a href="javascript:divReplaceWith('#submenu', 'teacherclass.php');">Español 4 Marron</a></li>
-      </ul>
-      <ul class="nav nav-sidebar">
-        <li><a href="">Nav item again</a></li>
-        <li><a href="">One more nav</a></li>
-        <li><a href="">Another nav item</a></li>
-      </ul>
-      <ul class="nav nav-sidebar">
-        <button id="addclass" type="button" class="btn btn-primary btn-lg">
-          <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Add class.
-        </button>
-      </ul>
+  <div class="row">
+  <div id="sidebar" class="col-sm-2">
+      <h1 class="page-header">Dashboard</h1>
+      <div class="container-fluid">
+        <ul class="nav nav-sidebar">
+          <li class="active"><a href="javascript:divReplaceWith('#submenu', 'teacherclass.php);">Español 1 Verde <span class="sr-only">(current)</span></a></li>
+          <li><a href="javascript:divReplaceWith('#submenu', 'teacherclass.php');">Español 2 Anaranjado </a></li>
+          <li><a href="javascript:divReplaceWith('#submenu', 'teacherclass.php');">Español 3 Rojo</a></li>
+          <li><a href="javascript:divReplaceWith('#submenu', 'teacherclass.php');">Español 4 Marron</a></li>
+        </ul>
+        <ul class="nav nav-sidebar">
+          <li><a href="">Nav item again</a></li>
+          <li><a href="">One more nav</a></li>
+          <li><a href="">Another nav item</a></li>
+        </ul>
+        <ul class="nav nav-sidebar">
+          <button id="addclass" type="button" class="btn btn-primary btn-lg">
+            <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Add class.
+          </button>
+        </ul>
+      </div>
     </div>
+    <div id="submenu" class="col-sm-10"></div>
   </div>
-  <div id="submenu" class="col-sm-8"></div>
 </div>
 
 {/block}
