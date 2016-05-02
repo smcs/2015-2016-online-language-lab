@@ -31,7 +31,7 @@
 </nav>
 
 <div class="container-fluid">
-  <div class="col-sm-3 sidebar">
+  <div id="sidebar" class="col-sm-3">
     <h1 class="page-header">Dashboard</h1>
     <ul class="nav nav-sidebar">
       <li class="active"><a href="javascript:divReplaceWith('#submenu', 'teacherclass.php);">Español 1 Verde <span class="sr-only">(current)</span></a></li>
