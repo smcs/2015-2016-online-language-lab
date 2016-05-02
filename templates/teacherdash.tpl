@@ -3,18 +3,11 @@
 
 {extends file="page.tpl"}
 
+{block name="post-bootstrap-stylesheets"}
+  <link rel="stylesheet" type="text/css" href="css/teacherdash.css">
+{/block}
+
 {block name="content"}
-<head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<title>Homepage</title>
-<link rel="stylesheet" type="text/css" href="css/teacherdash.css">
-
-</head>
-
-
 
 <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container-fluid">
