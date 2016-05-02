@@ -49,35 +49,35 @@
           </div>
           <div class="modal-body">
             <div class="input-group">
-             <li><span class="input-group-addon" id="basic-addon1">Assignment Title</span>
-              <input type="text" class="form-control" placeholder="Title" aria-describedby="basic-addon1">
-            </li>
+             <span class="input-group-addon" id="basic-addon1">Assignment Title</span>
+             <input type="text" class="form-control" placeholder="Title" aria-describedby="basic-addon1">
+             
+           </div>
+           <div class="input-group">
+            <span class="input-group-addon" id="basic-addon1">Students</span>
+            <input type="text" class="form-control" placeholder="Drag and drop" aria-describedby="basic-addon1">
+            
           </div>
-            <div class="input-group">
-              <li><span class="input-group-addon" id="basic-addon1">Students</span>
-                <input type="text" class="form-control" placeholder="Drag and drop" aria-describedby="basic-addon1">
-              </li>
-            </div>
-              <div class="input-group">
-                <li><span class="input-group-addon" id="basic-addon1">Instructions</span>
-                  <input type="text" class="form-control" placeholder="Istructions" aria-describedby="basic-addon1">
-                </li>
-              </div>
-                <div class="input-group">
-                  <li><span class="input-group-addon" id="basic-addon1">Upload media</span>
-                    <input type="text" class="form-control" placeholder="Upload" aria-describedby="basic-addon1">
-                  </li>
-                </div>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
-              </div>
-            </div>
+          <div class="input-group">
+            <span class="input-group-addon" id="basic-addon1">Instructions</span>
+            <input type="text" class="form-control" placeholder="Istructions" aria-describedby="basic-addon1">
+            
           </div>
-
+          <div class="input-group">
+            <span class="input-group-addon" id="basic-addon1">Upload media</span>
+            <input type="text" class="form-control" placeholder="Upload" aria-describedby="basic-addon1">
+            
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
         </div>
       </div>
+    </div>
+  </div>
+
+</div>
+</div>
 
 
