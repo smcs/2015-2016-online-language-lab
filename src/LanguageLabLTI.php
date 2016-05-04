@@ -2,6 +2,8 @@
 
 namespace smcs\language_lab;
 
+use LTI_Tool_Provider;
+
 class LanguageLabLTI extends LTI_Tool_Provider {
 
     /* called when the LTI is launched */
