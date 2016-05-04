@@ -4,12 +4,12 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "16f229045bb1ef5bf59b1a2ca34e4e65",
-    "content-hash": "1ede858b99048b1919702c38495cb4ff",
+    "hash": "1fe7f705db8288c132f5234831b7bfc5",
+    "content-hash": "56629fbd5776fdb292370f265a834107",
     "packages": [
         {
             "name": "battis/bootstrapsmarty",
-            "version": "dev-develop",
+            "version": "v1.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/battis/bootstrapsmarty.git",
@@ -50,6 +50,39 @@
             ],
             "description": "A wrapper for Smarty to set (and maintain) defaults within a Bootstrap UI environment",
             "time": "2016-04-14 02:09:19"
+        },
+        {
+            "name": "battis/configxml",
+            "version": "v1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/battis/configxml.git",
+                "reference": "431ba4bbbfb6068b9d20df5b8f30cf2a16ab12c1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/battis/configxml/zipball/431ba4bbbfb6068b9d20df5b8f30cf2a16ab12c1",
+                "reference": "431ba4bbbfb6068b9d20df5b8f30cf2a16ab12c1",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Battis\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Seth Battis",
+                    "email": "seth@battis.net"
+                }
+            ],
+            "description": "Load a configuration XML file for quick use",
+            "time": "2016-03-30 04:22:53"
         },
         {
             "name": "battis/data-utilities",
@@ -371,12 +404,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/smarty-php/smarty.git",
-                "reference": "2cb03512f73bb6bd1617ae009ceacd2c5e2eac4d"
+                "reference": "f02f94302164254eda2eac53289a2afcef11a2ff"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/smarty-php/smarty/zipball/2cb03512f73bb6bd1617ae009ceacd2c5e2eac4d",
-                "reference": "2cb03512f73bb6bd1617ae009ceacd2c5e2eac4d",
+                "url": "https://api.github.com/repos/smarty-php/smarty/zipball/f02f94302164254eda2eac53289a2afcef11a2ff",
+                "reference": "f02f94302164254eda2eac53289a2afcef11a2ff",
                 "shasum": ""
             },
             "require": {
@@ -418,15 +451,38 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2016-04-28 22:24:47"
+            "time": "2016-05-03 19:55:46"
+        },
+        {
+            "name": "spvsoftwareproducts/LTI_Tool_Provider",
+            "version": "2.5.01",
+            "dist": {
+                "type": "zip",
+                "url": "http://projects.oscelot.org/gf/download/frsrelease/956/6025/LTI_Tool_Provider-2.5.01.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "": ""
+                }
+            },
+            "license": [
+                "LGPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Stephen Vickers"
+                }
+            ],
+            "homepage": "http://spvsoftwareproducts.com/php/lti_tool_provider/"
         }
     ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "battis/bootstrapsmarty": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],

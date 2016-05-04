@@ -1,15 +1,51 @@
 {
-    "name": "abishigayeva/language_lab",
+    "name": "smcs/language_lab",
     "description": "This is app that allows to learn languages",
-    "require": {
-        "battis/bootstrapsmarty": "dev-develop"
-    },
     "license": "GPL-3.0",
     "authors": [
         {
-            "name": "aigerim",
+            "name": "Aigerim Bishigayeva",
             "email": "aigerimbishigayeva@stmarksschool.org"
+        },
+        {
+            "name": "Isabelle Kim",
+            "email": "minjaekim@stmarksschool.org"
         }
     ],
+    "autoload": {
+        "psr-4": {
+            "smcs\\language_lab\\": "src/"
+        }
+    },
+    "repositories": [
+        {
+            "type": "package",
+            "package": {
+                "name": "spvsoftwareproducts/LTI_Tool_Provider",
+                "version": "2.5.01",
+                "dist": {
+                    "url": "http://projects.oscelot.org/gf/download/frsrelease/956/6025/LTI_Tool_Provider-2.5.01.zip",
+                    "type": "zip"
+                },
+                "license": "LGPL-3.0",
+                "authors": [
+                    {
+                        "name": "Stephen Vickers"
+                    }
+                ],
+                "homepage": "http://spvsoftwareproducts.com/php/lti_tool_provider/",
+                "autoload": {
+                    "psr-4": {
+                        "" : ""
+                    }
+                }
+            }
+        }
+    ],
+    "require": {
+        "spvsoftwareproducts/LTI_Tool_Provider": "^2.5",
+        "battis/bootstrapsmarty": "^1.1",
+        "battis/configxml": "^1.0"
+    },
     "minimum-stability": "dev"
 }
