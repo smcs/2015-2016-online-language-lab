@@ -12,11 +12,11 @@ class LanguageLabLTI extends LTI_Tool_Provider {
            the $_SESSION global */
         $_SESSION['consumer'] = $this->user->getResourceLink()->settings;
 
-        /* decide which dashboard to load based on user role */
+        /* decide which dashboard to load based on user role (URLs are relative to the path of lti/launch.php) */
         if ($this->user->isLearner()) {
-            $this->redirectURL = 'StudentDashboard.php';
+            $this->redirectURL = '../StudentDashboard.php';
         } elseif ($this->user->isStaff() || $this->user->isAdmin()) {
-            $this->redirectURL = 'teacherdash.php';
+            $this->redirectURL = '../teacherdash.php';
         } else {
             $this->reason = 'Invalid role';
             $this->isOK = false;
