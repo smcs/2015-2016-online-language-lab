@@ -7,7 +7,10 @@ use LTI_Tool_Provider;
 class LanguageLabLTI extends LTI_Tool_Provider {
 
     /* called when the LTI is launched */
-    public function onLaunch() {        
+    public function onLaunch() {
+        
+        $_SESSION['consumer'] = $this->user->getResourceLink()->settings;
+
         /* decide which dashboard to load based on user role (URLs are relative to the path of lti/launch.php) */
         if ($this->user->isLearner()) {
             $this->redirectURL = '../StudentDashboard.php';
