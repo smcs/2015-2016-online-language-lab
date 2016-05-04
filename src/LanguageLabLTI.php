@@ -8,8 +8,8 @@ class LanguageLabLTI extends LTI_Tool_Provider {
 
     /* called when the LTI is launched */
     public function onLaunch() {
-        
-        $_SESSION['consumer'] = $this->user->getResourceLink()->settings;
+
+        $_SESSION['user'] = $this->user;
 
         /* decide which dashboard to load based on user role (URLs are relative to the path of lti/launch.php) */
         if ($this->user->isLearner()) {
