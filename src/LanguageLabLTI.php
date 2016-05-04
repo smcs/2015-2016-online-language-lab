@@ -10,6 +10,7 @@ class LanguageLabLTI extends LTI_Tool_Provider {
     public function onLaunch() {
         /* store the user/course information from Canvas (the tool consumer) in
            the $_SESSION global */
+        session_start();
         $_SESSION['consumer'] = $this->user->getResourceLink()->settings;
 
         /* decide which dashboard to load based on user role (URLs are relative to the path of lti/launch.php) */
