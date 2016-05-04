@@ -2,6 +2,8 @@
 
 require_once 'common.inc.php';
 
+use smcs\language_lab\LanguageLabLTI;
+
 /* clear any existing session data */
 if (session_status() === PHP_SESSION_NONE) {
 	session_start();
