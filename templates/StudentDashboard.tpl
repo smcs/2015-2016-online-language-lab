@@ -5,7 +5,7 @@
 {/block}
 
 {block name="page-content"}
-          <h1 class="page-header" id="welcome" >Welcome, {$name}</h1>
+          <h1 class="page-header" id="welcome" >Welcome, {$fullname}</h1>
 
           <h2 class="sub-header">Assignments</h2>
           <div class="table-responsive">
