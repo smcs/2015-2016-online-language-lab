@@ -1,8 +1,8 @@
 <?php
-	
+
 require_once 'common.inc.php';
 
-$response = $sql->query("
+$response = $app->sql->query("
 	SELECT *
 		FROM `sessions`
 ");

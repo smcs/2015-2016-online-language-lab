@@ -1,3 +1,4 @@
 /vendor/
 /phpdoc/
 secrets.xml
+deployment-config.json

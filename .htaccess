@@ -1,2 +1,2 @@
 Options All -Indexes
-IndexIgnore *, *.xml, *.inc.php
+IndexIgnore *, *.json, *.lock, *.xml, *.inc.php
