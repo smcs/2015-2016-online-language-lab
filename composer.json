@@ -17,6 +17,9 @@
             "smcs\\language_lab\\": "src/"
         }
     },
+    "config": {
+		"secure-http": false
+	},
     "repositories": [
         {
             "type": "package",
