@@ -30,6 +30,10 @@
   </div>
 </nav>
 
+<div class="container">
+    <div id="ot-streams"></div>
+</div>
+
 <div class="container-fluid">
   <div class="row">
     <div id="sidebar" class="col-sm-2">
@@ -56,8 +60,11 @@
 
 {block name="post-bootstrap-scripts"}
 <script src="js/teacherdash.js"></script>
+<script src="https://static.opentok.com/v2/js/opentok.min.js"></script>
+<script src="js/session.js"></script>
+<script>
+    app.init('{$rootURL}', '{$id}');
+</script>
 
 
 {/block}
-
-
