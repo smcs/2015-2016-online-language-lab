@@ -8,7 +8,7 @@ app = {
 	thumbnailClass: 'ot-stream',
 	thumbnailPrefix: 'ot-stream-',
 	publishedStreamId: null,
-	
+
 	appendToContainer: function(session, stream) {
 		"use strict";
 		var options = {
@@ -34,28 +34,28 @@ app = {
 			session.subscribe(stream, this.thumbnailPrefix + stream.streamId, options);
 		}
 	},
-	
+
 	initializeSession: function(apiKey, sessionId, token) {
 		"use strict";
-	
+
 		/* create a new OpenTok session */
 		var session = OT.initSession(apiKey, sessionId);
-	
+
 		/* define event-driven session behaviors */
 		session.on('streamCreated', function(event) {
 			if (event.stream.streamId !== app.publishedStreamId) {
 				app.appendToContainer(session, event.stream);
 			}
 		});
-		
+
 		session.on('streamDestroyed', function(event) {
 			$('.' + app.thumbnailClass + ':has(#' + app.thumbnailPrefix + event.stream.streamId + ')').remove();
 		});
-		
+
 		session.on('sessionDisconeected', function(event) {
 			console.log('You were disconnected from the session. ', event.reason);
 		});
-		
+
 		/* connect to the session */
 		session.connect(token, function(error) {
 			if (!error) {
@@ -65,13 +65,13 @@ app = {
 			}
 		});
 	},
-	
+
 	init: function(rootURL, id) {
 		"use strict";
 		this.thumbnailPrefix = this.thumbnailClass + '-';
 		/* get credentials from server */
 		$(document).ready(function() {
-			$.getJSON(rootURL + '/api/v1/session?id=' + id, function(response) {
+			$.getJSON(rootURL + '/api/session.php?id=' + id, function(response) {
 				app.initializeSession(response.apiKey, response.sessionId, response.token);
 			});
 		});	}
