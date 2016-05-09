@@ -2,9 +2,13 @@
 
 require_once 'vendor/autoload.php';
 
+use OpenTok\OpenTok;
+
 session_start();
 
 $secrets = new Battis\ConfigXML(__DIR__ . '/secrets.xml');
+
+$opentok = $secrets->newInstanceOf(OpenTok::class, '//opentok');
 
 $sql = $secrets->newInstanceOf(mysqli::class, '//mysql');
 
