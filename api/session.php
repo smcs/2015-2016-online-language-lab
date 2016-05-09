@@ -7,7 +7,7 @@ use Battis\BootstrapSmarty\NotificationMessage;
 $apiResponse = array();
 if (empty($_REQUEST['id'])) {
 	$session = $opentok->createSession();
-	$result = $app->sql->query("
+	$result = $sql->query("
 		INSERT INTO `sessions`
 			(
 				`creator`,
@@ -15,13 +15,13 @@ if (empty($_REQUEST['id'])) {
 			)
 			VALUES (
 				'-1',
-				'" . $app->sql->escape_string($session->getSessionId()) . "'
+				'" . $sql->escape_string($session->getSessionId()) . "'
 			)
 	");
 	if ($result == false) {
 		$smarty->addMessage(
-			"Database error {$app->sql->errno}",
-			$app->sql->error,
+			"Database error {$sql->errno}",
+			$sql->error,
 			NotificationMessage::ERROR
 		);
 		$smarty->display('api/error.tpl');
@@ -29,13 +29,13 @@ if (empty($_REQUEST['id'])) {
 	$apiResponse['apiKey'] = $secrets->toArray('//tokbox/key')[0];
 	$apiResponse['sessionId'] = $session->getSessionId();
 	$apiResponse['token'] = $opentok->generateToken($session->getSessionId());
-	$apiResponse['id'] = $app->sql->insert_id;
+	$apiResponse['id'] = $sql->insert_id;
 } else {
-	$response = $app->sql->query("
+	$response = $sql->query("
 		SELECT *
 			FROM `sessions`
 			WHERE
-				`id` = '" . $app->sql->escape_string($_REQUEST['id']) . "'
+				`id` = '" . $sql->escape_string($_REQUEST['id']) . "'
 	");
 	if ($response) {
 		$session = $response->fetch_assoc();
@@ -45,8 +45,8 @@ if (empty($_REQUEST['id'])) {
 		$apiResponse['id'] = $session['id'];
 	} else {
 		$smarty->addMessage(
-			"Database error {$app->sql->errno}",
-			$app->sql->error,
+			"Database error {$sql->errno}",
+			$sql->error,
 			NotificationMessage::ERROR
 		);
 		$smarty->display('api/error.tpl');
