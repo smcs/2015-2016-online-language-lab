@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "2506248d81dc1018c919f9e51bc04d47",
-    "content-hash": "1e83d66ef5a9d73323c7783fef40a53a",
+    "hash": "4ce81d6331f1b3235121950788494775",
+    "content-hash": "6344681c17beca13d55a808ce8cf6592",
     "packages": [
         {
             "name": "aoberoi/json-works",
@@ -98,20 +98,17 @@
         },
         {
             "name": "battis/configxml",
-            "version": "v1.0.1",
+            "version": "v1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/battis/configxml.git",
-                "reference": "e8c8b8dc4f1bf126d98471db687b29f393014e06"
+                "reference": "431ba4bbbfb6068b9d20df5b8f30cf2a16ab12c1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/battis/configxml/zipball/e8c8b8dc4f1bf126d98471db687b29f393014e06",
-                "reference": "e8c8b8dc4f1bf126d98471db687b29f393014e06",
+                "url": "https://api.github.com/repos/battis/configxml/zipball/431ba4bbbfb6068b9d20df5b8f30cf2a16ab12c1",
+                "reference": "431ba4bbbfb6068b9d20df5b8f30cf2a16ab12c1",
                 "shasum": ""
-            },
-            "require-dev": {
-                "phpunit/phpunit": "~5.0"
             },
             "type": "library",
             "autoload": {
@@ -130,7 +127,7 @@
                 }
             ],
             "description": "Load a configuration XML file for quick use",
-            "time": "2016-05-05 15:35:01"
+            "time": "2016-03-30 04:22:53"
         },
         {
             "name": "battis/data-utilities",
@@ -251,8 +248,7 @@
                     "/travis.sh",
                     "/server.js"
                 ]
-            },
-            "time": "2016-04-08 16:13:05"
+            }
         },
         {
             "name": "bower-asset/bootstrap-datepicker",
@@ -281,8 +277,7 @@
             },
             "license": [
                 "Apache-2.0"
-            ],
-            "time": "2016-04-28 07:56:50"
+            ]
         },
         {
             "name": "bower-asset/bootstrap-sortable",
@@ -322,8 +317,7 @@
                 "sort table",
                 "sortable",
                 "sortable table"
-            ],
-            "time": "2016-02-20 16:28:06"
+            ]
         },
         {
             "name": "bower-asset/jquery",
@@ -354,8 +348,7 @@
                 "javascript",
                 "jquery",
                 "library"
-            ],
-            "time": "2016-04-05 19:27:08"
+            ]
         },
         {
             "name": "bower-asset/moment",
@@ -392,8 +385,7 @@
                     "package.js",
                     "package.json"
                 ]
-            },
-            "time": "2016-04-18 07:29:18"
+            }
         },
         {
             "name": "fxp/composer-asset-plugin",
