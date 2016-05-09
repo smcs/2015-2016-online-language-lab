@@ -46,6 +46,7 @@
         }
     ],
     "require": {
+        "opentok/opentok": "^2.0",
         "spvsoftwareproducts/LTI_Tool_Provider": "^2.5",
         "battis/bootstrapsmarty": "^1.1",
         "battis/configxml": "^1.0"

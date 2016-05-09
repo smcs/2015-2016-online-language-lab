@@ -4,9 +4,54 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "1fe7f705db8288c132f5234831b7bfc5",
-    "content-hash": "56629fbd5776fdb292370f265a834107",
+    "hash": "2506248d81dc1018c919f9e51bc04d47",
+    "content-hash": "1e83d66ef5a9d73323c7783fef40a53a",
     "packages": [
+        {
+            "name": "aoberoi/json-works",
+            "version": "v1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/aoberoi/json-works.git",
+                "reference": "28eecbe8bcf8ea08f1115f1968ada5a6de25b854"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/aoberoi/json-works/zipball/28eecbe8bcf8ea08f1115f1968ada5a6de25b854",
+                "reference": "28eecbe8bcf8ea08f1115f1968ada5a6de25b854",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "JohnStevenson\\JsonWorks": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "John Stevenson",
+                    "email": "john-stevenson@blueyonder.co.uk"
+                },
+                {
+                    "name": "Ankur Oberoi",
+                    "email": "aoberoi@gmail.com"
+                }
+            ],
+            "description": "Create, edit, query and validate json",
+            "homepage": "http://github.com/aoberoi/json-works",
+            "keywords": [
+                "json",
+                "schema"
+            ],
+            "time": "2015-04-29 05:52:18"
+        },
         {
             "name": "battis/bootstrapsmarty",
             "version": "v1.1.2",
@@ -53,17 +98,20 @@
         },
         {
             "name": "battis/configxml",
-            "version": "v1.0",
+            "version": "v1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/battis/configxml.git",
-                "reference": "431ba4bbbfb6068b9d20df5b8f30cf2a16ab12c1"
+                "reference": "e8c8b8dc4f1bf126d98471db687b29f393014e06"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/battis/configxml/zipball/431ba4bbbfb6068b9d20df5b8f30cf2a16ab12c1",
-                "reference": "431ba4bbbfb6068b9d20df5b8f30cf2a16ab12c1",
+                "url": "https://api.github.com/repos/battis/configxml/zipball/e8c8b8dc4f1bf126d98471db687b29f393014e06",
+                "reference": "e8c8b8dc4f1bf126d98471db687b29f393014e06",
                 "shasum": ""
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~5.0"
             },
             "type": "library",
             "autoload": {
@@ -82,7 +130,7 @@
                 }
             ],
             "description": "Load a configuration XML file for quick use",
-            "time": "2016-03-30 04:22:53"
+            "time": "2016-05-05 15:35:01"
         },
         {
             "name": "battis/data-utilities",
@@ -203,7 +251,8 @@
                     "/travis.sh",
                     "/server.js"
                 ]
-            }
+            },
+            "time": "2016-04-08 16:13:05"
         },
         {
             "name": "bower-asset/bootstrap-datepicker",
@@ -232,7 +281,8 @@
             },
             "license": [
                 "Apache-2.0"
-            ]
+            ],
+            "time": "2016-04-28 07:56:50"
         },
         {
             "name": "bower-asset/bootstrap-sortable",
@@ -272,7 +322,8 @@
                 "sort table",
                 "sortable",
                 "sortable table"
-            ]
+            ],
+            "time": "2016-02-20 16:28:06"
         },
         {
             "name": "bower-asset/jquery",
@@ -303,7 +354,8 @@
                 "javascript",
                 "jquery",
                 "library"
-            ]
+            ],
+            "time": "2016-04-05 19:27:08"
         },
         {
             "name": "bower-asset/moment",
@@ -340,7 +392,8 @@
                     "package.js",
                     "package.json"
                 ]
-            }
+            },
+            "time": "2016-04-18 07:29:18"
         },
         {
             "name": "fxp/composer-asset-plugin",
@@ -348,12 +401,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/francoispluchino/composer-asset-plugin.git",
-                "reference": "c3d803cc890fad5a7fb61a4036c5d973faae34af"
+                "reference": "97a9a94a8b1f6add76a427daf06270d47e0c1b6b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/francoispluchino/composer-asset-plugin/zipball/c3d803cc890fad5a7fb61a4036c5d973faae34af",
-                "reference": "c3d803cc890fad5a7fb61a4036c5d973faae34af",
+                "url": "https://api.github.com/repos/francoispluchino/composer-asset-plugin/zipball/97a9a94a8b1f6add76a427daf06270d47e0c1b6b",
+                "reference": "97a9a94a8b1f6add76a427daf06270d47e0c1b6b",
                 "shasum": ""
             },
             "require": {
@@ -367,7 +420,7 @@
             "extra": {
                 "class": "Fxp\\Composer\\AssetPlugin\\FxpAssetPlugin",
                 "branch-alias": {
-                    "dev-master": "1.1-dev"
+                    "dev-master": "1.2-dev"
                 }
             },
             "autoload": {
@@ -396,7 +449,158 @@
                 "npm",
                 "package"
             ],
-            "time": "2016-04-22 08:48:58"
+            "time": "2016-05-04 08:21:07"
+        },
+        {
+            "name": "guzzle/guzzle",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/guzzle/guzzle3.git",
+                "reference": "b3f5050cb6270c7a728a0b74ac2de50a262b3e02"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/guzzle/guzzle3/zipball/b3f5050cb6270c7a728a0b74ac2de50a262b3e02",
+                "reference": "b3f5050cb6270c7a728a0b74ac2de50a262b3e02",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "php": ">=5.3.3",
+                "symfony/event-dispatcher": "~2.1"
+            },
+            "replace": {
+                "guzzle/batch": "self.version",
+                "guzzle/cache": "self.version",
+                "guzzle/common": "self.version",
+                "guzzle/http": "self.version",
+                "guzzle/inflection": "self.version",
+                "guzzle/iterator": "self.version",
+                "guzzle/log": "self.version",
+                "guzzle/parser": "self.version",
+                "guzzle/plugin": "self.version",
+                "guzzle/plugin-async": "self.version",
+                "guzzle/plugin-backoff": "self.version",
+                "guzzle/plugin-cache": "self.version",
+                "guzzle/plugin-cookie": "self.version",
+                "guzzle/plugin-curlauth": "self.version",
+                "guzzle/plugin-error-response": "self.version",
+                "guzzle/plugin-history": "self.version",
+                "guzzle/plugin-log": "self.version",
+                "guzzle/plugin-md5": "self.version",
+                "guzzle/plugin-mock": "self.version",
+                "guzzle/plugin-oauth": "self.version",
+                "guzzle/service": "self.version",
+                "guzzle/stream": "self.version"
+            },
+            "require-dev": {
+                "doctrine/cache": "~1.3",
+                "monolog/monolog": "~1.0",
+                "phpunit/phpunit": "3.7.*",
+                "psr/log": "~1.0",
+                "symfony/class-loader": "~2.1",
+                "zendframework/zend-cache": "2.*,<2.3",
+                "zendframework/zend-log": "2.*,<2.3"
+            },
+            "suggest": {
+                "guzzlehttp/guzzle": "Guzzle 5 has moved to a new package name. The package you have installed, Guzzle 3, is deprecated."
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.9-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Guzzle": "src/",
+                    "Guzzle\\Tests": "tests/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Dowling",
+                    "email": "mtdowling@gmail.com",
+                    "homepage": "https://github.com/mtdowling"
+                },
+                {
+                    "name": "Guzzle Community",
+                    "homepage": "https://github.com/guzzle/guzzle/contributors"
+                }
+            ],
+            "description": "PHP HTTP client. This library is deprecated in favor of https://packagist.org/packages/guzzlehttp/guzzle",
+            "homepage": "http://guzzlephp.org/",
+            "keywords": [
+                "client",
+                "curl",
+                "framework",
+                "http",
+                "http client",
+                "rest",
+                "web service"
+            ],
+            "time": "2015-04-29 17:06:53"
+        },
+        {
+            "name": "opentok/opentok",
+            "version": "v2.3.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/opentok/OpenTok-PHP-SDK.git",
+                "reference": "21c07303c4917292d8af31c32723f28735c5bfd1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/opentok/OpenTok-PHP-SDK/zipball/21c07303c4917292d8af31c32723f28735c5bfd1",
+                "reference": "21c07303c4917292d8af31c32723f28735c5bfd1",
+                "shasum": ""
+            },
+            "require": {
+                "aoberoi/json-works": "~1.0",
+                "guzzle/guzzle": "~3.7",
+                "php": ">=5.0.0"
+            },
+            "require-dev": {
+                "phing/phing": "dev-master",
+                "phpunit/phpunit": "~4.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "OpenTok\\": "src/OpenTok"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Community contributors",
+                    "homepage": "https://github.com/opentok/Opentok-PHP-SDK/graphs/contributors"
+                },
+                {
+                    "name": "Ankur Oberoi",
+                    "email": "ankur@tokbox.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "OpenTok is a platform for creating real time streaming video applications, created by TokBox.",
+            "homepage": "https://github.com/opentok/Opentok-PHP-SDK",
+            "keywords": [
+                "OpenTok",
+                "TokBox",
+                "WebRTC",
+                "php",
+                "streaming",
+                "video"
+            ],
+            "time": "2016-04-07 22:43:03"
         },
         {
             "name": "smarty/smarty",
@@ -404,12 +608,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/smarty-php/smarty.git",
-                "reference": "f02f94302164254eda2eac53289a2afcef11a2ff"
+                "reference": "608064e5f234b5b5884adf03901dc015462a86bc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/smarty-php/smarty/zipball/f02f94302164254eda2eac53289a2afcef11a2ff",
-                "reference": "f02f94302164254eda2eac53289a2afcef11a2ff",
+                "url": "https://api.github.com/repos/smarty-php/smarty/zipball/608064e5f234b5b5884adf03901dc015462a86bc",
+                "reference": "608064e5f234b5b5884adf03901dc015462a86bc",
                 "shasum": ""
             },
             "require": {
@@ -451,7 +655,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2016-05-03 19:55:46"
+            "time": "2016-05-07 11:46:37"
         },
         {
             "name": "spvsoftwareproducts/LTI_Tool_Provider",
@@ -477,6 +681,66 @@
                 }
             ],
             "homepage": "http://spvsoftwareproducts.com/php/lti_tool_provider/"
+        },
+        {
+            "name": "symfony/event-dispatcher",
+            "version": "2.8.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/event-dispatcher.git",
+                "reference": "a158f13992a3147d466af7a23b564ac719a4ddd8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/a158f13992a3147d466af7a23b564ac719a4ddd8",
+                "reference": "a158f13992a3147d466af7a23b564ac719a4ddd8",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.9"
+            },
+            "require-dev": {
+                "psr/log": "~1.0",
+                "symfony/config": "~2.0,>=2.0.5|~3.0.0",
+                "symfony/dependency-injection": "~2.6|~3.0.0",
+                "symfony/expression-language": "~2.6|~3.0.0",
+                "symfony/stopwatch": "~2.3|~3.0.0"
+            },
+            "suggest": {
+                "symfony/dependency-injection": "",
+                "symfony/http-kernel": ""
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.8-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\EventDispatcher\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony EventDispatcher Component",
+            "homepage": "https://symfony.com",
+            "time": "2016-05-03 18:59:18"
         }
     ],
     "packages-dev": [],
