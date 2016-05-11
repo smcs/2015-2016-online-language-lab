@@ -26,7 +26,7 @@ if (empty($_REQUEST['id'])) {
 		);
 		$smarty->display('api/error.tpl');
 	}
-	$apiResponse['apiKey'] = $secrets->toArray('//tokbox/key')[0];
+	$apiResponse['apiKey'] = $secrets->toArray('//opentok/key')[0];
 	$apiResponse['sessionId'] = $session->getSessionId();
 	$apiResponse['token'] = $opentok->generateToken($session->getSessionId());
 	$apiResponse['id'] = $sql->insert_id;
