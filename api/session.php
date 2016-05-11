@@ -5,6 +5,22 @@ require_once 'common.inc.php';
 use Battis\BootstrapSmarty\NotificationMessage;
 
 $apiResponse = array();
+
+/* sample API request might look like...
+
+https://roswell.stmarksschool.org/~language-lab/api/session.php?type=main&class=unique-id
+
+*/
+
+/* what type of session to create? ($_REQUEST['type']) */
+/* create that type of session */
+/* store session data in db...
+	if main session, it needs to be associated with this class ($_REQUEST['class']), store into sessions table with type 'main', replacing any other main sessions for this class (and disable/delete old group sessions for this class)
+	if group session, it needs to be associated with this class ($_REQUEST['class']), store into sessions table with type 'group'
+*/
+/* put together AJAX response with apiKey, sessionId, token parameters */
+/* send AJAX response */
+
 if (empty($_REQUEST['id'])) {
 	$session = $opentok->createSession();
 	$result = $sql->query("
