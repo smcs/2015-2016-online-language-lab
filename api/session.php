@@ -39,7 +39,7 @@ if (empty($_REQUEST['id'])) {
 	");
 	if ($response) {
 		$session = $response->fetch_assoc();
-		$apiResponse['apiKey'] = $secrets->toArray('//tokbox/key')[0][0];
+		$apiResponse['apiKey'] = $secrets->toArray('//opentok/key')[0][0];
 		$apiResponse['sessionId'] = $session['tokbox'];
 		$apiResponse['token'] = $opentok->generateToken($session['tokbox']);
 		$apiResponse['id'] = $session['id'];
