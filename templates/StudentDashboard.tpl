@@ -7,6 +7,10 @@
 {block name="page-content"}
           <h1 class="page-header" id="welcome" >Welcome, {$fullname}</h1>
 
+          <div class="container">
+            <div id="ot-streams"></div>
+          </div>
+
           <h2 class="sub-header">Assignments</h2>
           <div class="table-responsive">
             <table class="table table-striped">
