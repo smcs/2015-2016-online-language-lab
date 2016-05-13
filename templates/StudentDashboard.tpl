@@ -48,4 +48,9 @@
 
     <!-- Load my Js file -->
     <script src="js/StudentDashboard.js"></script>
+    <script src="https://static.opentok.com/v2/js/opentok.min.js"></script>
+    <script src="js/session.js"></script>
+    <script>
+        app.init('{$rootURL}', '{$id}');
+    </script>
 {/block}
