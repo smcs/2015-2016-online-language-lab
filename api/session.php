@@ -36,6 +36,8 @@ $session = $opentok->createSession();
 	if main session, it needs to be associated with this class ($_REQUEST['class']), store into sessions table with type 'main', replacing any other main sessions for this class (and disable/delete old group sessions for this class)
 	if group session, it needs to be associated with this class ($_REQUEST['class']), store into sessions table with type 'group'
 */
+// FIXME we totally punted on user ID
+// FIXME we totally punted on class ID
 if ($sql->query("
 	INSERT INTO `sessions`
 		(
