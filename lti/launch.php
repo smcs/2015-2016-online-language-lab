@@ -2,4 +2,4 @@
 
 require_once 'common.inc.php';
 
-$app->handle_request();
+$_SESSION['app']->handle_request();

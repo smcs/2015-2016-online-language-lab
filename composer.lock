@@ -131,17 +131,20 @@
         },
         {
             "name": "battis/configxml",
-            "version": "v1.0",
+            "version": "v1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/battis/configxml.git",
-                "reference": "431ba4bbbfb6068b9d20df5b8f30cf2a16ab12c1"
+                "reference": "b68daa917e052bd8f53c3be0378b23d33526f961"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/battis/configxml/zipball/431ba4bbbfb6068b9d20df5b8f30cf2a16ab12c1",
-                "reference": "431ba4bbbfb6068b9d20df5b8f30cf2a16ab12c1",
+                "url": "https://api.github.com/repos/battis/configxml/zipball/b68daa917e052bd8f53c3be0378b23d33526f961",
+                "reference": "b68daa917e052bd8f53c3be0378b23d33526f961",
                 "shasum": ""
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~5.0"
             },
             "type": "library",
             "autoload": {
@@ -160,7 +163,7 @@
                 }
             ],
             "description": "Load a configuration XML file for quick use",
-            "time": "2016-03-30 04:22:53"
+            "time": "2016-05-05 15:35:01"
         },
         {
             "name": "battis/data-utilities",
@@ -426,12 +429,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/francoispluchino/composer-asset-plugin.git",
-                "reference": "97a9a94a8b1f6add76a427daf06270d47e0c1b6b"
+                "reference": "f10cfad0e9748aeb50c7e8befd4ee0011d6a2ba0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/francoispluchino/composer-asset-plugin/zipball/97a9a94a8b1f6add76a427daf06270d47e0c1b6b",
-                "reference": "97a9a94a8b1f6add76a427daf06270d47e0c1b6b",
+                "url": "https://api.github.com/repos/francoispluchino/composer-asset-plugin/zipball/f10cfad0e9748aeb50c7e8befd4ee0011d6a2ba0",
+                "reference": "f10cfad0e9748aeb50c7e8befd4ee0011d6a2ba0",
                 "shasum": ""
             },
             "require": {
@@ -474,7 +477,7 @@
                 "npm",
                 "package"
             ],
-            "time": "2016-05-04 08:21:07"
+            "time": "2016-05-11 07:45:42"
         },
         {
             "name": "guzzle/guzzle",
@@ -633,12 +636,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/smarty-php/smarty.git",
-                "reference": "f02f94302164254eda2eac53289a2afcef11a2ff"
+                "reference": "dccfc6c2f5f519ff2db1b24de2ccb0283554b8c7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/smarty-php/smarty/zipball/f02f94302164254eda2eac53289a2afcef11a2ff",
-                "reference": "f02f94302164254eda2eac53289a2afcef11a2ff",
+                "url": "https://api.github.com/repos/smarty-php/smarty/zipball/dccfc6c2f5f519ff2db1b24de2ccb0283554b8c7",
+                "reference": "dccfc6c2f5f519ff2db1b24de2ccb0283554b8c7",
                 "shasum": ""
             },
             "require": {
@@ -680,7 +683,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2016-05-03 19:55:46"
+            "time": "2016-05-16 16:17:58"
         },
         {
             "name": "smtech/stmarks-colors",
