@@ -63,5 +63,6 @@ class Application extends LTI_Tool_Provider {
             $this->reason = 'Invalid role';
             $this->isOK = false;
         }
+        $_SESSION['user'] = $this->user;
     }
 }

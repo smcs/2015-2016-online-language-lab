@@ -4,12 +4,7 @@ require_once 'common.inc.php';
 
 use Battis\BootstrapSmarty\NotificationMessage;
 
-define('PARAM_TYPE', 'type');
-define('PARAM_CLASS', 'class');
-define('PARAM_CREATOR', 'creator');
-
-define ('TYPE_GROUP', 'group');
-define ('TYPE_CLASS', 'class');
+requiredParameters([PARAM_CONTEXT, PARAM_USER]);
 
 /* default to TYPE_CLASS if none (or nonexistent) specified */
 switch (trim(strtolower((empty($_REQUEST[PARAM_TYPE]) ? TYPE_CLASS : $_REQUEST[PARAM_TYPE])))) {
@@ -22,68 +17,42 @@ switch (trim(strtolower((empty($_REQUEST[PARAM_TYPE]) ? TYPE_CLASS : $_REQUEST[P
 		break;
 }
 
-$error = false;
-if (empty($_REQUEST[PARAM_CLASS])) {
-	$smarty->addMessage(PARAM_CLASS . ' is a required parameter');
-	$error = true;
+// TODO set teacher as moderator
+// TODO clear existing class sessions when a new one is created
+$openTokSession = $_SESSION['app']->opentok->createSession();
+if ($_SESSION['app']->sql->query("
+	INSERT INTO `sessions`
+		(
+			`context`,
+			`user`,
+			`tokbox`
+		) VALUES (
+			'" . $_SESSION['app']->sql->escape_string($_REQUEST[PARAM_CONTEXT]) . "',
+			'" . $_SESSION['app']->sql->escape_string($_REQUEST[PARAM_USER]) . "',
+			'" . $_SESSION['app']->sql->escape_string($openTokSession->getSessionId()) . "'
+		)
+") === false) {
+	databaseError(__LINE__);
 }
-if (empty($_REQUEST[PARAM_CREATOR])) {
-	$smarty->addMessage(PARAM_CREATOR . ' is a required parameter');
-	$error = true;
-}
-if ($error) {
-	$smarty->display('api/error.tpl');
-	exit;
-}
+$apiResponse[API_KEY] = $_SESSION['app']->config->toArray('//tokbox/key')[0];
+$apiResponse[API_SESSION_ID] = $openTokSession->getSessionId();
+$apiResponse[API_SESSION_TOKEN] = $_SESSION['app']->opentok->generateToken($openTokSession->getSessionId());
+$apiResponse[API_DATABASE_ID] = $_SESSION['app']->sql->insert_id;
 
-$apiResponse = array();
-if (empty($_REQUEST['id'])) {
-	$openTokSession = $_SESSION['app']->opentok->createSession();
+// TODO deal with residual group sessions (should probably be cleared when class session is created)
+if ($type === TYPE_GROUP) {
 	if ($_SESSION['app']->sql->query("
-		INSERT INTO `sessions`
+		INSERT INTO `groups`
 			(
-				`creator`,
-				`tokbox`
+				`context`,
+				`session`
+			) VALUES (
+				'" . $_SESSION['app']->sql->escape_string($_REQUEST[PARAM_CONTEXT]) . "',
+				'" . $apiResponse[API_DATABASE_ID] . "'
 			)
-			VALUES (
-				'-1',
-				'" . $_SESSION['app']->sql->escape_string($openTokSession->getSessionId()) . "'
-			)
-	") == false) {
-		$smarty->addMessage(
-			"Database error {$_SESSION['app']->sql->errno}",
-			$_SESSION['app']->sql->error,
-			NotificationMessage::ERROR
-		);
-		$smarty->display('api/error.tpl');
-	}
-	$apiResponse['apiKey'] = $_SESSION['app']->config->toArray('//tokbox/key')[0];
-	$apiResponse['sessionId'] = $openTokSession->getSessionId();
-	$apiResponse['token'] = $_SESSION['app']->opentok->generateToken($openTokSession->getSessionId());
-	$apiResponse['id'] = $_SESSION['app']->sql->insert_id;
-} else {
-	$response = $_SESSION['app']->sql->query("
-		SELECT *
-			FROM `sessions`
-			WHERE
-				`id` = '" . $_SESSION['app']->sql->escape_string($_REQUEST['id']) . "'
-	");
-	if ($response) {
-		$openTokSession = $response->fetch_assoc();
-		$apiResponse['apiKey'] = $_SESSION['app']->config->toString('//tokbox/key');
-		$apiResponse['sessionId'] = $openTokSession['tokbox'];
-		$apiResponse['token'] = $_SESSION['app']->opentok->generateToken($openTokSession['tokbox']);
-		$apiResponse['id'] = $openTokSession['id'];
-	} else {
-		$smarty->addMessage(
-			"Database error {$_SESSION['app']->sql->errno}",
-			$_SESSION['app']->sql->error,
-			NotificationMessage::ERROR
-		);
-		$smarty->display('api/error.tpl');
+	") === false) {
+		databaseError(__LINE__);
 	}
 }
 
-header("Access-Control-Allow-Origin: {$_SERVER['SERVER_NAME']}");
-echo json_encode($apiResponse);
-exit;
+sendResponse($apiResponse);

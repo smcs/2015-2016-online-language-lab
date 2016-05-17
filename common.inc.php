@@ -27,3 +27,7 @@ $smarty->setFramed(true);
 $smarty->assign('rootURL', $_SESSION['app']->metadata['APP_URL']);
 $smarty->assign('title', 'Language Lab | St. Mark&rsquo;s School');
 $smarty->assign('category', 'Beta');
+$smarty->assign('context', $_SESSION['user']->getResourceLink()->lti_context_id);
+$smarty->assign('user', $_SESSION['user']->getId());
+$smarty->assign('firstName', $_SESSION['user']->firstname);
+$smarty->assign('lastName', $_SESSION['user']->lastname);
