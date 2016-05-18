@@ -1,7 +1,6 @@
 <?php
 
-session_name((empty($_REQUEST['launch_session_id']) ? '' : $_REQUEST['launch_session_id']));
-session_start();
+error_log((session_start() ? 'Session started successfully' : 'Error starting session'));
 
 require_once 'vendor/autoload.php';
 
