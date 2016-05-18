@@ -50,6 +50,7 @@ $apiResponse[API_SESSION_TOKEN] = $_SESSION['app']->opentok->generateToken($open
 $apiResponse[API_DATABASE_ID] = $_SESSION['app']->sql->insert_id;
 
 // TODO deal with residual group sessions (should probably be cleared when class session is created)
+// TODO related: should the teacher be able to query for existing groups to (re)populate the teacher dashboard?
 if ($type === TYPE_GROUP) {
 	if ($_SESSION['app']->sql->query("
 		INSERT INTO `groups`
@@ -63,6 +64,7 @@ if ($type === TYPE_GROUP) {
 	") === false) {
 		databaseError(__LINE__);
 	}
+	$apiResponse[API_GROUP_ID] = $_SESSION['app']->sql->insert_id;
 }
 
 sendResponse($apiResponse);

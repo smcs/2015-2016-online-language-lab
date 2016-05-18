@@ -21,14 +21,12 @@ LanguageLab = {
 		};
 		var identifier = (stream === undefined ? 'publisher' : stream.streamId);
 		$('#' + this.thumbnailContainerID).append('' +
-		'	<div class="' +  this.thumbnailClass + '">' +
-		'		<span class="col-sm-2">' +
-		'			<div class="embed-responsive embed-responsive-4by3">' +
-		'				<div id="' + this.thumbnailPrefix + identifier + '" class="embed-responsive-item"></div>' +
-		'			</div>' +
-		'		</span>' +
-		'	</div>' +
-		'');
+			'<li class="' +  this.thumbnailClass + ' draggable col-xs-2">' +
+				'<div class="embed-responsive embed-responsive-4by3">' +
+					'<div id="' + this.thumbnailPrefix + identifier + '" class="embed-responsive-item"></div>' +
+				'</div>' +
+			'</li>'
+		);
 		if (stream === undefined) {
 			var publisher = OT.initPublisher(this.thumbnailPrefix + identifier, options);
 			session.publish(publisher);
@@ -36,23 +34,29 @@ LanguageLab = {
 		} else if(stream !== null) {
 			session.subscribe(stream, this.thumbnailPrefix + stream.streamId, options);
 		}
+
+		this.postAppendToContainer();
 	},
+
+	postAppendToContainer: function() {},
 
 	initializeSession: function(apiKey, sessionId, token) {
 		"use strict";
+
+		var self = this;
 
 		/* create a new OpenTok session */
 		var session = OT.initSession(apiKey, sessionId);
 
 		/* define event-driven session behaviors */
 		session.on('streamCreated', function(event) {
-			if (event.stream.streamId !== LanguageLab.publishedStreamId) {
-				LanguageLab.appendToContainer(session, event.stream);
+			if (event.stream.streamId !== self.publishedStreamId) {
+				self.appendToContainer(session, event.stream);
 			}
 		});
 
 		session.on('streamDestroyed', function(event) {
-			$('.' + languageLab.thumbnailClass + ':has(#' + LanguageLab.thumbnailPrefix + event.stream.streamId + ')').remove();
+			$('.' + self.thumbnailClass + ':has(#' + self.thumbnailPrefix + event.stream.streamId + ')').remove();
 		});
 
 		session.on('sessionDisconeected', function(event) {
@@ -62,7 +66,7 @@ LanguageLab = {
 		/* connect to the session */
 		session.connect(token, function(error) {
 			if (!error) {
-				LanguageLab.appendToContainer(session);
+				self.appendToContainer(session);
 			} else {
 				console.log('There was an error connecting to the session: ', error.code, error.message);
 			}
@@ -73,9 +77,9 @@ LanguageLab = {
 
 	init: function(rootURL, context, user) {
 		"use strict";
-        LanguageLab.rootURL = rootURL;
-        LanguageLab.context = context;
-        LanguageLab.user = user;
+        this.rootURL = rootURL;
+        this.context = context;
+        this.user = user;
         this.makeConnection();
     }
 };

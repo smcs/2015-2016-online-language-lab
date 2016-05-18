@@ -1,14 +1,17 @@
 {extends file="subpage.tpl"}
 
 {block name="subcontent"}
-	<div class="row">
-	<div class="container col-xs-6">
-		<div id="ot-streams" class="source connected">
-		</div>
-	</div>
-	<div class="container col-xs-6">
-		<button class="btn btn-default" onclick="javascript:Teacher.addGroup();">Add Group</button>
-		<div id="groups" class="target connected">
+
+	<div class="container">
+		<div class="row">
+			<div class="container col-xs-6">
+				<p class="droppable-label">Classroom<p>
+				<ul id="ot-streams" class="droppable connected"></ul>
+			</div>
+			<div class="container col-xs-6">
+				<button class="btn btn-default" onclick="javascript:Teacher.addGroup();">Add Group</button>
+				<div id="groups" class="row"></div>
+			</div>
 		</div>
 	</div>
 
@@ -21,10 +24,8 @@
 	<script src="../js/language-lab.js"></script>
 	<script src="../js/teacher.js"></script>
 	<script>
-		$(function() {
-			$('.source, .target').sortable({
-				connectWith: '.connected'
-			});
+		$('.connected').sortable({
+			connectWith: '.connected'
 		});
 		Teacher.init('{$rootURL}', '{$context}', '{$user}');
 	</script>
