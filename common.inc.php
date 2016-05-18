@@ -1,10 +1,10 @@
 <?php
 
+session_start();
+
 require_once 'vendor/autoload.php';
 
 use OpenTok\OpenTok;
-
-session_start();
 
 $secrets = new Battis\ConfigXML(__DIR__ . '/secrets.xml');
 
