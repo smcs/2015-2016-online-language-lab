@@ -33,11 +33,13 @@ if ($_SESSION['app']->sql->query("
 		(
 			`context`,
 			`user`,
-			`tokbox`
+			`tokbox`,
+			`type`
 		) VALUES (
 			'" . $_SESSION['app']->sql->escape_string($_REQUEST[PARAM_CONTEXT]) . "',
 			'" . $_SESSION['app']->sql->escape_string($_REQUEST[PARAM_USER]) . "',
-			'" . $_SESSION['app']->sql->escape_string($openTokSession->getSessionId()) . "'
+			'" . $_SESSION['app']->sql->escape_string($openTokSession->getSessionId()) . "',
+			'$type'
 		)
 ") === false) {
 	databaseError(__LINE__);
