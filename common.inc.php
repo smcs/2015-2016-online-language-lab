@@ -1,7 +1,6 @@
 <?php
 
 session_start();
-var_dump(session_id());
 
 require_once 'vendor/autoload.php';
 
