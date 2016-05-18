@@ -12,7 +12,7 @@ $opentok = $secrets->newInstanceOf(OpenTok::class, '//opentok');
 
 $sql = $secrets->newInstanceOf(mysqli::class, '//mysql');
 
-if (!$launchLTI) {
+if (!empty($_SESSION['user'])) {
     $smarty = Battis\BootstrapSmarty\BootstrapSmarty::getSmarty();
     $smarty->assign(
         'rootURL',
@@ -30,11 +30,9 @@ if (!$launchLTI) {
     );
     $smarty->addTemplateDir(__DIR__ . '/templates');
 
-    if (!empty($_SESSION['user'])) {
-        $smarty->assign('context', $_SESSION['user']->getResourceLink()->lti_context_id);
-        $smarty->assign('user', $_SESSION['user']->getId());
-        $smarty->assign('firstName', $_SESSION['user']->firstname);
-        $smarty->assign('lastName', $_SESSION['user']->lastname);
-    }
+    $smarty->assign('context', $_SESSION['user']->getResourceLink()->lti_context_id);
+    $smarty->assign('user', $_SESSION['user']->getId());
+    $smarty->assign('firstName', $_SESSION['user']->firstname);
+    $smarty->assign('lastName', $_SESSION['user']->lastname);
 }
 ?>

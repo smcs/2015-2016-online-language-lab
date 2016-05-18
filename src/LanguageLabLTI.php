@@ -21,8 +21,6 @@ class LanguageLabLTI extends LTI_Tool_Provider {
 
         if ($this->isOK) {
             $_SESSION['user'] = $this->user;
-            global $launchLTI;
-            $launchLTI = false;
         }
     }
 }

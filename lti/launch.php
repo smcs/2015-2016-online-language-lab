@@ -1,7 +1,5 @@
 <?php
 
-$launchLTI = true;
-
 require_once 'common.inc.php';
 
 use smcs\language_lab\LanguageLabLTI;
