@@ -12,7 +12,7 @@ $opentok = $secrets->newInstanceOf(OpenTok::class, '//opentok');
 
 $sql = $secrets->newInstanceOf(mysqli::class, '//mysql');
 
-if (!(str_replace($_SERVER['CONTEXT_PREFIX'] . str_replace($_SERVER['CONTEXT_DOCUMENT_ROOT'], '', __DIR__), '', $_SERVER['REQUEST_URI']) == '/lti/launch.php')) {
+if (!defined('LAUNCH_LTI')) {
     $smarty = Battis\BootstrapSmarty\BootstrapSmarty::getSmarty();
     $smarty->assign(
         'rootURL',
