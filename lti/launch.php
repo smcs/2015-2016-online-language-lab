@@ -1,6 +1,6 @@
 <?php
 
-define('LAUNCH_LTI', true);
+$launchLTI = true;
 
 require_once 'common.inc.php';
 
