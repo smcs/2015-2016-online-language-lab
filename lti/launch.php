@@ -5,12 +5,8 @@ require_once 'common.inc.php';
 use smcs\language_lab\LanguageLabLTI;
 
 /* clear any existing session data */
-if (session_status() === PHP_SESSION_NONE) {
-	session_start();
-}
-$_SESSION = array();
-session_destroy();
-session_start();
+unset($_SESSION['user']);
+unset($_SESSION['toolProvider']);
 
 /* set up a Tool Provider (TP) object to process the LTI request */
 $toolProvider = new LanguageLabLTI(LTI_Data_Connector::getDataConnector($sql));
