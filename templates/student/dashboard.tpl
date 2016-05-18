@@ -3,12 +3,11 @@
 {block name="subcontent"}
 
 	<div class="container">
-		<div id="ot-streams"></div>
-	</div>
-
-	<div class="container">
-		<p>Context: <code>{$context}</code></p>
-		<p>User: <code>{$user}</code></p>
+		<div id="ot-streams">
+			<div id="ot-streams-placeholder">
+				<h1>Waiting for teacher <i class="fa fa-refresh fa-spin"></i></h1>
+			</div>
+		</div>
 	</div>
 
 {/block}

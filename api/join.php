@@ -32,7 +32,7 @@ if ($group = $groupSessions->fetch_assoc()) {
     ")) === false) {
         databaseError(__LINE__);
     }
-    if ($classSession = $classSessions->fetch_assoc) {
+    if ($classSession = $classSessions->fetch_assoc()) {
         $apiResponse[API_DATABASE_ID] = $classSession['id'];
         $apiResponse[API_SESSION_ID] = $classSession['tokbox'];
     } else {
@@ -41,7 +41,7 @@ if ($group = $groupSessions->fetch_assoc()) {
 }
 if (!empty($apiResponse[API_SESSION_ID])) {
     $apiResponse[API_KEY] = $_SESSION['app']->config->toString('//tokbox/key');
-    $apiResponse[API_SESSION_TOKEN] = $_SESSION['app']->openTok->generateToken($apiResponse[API_SESSION_ID]);
+    $apiResponse[API_SESSION_TOKEN] = $_SESSION['app']->opentok->generateToken($apiResponse[API_SESSION_ID]);
 }
 
 sendResponse($apiResponse);
