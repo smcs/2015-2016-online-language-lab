@@ -36,5 +36,6 @@ if (!empty($_SESSION['user'])) {
     $smarty->assign('lastName', $_SESSION['user']->lastname);
 } else {
     $smarty->addMessage('Authentication Error', 'Failed to load user information.');
+    error_log('missing user information');
 }
 ?>

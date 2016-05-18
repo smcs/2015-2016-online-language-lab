@@ -21,6 +21,7 @@ class LanguageLabLTI extends LTI_Tool_Provider {
 
         if ($this->isOK) {
             $_SESSION['user'] = $this->user;
+            error_log('saved user information to session');
         }
     }
 }
