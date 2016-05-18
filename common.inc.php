@@ -1,6 +1,6 @@
 <?php
 
-error_log((session_start() ? 'Session started successfully' : 'Error starting session'));
+error_log((session_start() ? 'Session ' . session_id() . 'started successfully' : 'Error starting session ' . session_id()));
 
 require_once 'vendor/autoload.php';
 
