@@ -16,7 +16,7 @@ Teacher.makeConnection = function() {
 
 Teacher.addGroup = function() {
     $.getJSON(Teacher.rootURL + '/api/v1/session?context=' + Teacher.context + '&user=' + Teacher.user + '&type=group', function(response) {
-        $('#' + Teacher.groupContainerID).append('<div class="container group col-xs-2">' +
+        $('#' + Teacher.groupContainerID).append('<div class="container container-fluid group">' +
                 '<p class="droppable-label">Group ' + response.group + '</p>' +
                 '<ul id="' + response.group + '" class="droppable connected"></ul>' +
             '</div>'

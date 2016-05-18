@@ -20,19 +20,19 @@ $_SESSION['app']->metadata['APP_URL'] = (
 		'',
 		__DIR__
 );
-if (!(str_replace($_SERVER['CONTEXT_PREFIX'] . str_replace($_SERVER['CONTEXT_DOCUMENT_ROOT'], '', __DIR__), '', $_SERVER['REQUEST_URI']) == '/lti/launch.php')) {
-	$smarty = StMarksSmarty::getSmarty(__DIR__ . '/templates');
-	$smarty->setFramed(true);
 
-	$smarty->assign('rootURL', $_SESSION['app']->metadata['APP_URL']);
-	$smarty->assign('title', 'Language Lab | St. Mark&rsquo;s School');
-	$smarty->assign('category', 'Beta');
+$smarty = StMarksSmarty::getSmarty(__DIR__ . '/templates');
+$smarty->setFramed(true);
 
-	if (empty($_SESSION['user'])) {
-		$smarty->addMessage('Authentication Error');
-		$smarty->display('error.tpl');
-		exit;
-	}
+$smarty->assign('rootURL', $_SESSION['app']->metadata['APP_URL']);
+$smarty->assign('title', 'Language Lab | St. Mark&rsquo;s School');
+$smarty->assign('category', 'Beta');
+
+if (!isset($_SESSION['user'])&& !defined('LAUNCHING_LTI')) {
+	$smarty->addMessage('Authentication Error');
+	$smarty->display('error.tpl');
+	exit;
+} elseif(!defined('LAUNCHING_LTI')) {
 	$smarty->assign('context', $_SESSION['user']->getResourceLink()->lti_context_id);
 	$smarty->assign('user', $_SESSION['user']->getId());
 	$smarty->assign('firstName', $_SESSION['user']->firstname);
