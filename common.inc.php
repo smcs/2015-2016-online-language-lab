@@ -12,24 +12,24 @@ $opentok = $secrets->newInstanceOf(OpenTok::class, '//opentok');
 
 $sql = $secrets->newInstanceOf(mysqli::class, '//mysql');
 
-if (!empty($_SESSION['user'])) {
-    $smarty = Battis\BootstrapSmarty\BootstrapSmarty::getSmarty();
-    $smarty->assign(
-        'rootURL',
-        (!isset($_SERVER['HTTPS']) || $_SERVER['HTTPS'] != 'on' ?
-            'http://' :
-            'https://'
-        ) .
-        $_SERVER['SERVER_NAME'] .
-        $_SERVER['CONTEXT_PREFIX'] .
-        str_replace(
-            $_SERVER['CONTEXT_DOCUMENT_ROOT'],
-            '',
-            __DIR__
-        )
-    );
-    $smarty->addTemplateDir(__DIR__ . '/templates');
+$smarty = Battis\BootstrapSmarty\BootstrapSmarty::getSmarty();
+$smarty->assign(
+    'rootURL',
+    (!isset($_SERVER['HTTPS']) || $_SERVER['HTTPS'] != 'on' ?
+        'http://' :
+        'https://'
+    ) .
+    $_SERVER['SERVER_NAME'] .
+    $_SERVER['CONTEXT_PREFIX'] .
+    str_replace(
+        $_SERVER['CONTEXT_DOCUMENT_ROOT'],
+        '',
+        __DIR__
+    )
+);
+$smarty->addTemplateDir(__DIR__ . '/templates');
 
+if (!empty($_SESSION['user'])) {
     $smarty->assign('context', $_SESSION['user']->getResourceLink()->lti_context_id);
     $smarty->assign('user', $_SESSION['user']->getId());
     $smarty->assign('firstName', $_SESSION['user']->firstname);
