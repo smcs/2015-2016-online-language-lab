@@ -5,7 +5,7 @@
 {/block}
 
 {block name="content"}
-          <h1 class="page-header" id="welcome" >Welcome, {$firstName} {$lastName} <small>(ID {$context} / {$user})<small></h1>
+          <h1 class="page-header" id="welcome" >Welcome, {$firstName|default:''} {$lastName|default:''} <small>(ID {$context|default:''} / {$user|default:''})<small></h1>
 
           <div class="container">
             <div id="ot-streams"></div>
@@ -55,6 +55,6 @@
     <script src="https://static.opentok.com/v2/js/opentok.min.js"></script>
     <script src="js/session.js"></script>
     <script>
-        app.init('{$rootURL}', '{$id}');
+        app.init('{$rootURL}', '{$id|default:''}');
     </script>
 {/block}
