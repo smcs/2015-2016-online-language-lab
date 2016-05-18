@@ -1,6 +1,6 @@
 <?php
 
-session_start();
+session_start((empty($_REQUEST['launch_session_id']) ? '' : $_REQUEST['launch_session_id']));
 
 require_once 'vendor/autoload.php';
 
