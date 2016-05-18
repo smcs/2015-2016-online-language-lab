@@ -5,7 +5,7 @@
 {/block}
 
 {block name="page-content"}
-          <h1 class="page-header" id="welcome" >Welcome, {$fullname}</h1>
+          <h1 class="page-header" id="welcome" >Welcome, {$firstName} {$lastName} <small>(ID {$context} / {$user})<small></h1>
 
           <div class="container">
             <div id="ot-streams"></div>
