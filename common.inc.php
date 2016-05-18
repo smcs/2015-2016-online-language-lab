@@ -1,6 +1,6 @@
 <?php
 
-error_log((session_start() ? 'Session ' . session_id() . ' started successfully' : 'Error starting session ' . session_id()));
+error_log((session_start() ? 'Session ' . session_id() . ' started successfully' : 'Error starting session ' . session_id()) . PHP_EOL . print_r(session_get_cookie_params(), true));
 
 require_once 'vendor/autoload.php';
 
