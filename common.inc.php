@@ -37,5 +37,3 @@ if (!isset($_SESSION['user'])&& !defined('LAUNCHING_LTI')) {
 	$smarty->assign('firstName', $_SESSION['user']->firstname);
 	$smarty->assign('lastName', $_SESSION['user']->lastname);
 }
-
-?>
