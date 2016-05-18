@@ -32,8 +32,9 @@ $smarty->addTemplateDir(__DIR__ . '/templates');
 if (!isset($_SESSION['user'])&& !defined('LAUNCHING_LTI')) {
 	$smarty->addMessage('Authentication Error', 'Failed to load user information.');
 } elseif(!defined('LAUNCHING_LTI')) {
-	$smarty->assign('context', $_SESSION['user']->getResourceLink()->lti_context_id);
-	$smarty->assign('user', $_SESSION['user']->getId());
-	$smarty->assign('firstName', $_SESSION['user']->firstname);
-	$smarty->assign('lastName', $_SESSION['user']->lastname);
+	$smarty->assign('context', $_SESSION['context']);
+	$smarty->assign('user', $_SESSION['user']);
+	$smarty->assign('firstName', $_SESSION['firstName']);
+	$smarty->assign('lastName', $_SESSION['lastName']);
+    $smarty->assign('fullName', $_SESSION['fullName']);
 }

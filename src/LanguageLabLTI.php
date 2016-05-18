@@ -19,6 +19,10 @@ class LanguageLabLTI extends LTI_Tool_Provider {
             $this->isOK = false;
         }
 
-        $_SESSION['user'] = $this->user;
+        $_SESSION['context'] = $this->user->getResourceLink()->lti_context_id;
+    	$_SESSION['user'] = $this->user->getId();
+    	$_SESSION['firstName'] = $this->user->firstname;
+    	$_SESSION['lastName'] = $this->user->lastname;
+        $_SESSION['fullName'] = $this->user->fullname;
     }
 }

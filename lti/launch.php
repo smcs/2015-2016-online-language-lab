@@ -19,3 +19,4 @@ $toolProvider->setParameterConstraint('roles', TRUE, NULL, array('basic-lti-laun
 
 /* process the LTI request from the Tool Consumer (TC) */
 $toolProvider->handle_request();
+exit;
