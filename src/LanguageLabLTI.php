@@ -19,8 +19,6 @@ class LanguageLabLTI extends LTI_Tool_Provider {
             $this->isOK = false;
         }
 
-        if ($this->isOK) {
-            $_SESSION['user'] = $this->user;
-        }
+        $_SESSION['user'] = $this->user;
     }
 }
