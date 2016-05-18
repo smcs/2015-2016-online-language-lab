@@ -19,15 +19,15 @@ if (($groupSessions = $_SESSION['app']->sql->query("
     databaseError(__LINE__);
 }
 if ($group = $groupSessions->fetch_assoc()) {
-    $apiResponse[API_DATABASE_ID] => $group['id'];
-    $apiResponse[API_SESSION_ID] => $group['tokbox'];
+    $apiResponse[API_DATABASE_ID] = $group['id'];
+    $apiResponse[API_SESSION_ID] = $group['tokbox'];
 } else {
     if (($classSessions = $_SESSION['app']->sql->query("
         SELECT *
             FROM `sessions`
             WHERE
                 `type` = '" . TYPE_CLASS . "' AND
-                `class` = '" . $_SESSION['app']->sql->escape_string($_REQUEST[PARAM_CLASS]) . "'
+                `context` = '" . $_SESSION['app']->sql->escape_string($_REQUEST[PARAM_CONTEXT]) . "'
             LIMIT 1
     ")) === false) {
         databaseError(__LINE__);

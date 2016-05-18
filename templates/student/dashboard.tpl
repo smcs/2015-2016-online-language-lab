@@ -16,9 +16,10 @@
 {block name="post-bootstrap-scripts"}
 
 	<script src="https://static.opentok.com/v2/js/opentok.min.js"></script>
-	<script src="js/session.js"></script>
+	<script src="../js/language-lab.js"></script>
+	<script src="../js/student.js"></script>
 	<script>
-		app.init('{$rootURL}', '{$id}');
+		Student.init('{$rootURL}', '{$context}', '{$user}');
 	</script>
 
 {/block}

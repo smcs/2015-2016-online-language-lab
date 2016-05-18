@@ -17,6 +17,7 @@ define('API_DATABASE_ID', 'id');
 define('API_GROUP_ID', 'group');
 
 function requiredParameters($parameters) {
+    global $smarty;
     $error = false;
     foreach ($parameters as $param) {
         if (empty($_REQUEST[$param])) {
@@ -25,14 +26,15 @@ function requiredParameters($parameters) {
         }
     }
     if ($error) {
-        $smarty->display('api/error.tpl');
+        $smarty->display('error.tpl');
         exit;
     }
 }
 
 function databaseError($line) {
-    $smarty->appendMessage('Database error in ' . strtoupper(basename($_SERVER['SCRIPT_FILENAME'], '.php')) . ":$line");
-    $smarty->display('api/error.tpl');
+    global $smarty;
+    $smarty->addMessage('Database error in API ' . strtoupper(basename($_SERVER['SCRIPT_FILENAME'], '.php')) . ":$line");
+    $smarty->display('error.tpl');
     exit;
 }
 
