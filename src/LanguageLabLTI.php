@@ -20,6 +20,7 @@ class LanguageLabLTI extends LTI_Tool_Provider {
         }
 
         if ($this->isOK) {
+            global $_SESSION;
             $_SESSION['user'] = $this->user;
             error_log('saved user information to session');
         }
