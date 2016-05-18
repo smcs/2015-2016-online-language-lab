@@ -4,7 +4,7 @@
     <link href="css/StudentDashboard.css" rel="stylesheet">
 {/block}
 
-{block name="page-content"}
+{block name="content"}
           <h1 class="page-header" id="welcome" >Welcome, {$firstName} {$lastName} <small>(ID {$context} / {$user})<small></h1>
 
           <div class="container">
