@@ -29,9 +29,12 @@ if (!defined('LAUNCH_LTI')) {
         )
     );
     $smarty->addTemplateDir(__DIR__ . '/templates');
-    $smarty->assign('context', $_SESSION['user']->getResourceLink()->lti_context_id);
-    $smarty->assign('user', $_SESSION['user']->getId());
-    $smarty->assign('firstName', $_SESSION['user']->firstname);
-    $smarty->assign('lastName', $_SESSION['user']->lastname);
+
+    if (!empty($_SESSION['user'])) {
+        $smarty->assign('context', $_SESSION['user']->getResourceLink()->lti_context_id);
+        $smarty->assign('user', $_SESSION['user']->getId());
+        $smarty->assign('firstName', $_SESSION['user']->firstname);
+        $smarty->assign('lastName', $_SESSION['user']->lastname);
+    }
 }
 ?>

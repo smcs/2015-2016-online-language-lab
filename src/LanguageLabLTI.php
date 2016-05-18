@@ -9,8 +9,6 @@ class LanguageLabLTI extends LTI_Tool_Provider {
     /* called when the LTI is launched */
     public function onLaunch() {
 
-        $_SESSION['user'] = $this->user;
-
         /* decide which dashboard to load based on user role (URLs are relative to the path of lti/launch.php) */
         if ($this->user->isLearner()) {
             $this->redirectURL = '../StudentDashboard.php';
@@ -19,6 +17,10 @@ class LanguageLabLTI extends LTI_Tool_Provider {
         } else {
             $this->reason = 'Invalid role';
             $this->isOK = false;
+        }
+
+        if ($this->isOK) {
+            $_SESSION['user'] = $this->user;
         }
     }
 }
