@@ -29,12 +29,13 @@ $smarty->assign(
 );
 $smarty->addTemplateDir(__DIR__ . '/templates');
 
-if (!empty($_SESSION['user'])) {
-    $smarty->assign('context', $_SESSION['user']->getResourceLink()->lti_context_id);
-    $smarty->assign('user', $_SESSION['user']->getId());
-    $smarty->assign('firstName', $_SESSION['user']->firstname);
-    $smarty->assign('lastName', $_SESSION['user']->lastname);
-} else {
-    $smarty->addMessage('Authentication Error', 'Failed to load user information.');
+if (!isset($_SESSION['user'])&& !defined('LAUNCHING_LTI')) {
+	$smarty->addMessage('Authentication Error', 'Failed to load user information.');
+} elseif(!defined('LAUNCHING_LTI')) {
+	$smarty->assign('context', $_SESSION['user']->getResourceLink()->lti_context_id);
+	$smarty->assign('user', $_SESSION['user']->getId());
+	$smarty->assign('firstName', $_SESSION['user']->firstname);
+	$smarty->assign('lastName', $_SESSION['user']->lastname);
 }
+
 ?>
