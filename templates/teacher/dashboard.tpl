@@ -25,7 +25,8 @@
 	<script src="../js/teacher.js"></script>
 	<script>
 		$('.connected').sortable({
-			connectWith: '.connected'
+			connectWith: '.connected',
+			placeholder: 'draggable-placeholder'
 		});
 		Teacher.init('{$rootURL}', '{$context}', '{$user}');
 	</script>

@@ -18,3 +18,10 @@
     color: lightgray;
     font-size: smaller;
 }
+
+.draggable-placeholder {
+    border: dotted 0.5px lightgray;
+    border-radius: 0.5em;
+    padding: 1em;
+    height: 1em;
+}

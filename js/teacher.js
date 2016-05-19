@@ -21,8 +21,14 @@ Teacher.addGroup = function() {
                 '<ul id="' + response.group + '" class="droppable connected"></ul>' +
             '</div>'
             );
-        $('#' + response.group).sortable({
-            connectWith: '.connected'
+        $('.connected').sortable({
+            connectWith: '.connected',
+            placeholder: 'draggable-placeholder',
+            update: function(event, ui) {
+                for (var i = 0; i < ui.item.length; i++) {
+                    console.log($(ui.item[i]).parent().attr('id'));
+                }
+            }
         });
     });
 }
