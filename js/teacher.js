@@ -35,7 +35,11 @@ Teacher.displayGroup = function(id) {
                  * (cf. https://forum.jquery.com/topic/sortables-update-callback-and-connectwith#14737000000631169)
                  */
                 if (this === ui.item.parent()[0]) {
-                    console.log($(ui.item[0]).parent().attr('id'));
+                    // FIXME just delete the user from their group if they are moved back into the class manually
+                    $.getJSON(Teacher.rootURL + '/api/v1/group_membership?context=' + Teacher.context + '&user=' + 'FIXME get real user ID from OpenTok session' + '&group=' + $(ui.item[0]).parent().attr('id'), function(response) {
+                        console.log(response);
+                        // TODO disconnect user from previous session so they will reconnect to new session
+                    })
                 }
             }
         });
@@ -58,6 +62,7 @@ Teacher.deleteGroup = function (id) {
 }
 
 Teacher.resetGroups = function() {
+    // TODO make list of users and OpenTok sessions affected
     $.getJSON(Teacher.rootURL + '/api/v1/groups?context=' + Teacher.context + '&action=reset', function (response) {
         if (response.result) {
             $('#' + Teacher.groupContainerID).empty();
@@ -65,4 +70,5 @@ Teacher.resetGroups = function() {
             alert('Error!');
         }
     });
+    // TODO disconnect users from their (now deleted) OpenTok sessions, forcing them to reconnect to the class session
 }

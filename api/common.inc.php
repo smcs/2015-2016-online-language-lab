@@ -12,6 +12,7 @@ define('TYPE_GROUP', 'group');
 define('TYPE_CLASS', 'class');
 
 define('ACTION_LIST', 'list');
+define('ACTION_ADD', 'add');
 define('ACTION_DELETE', 'delete');
 define('ACTION_RESET', 'reset');
 
@@ -20,6 +21,7 @@ define('API_SESSION_ID', 'session_id');
 define('API_SESSION_TOKEN', 'token');
 define('API_DATABASE_ID', 'id');
 define('API_GROUP_ID', 'group');
+define('API_USER_ID', 'user');
 define('API_ACTION_RESULT', 'result');
 
 function requiredParameters($parameters) {

@@ -25,10 +25,13 @@
 	<script src="../js/language-lab.js"></script>
 	<script src="../js/teacher.js"></script>
 	<script>
+		/* enable drag and drop sortable widgets */
 		$('.connected').sortable({
 			connectWith: '.connected',
 			placeholder: 'draggable-placeholder'
 		});
+
+		/* fire up the OpenTok app */
 		Teacher.init('{$rootURL}', '{$context}', '{$user}');
 	</script>
 

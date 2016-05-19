@@ -1,7 +1,7 @@
 <?php
 
 /**
- * GET {language-lab instance url}/api/v1/groups?context={LTI context ID}
+ * GET {language-lab instance url}/api/v1/groups?context={LTI context ID}[&group={group ID}&action={list|delete|reset}]
  */
 
 require_once 'common.inc.php';
