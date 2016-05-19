@@ -10,6 +10,7 @@
 			</div>
 			<div class="container col-xs-6">
 				<button class="btn btn-default" onclick="javascript:Teacher.addGroup();">Add Group</button>
+				<button class="btn btn-danger" onclick="javascript:Teacher.resetGroups();">Reset Groups</button>
 				<div id="groups" class="row"></div>
 			</div>
 		</div>

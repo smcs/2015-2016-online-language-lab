@@ -1,6 +1,20 @@
 <?php
 
+/**
+ * GET {language-lab instance url}/api/v1/join?context={LTI context ID}&user={LTI user ID}
+ *
+ * Returns
+ * {
+ * 	[api_key: {OpenTOK API key},
+ * 	session_id: {OpenTok session ID},
+ * 	token: {OpenTok subscriber token for `session_id`},
+ * 	id: {Database ID for `session_id`}]
+ * }
+ */
+
 require_once 'common.inc.php';
+
+use OpenTok\Role;
 
 requiredParameters([PARAM_CONTEXT, PARAM_USER]);
 
@@ -41,7 +55,7 @@ if ($group = $groupSessions->fetch_assoc()) {
 }
 if (!empty($apiResponse[API_SESSION_ID])) {
     $apiResponse[API_KEY] = $_SESSION['app']->config->toString('//tokbox/key');
-    $apiResponse[API_SESSION_TOKEN] = $_SESSION['app']->opentok->generateToken($apiResponse[API_SESSION_ID]);
+    $apiResponse[API_SESSION_TOKEN] = $_SESSION['app']->opentok->generateToken($apiResponse[API_SESSION_ID], ['role' => Role::SUBSCRIBER]);
 }
 
 sendResponse($apiResponse);

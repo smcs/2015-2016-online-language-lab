@@ -6,15 +6,21 @@ define('PARAM_TYPE', 'type');
 define('PARAM_CONTEXT', 'context');
 define('PARAM_USER', 'user');
 define('PARAM_GROUP', 'group');
+define('PARAM_ACTION', 'action');
 
 define('TYPE_GROUP', 'group');
 define('TYPE_CLASS', 'class');
+
+define('ACTION_LIST', 'list');
+define('ACTION_DELETE', 'delete');
+define('ACTION_RESET', 'reset');
 
 define('API_KEY', 'api_key');
 define('API_SESSION_ID', 'session_id');
 define('API_SESSION_TOKEN', 'token');
 define('API_DATABASE_ID', 'id');
 define('API_GROUP_ID', 'group');
+define('API_ACTION_RESULT', 'result');
 
 function requiredParameters($parameters) {
     global $smarty;

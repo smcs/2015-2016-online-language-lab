@@ -1,8 +1,22 @@
 <?php
 
+/**
+ * GET {language-lab instance url}/api/v1/session?context={LTI context ID}&user={LTI user ID}[&type={class|group}]
+ *
+ * Returns
+ * {
+ * 	api_key: {OpenTok API key},
+ * 	session_id: {OpenTok session ID},
+ * 	token: {OpenTok moderator token for `session_id`},
+ * 	id: {Database ID for `session_id`}[,
+ * 	group: {Database ID for group}]
+ * }
+ */
+
 require_once 'common.inc.php';
 
 use Battis\BootstrapSmarty\NotificationMessage;
+use OpenTok\Role;
 
 requiredParameters([PARAM_CONTEXT, PARAM_USER]);
 
@@ -46,7 +60,7 @@ if ($_SESSION['app']->sql->query("
 }
 $apiResponse[API_KEY] = $_SESSION['app']->config->toString('//tokbox/key');
 $apiResponse[API_SESSION_ID] = $openTokSession->getSessionId();
-$apiResponse[API_SESSION_TOKEN] = $_SESSION['app']->opentok->generateToken($openTokSession->getSessionId());
+$apiResponse[API_SESSION_TOKEN] = $_SESSION['app']->opentok->generateToken($openTokSession->getSessionId(), ['role' => Role::MODERATOR]);
 $apiResponse[API_DATABASE_ID] = $_SESSION['app']->sql->insert_id;
 
 // TODO deal with residual group sessions (should probably be cleared when class session is created)
