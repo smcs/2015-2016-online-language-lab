@@ -5,13 +5,21 @@
 	<div class="container">
 		<div class="row">
 			<div class="container col-xs-6">
-				<p class="droppable-label">Classroom<p>
-				<ul id="ot-streams" class="droppable connected"></ul>
+				<p>
+					<button class="btn btn-default" disabled="disabled">Random Pairings</button>
+					<button class="btn btn-default" disabled="disabled">Pre-recorded</button>
+				</p>
+				<div id="wrapper-ot-streams" class="droppable">
+					<p class="label label-primary">Classroom</p>
+					<ul id="ot-streams" class=" connected"></ul>
+				</div>
 			</div>
 			<div class="container col-xs-6">
-				<button class="btn btn-default" onclick="javascript:Teacher.addGroup();">Add Group</button>
-				<button class="btn btn-danger" onclick="javascript:Teacher.resetGroups();">Reset Groups</button>
-				<div id="groups" class="row"></div>
+				<p>
+					<button class="btn btn-default" onclick="javascript:Teacher.addGroup();">Add Group</button>
+					<button class="btn btn-danger" onclick="javascript:Teacher.resetGroups();">Reset Groups</button>
+				</p>
+				<div id="groups"></div>
 			</div>
 		</div>
 	</div>
@@ -28,7 +36,7 @@
 		/* enable drag and drop sortable widgets */
 		$('.connected').sortable({
 			connectWith: '.connected',
-			placeholder: 'draggable-placeholder'
+			placeholder: 'draggable-placeholder col-xs-4'
 		});
 
 		/* fire up the OpenTok app */

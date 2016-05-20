@@ -60,7 +60,15 @@ if ($_SESSION['app']->sql->query("
 }
 $apiResponse[API_KEY] = $_SESSION['app']->config->toString('//tokbox/key');
 $apiResponse[API_SESSION_ID] = $openTokSession->getSessionId();
-$apiResponse[API_SESSION_TOKEN] = $_SESSION['app']->opentok->generateToken($openTokSession->getSessionId(), ['role' => Role::MODERATOR]);
+$apiResponse[API_SESSION_TOKEN] = $_SESSION['app']->opentok->generateToken(
+	$openTokSession->getSessionId(), [
+		'role' => Role::MODERATOR,
+		'data' => json_encode([
+			'context' => $_REQUEST[PARAM_CONTEXT],
+			'user' => $_REQUEST[PARAM_USER]
+		])
+	]
+);
 $apiResponse[API_DATABASE_ID] = $_SESSION['app']->sql->insert_id;
 
 // TODO deal with residual group sessions (should probably be cleared when class session is created)

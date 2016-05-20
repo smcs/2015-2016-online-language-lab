@@ -9,8 +9,10 @@ Teacher.groupContainerID = 'groups';
 Teacher.makeConnection = function() {
     $(document).ready(function() {
         $.getJSON(Teacher.rootURL + '/api/v1/groups?context=' + Teacher.context, function(response) {
-            for(var i = 0; i < response.groups.length; i++) {
-                Teacher.displayGroup(response.groups[i].group);
+            if (response.groups !== undefined) {
+                for(var i = 0; i < response.groups.length; i++) {
+                    Teacher.displayGroup(response.groups[i].group);
+                }
             }
         });
         $.getJSON(Teacher.rootURL + '/api/v1/session?context=' + Teacher.context + '&user=' + Teacher.user, function(response) {
@@ -20,14 +22,19 @@ Teacher.makeConnection = function() {
 }
 
 Teacher.displayGroup = function(id) {
-    $('#' + Teacher.groupContainerID).append('<div id="wrapper-' + id + '" class="container container-fluid group">' +
-            '<p class="droppable-label">Group ' + id + ' <span class="pull-right"><a href="javascript:Teacher.deleteGroup(' + id + ');"><span class="glyphicon glyphicon-remove"></span></a></span></p>' +
-            '<ul id="' + id + '" class="droppable connected"></ul>' +
+    $('#' + Teacher.groupContainerID).append(
+        '<div id="wrapper-' + id + '" class="droppable">' +
+            '<p class="label label-info">' +
+                'Group ' + id + ' ' +
+                '<a href="javascript:Teacher.deleteGroup(' + id + ');"><span class="glyphicon glyphicon-remove"></span></a>' +
+            '</p>' +
+            '<ul id="' + id + '" class="connected"></ul>' +
         '</div>'
         );
         $('.connected').sortable({
             connectWith: '.connected',
-            placeholder: 'draggable-placeholder',
+            opacity: 0.5,
+            placeholder: 'placeholder col-xs-4',
             update: function(event, ui) {
                 /*
                  * using the 'receive callback' -- won't trigger if position
@@ -36,7 +43,7 @@ Teacher.displayGroup = function(id) {
                  */
                 if (this === ui.item.parent()[0]) {
                     // FIXME just delete the user from their group if they are moved back into the class manually
-                    $.getJSON(Teacher.rootURL + '/api/v1/group_membership?context=' + Teacher.context + '&user=' + 'FIXME get real user ID from OpenTok session' + '&group=' + $(ui.item[0]).parent().attr('id'), function(response) {
+                    $.getJSON(Teacher.rootURL + '/api/v1/group_membership?context=' + Teacher.context + '&user=' + $(ui.item[0]).find('.embed-responsive-item').attr('user') + '&group=' + $(ui.item[0]).parent().attr('id'), function(response) {
                         console.log(response);
                         // TODO disconnect user from previous session so they will reconnect to new session
                     })

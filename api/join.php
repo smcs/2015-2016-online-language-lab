@@ -55,7 +55,16 @@ if ($group = $groupSessions->fetch_assoc()) {
 }
 if (!empty($apiResponse[API_SESSION_ID])) {
     $apiResponse[API_KEY] = $_SESSION['app']->config->toString('//tokbox/key');
-    $apiResponse[API_SESSION_TOKEN] = $_SESSION['app']->opentok->generateToken($apiResponse[API_SESSION_ID], ['role' => Role::SUBSCRIBER]);
+    $apiResponse[API_SESSION_TOKEN] = $_SESSION['app']->opentok->generateToken(
+        $apiResponse[API_SESSION_ID],
+        [
+            'role' => Role::PUBLISHER,
+            'data' => json_encode([
+                'context' => $_REQUEST[PARAM_CONTEXT],
+                'user' => $_REQUEST[PARAM_USER]
+            ])
+        ]
+    );
 }
 
 sendResponse($apiResponse);

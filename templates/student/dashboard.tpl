@@ -3,11 +3,11 @@
 {block name="subcontent"}
 
 	<div class="container">
-		<div id="ot-streams">
-			<div id="ot-streams-placeholder">
+		<ul id="ot-streams">
+			<li id="ot-streams-placeholder">
 				<h1>Waiting for teacher <i class="fa fa-refresh fa-spin"></i></h1>
-			</div>
-		</div>
+			</li>
+		</ul>
 	</div>
 
 {/block}

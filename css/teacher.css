@@ -1,27 +1,36 @@
-.draggable {
-    padding: 1em;
-    background-color: lightgray;
-    border-radius: 0.5em;
-    border: solid 1px darkgray;
+.droppable li {
+    margin: 0.25em;
     cursor: move;
+    min-width: 4em;
+    min-height: 3em;
 }
 
 .droppable {
-    min-width: 50px;
-    min-height: 40px;
-    padding: 1em;
-    border: dashed 3px lightgray;
+    padding: 0.5em;
+    border: dashed 4px lightgray;
     border-radius: 1em;
 }
 
-.droppable-label {
-    color: lightgray;
-    font-size: smaller;
+.droppable ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: auto; /* hack to get height right */
+    min-width: 4em;
+    min-height: 3em;
 }
 
-.draggable-placeholder {
-    border: dotted 0.5px lightgray;
-    border-radius: 0.5em;
-    padding: 1em;
-    height: 1em;
+.droppable li {
+    float: left;
+}
+
+/* when dragging into a sortable widget */
+.placeholder {
+    border: #fff700 solid 0.5px;
+    background-color: #ffffe1;
+}
+
+/* for close X's in labels */
+.label a {
+    color: white;
 }

@@ -19,21 +19,27 @@ LanguageLab = {
 			width: '100%',
 			height: '100%'
 		};
+
 		var identifier = (stream === undefined ? 'publisher' : stream.streamId);
-		$('#' + this.thumbnailContainerID).append('' +
-			'<li class="' +  this.thumbnailClass + ' draggable col-xs-2">' +
+
+		var obj = $('#' + this.thumbnailContainerID).append('' +
+			'<li class="' +  this.thumbnailClass + ' col-xs-4">' +
 				'<div class="embed-responsive embed-responsive-4by3">' +
 					'<div id="' + this.thumbnailPrefix + identifier + '" class="embed-responsive-item"></div>' +
 				'</div>' +
 			'</li>'
 		);
+
 		if (stream === undefined) {
 			var publisher = OT.initPublisher(this.thumbnailPrefix + identifier, options);
 			session.publish(publisher);
 			this.publishedStreamId = publisher.streamId;
+			$('#' + this.thumbnailPrefix + identifier).attr(JSON.parse(session.connection.data));
 		} else if(stream !== null) {
 			session.subscribe(stream, this.thumbnailPrefix + stream.streamId, options);
+			$('#' + this.thumbnailPrefix + identifier).attr(JSON.parse(stream.connection.data))
 		}
+
 
 		this.postAppendToContainer();
 	},
