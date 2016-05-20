@@ -1,5 +1,2 @@
-RewriteEngine on
-RewriteRule .*\.git$ - [F]
-RewriteRule secrets.xml - [F]
-RewriteRule .*\.inc\.php - [F]
-RewriteRule src - [F]
+Options All -Indexes
+IndexIgnore *, *.json, *.lock, *.xml, *.inc.php
