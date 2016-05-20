@@ -22,6 +22,7 @@ Teacher.makeConnection = function() {
 }
 
 Teacher.displayGroup = function(id) {
+    // FIXME should really be displaying an OpenTok session for this group
     $('#' + Teacher.groupContainerID).append(
         '<div id="wrapper-' + id + '" class="droppable">' +
             '<p class="label label-info">' +
@@ -35,24 +36,32 @@ Teacher.displayGroup = function(id) {
             connectWith: '.connected',
             opacity: 0.5,
             placeholder: 'placeholder col-xs-4',
-            update: function(event, ui) {
-                /*
-                 * using the 'receive callback' -- won't trigger if position
-                 * within list is changed only if the list it is in changes
-                 * (cf. https://forum.jquery.com/topic/sortables-update-callback-and-connectwith#14737000000631169)
-                 */
-                if (this === ui.item.parent()[0]) {
-                    var groupID = $(ui.item[0]).parent().attr('id');
-                    var user = $(ui.item[0]).find('.embed-responsive-item').attr('user');
-                    if (groupID === Teacher.thumbnailContainerID) {
-                        $.getJSON(Teacher.rootURL + '/api/group_membership.php?context=' + Teacher.context + '&user=' + user + '&action=reset');
-                    } else {
-                        $.getJSON(Teacher.rootURL + '/api/group_membership.php?context=' + Teacher.context + '&user=' + user + '&group=' + groupID)
-                    }
-                    // TODO disconnect user from previous session so they will reconnect to new session
-                }
-            }
+            update: Teacher.sortableUpdate
         });
+}
+
+Teacher.sortableUpdate = function(event, ui) {
+    /*
+     * using the 'receive callback' -- won't trigger if position
+     * within list is changed only if the list it is in changes
+     * (cf. https://forum.jquery.com/topic/sortables-update-callback-and-connectwith#14737000000631169)
+     */
+    if (this === ui.item.parent()[0]) {
+        /* handle event for new list */
+        var groupID = $(ui.item[0]).parent().attr('id');
+        var user = $(ui.item[0]).find('.embed-responsive-item').attr('user');
+        if (groupID === Teacher.thumbnailContainerID) {
+            $.getJSON(Teacher.rootURL + '/api/group_membership.php?context=' + Teacher.context + '&user=' + user + '&action=reset');
+        } else {
+            $.getJSON(Teacher.rootURL + '/api/group_membership.php?context=' + Teacher.context + '&user=' + user + '&group=' + groupID)
+        }
+        // TODO delete this object
+    } else {
+        /* handle event for old list */
+        // TODO disconnect user from previous session so they will reconnect to new session
+        // session.connection.forceUnpublish(streamId, function() {})
+        // need to have the session variable and the stream ID of the user I want to disconnect
+    }
 }
 
 Teacher.addGroup = function() {

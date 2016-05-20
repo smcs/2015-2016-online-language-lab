@@ -36,10 +36,12 @@ LanguageLab = {
 			session.publish(publisher);
 			this.publishedStreamId = publisher.streamId;
 			$('#' + this.thumbnailPrefix + identifier).attr(JSON.parse(session.connection.data)).prepend('<span class="label label-danger">' + this.userName + '</span>');
+			// TODO store stream id as attribute as well
 		} else if(stream !== null) {
 			session.subscribe(stream, this.thumbnailPrefix + stream.streamId, options);
 			var data = JSON.parse(stream.connection.data);
 			$('#' + this.thumbnailPrefix + identifier).attr(data).prepend('<span class="label label-default">' + data.user_name + '</span>');
+			// TODO store stream id as attribute as well
 		}
 
 
@@ -55,6 +57,7 @@ LanguageLab = {
 
 		/* create a new OpenTok session */
 		var session = OT.initSession(apiKey, sessionId);
+		// TODO figure best way of saving (local) session variables as instance variables!
 
 		/* define event-driven session behaviors */
 		session.on('streamCreated', function(event) {
