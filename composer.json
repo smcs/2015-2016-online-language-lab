@@ -38,7 +38,7 @@
     ],
     "require": {
         "opentok/opentok": "^2.0",
-        "smtech/stmarkssmarty": "dev-master",
+        "battis/BootstrapSmarty": "^1.0",
         "spvsoftwareproducts/LTI_Tool_Provider": "^2.5",
         "battis/configxml": "^1.0",
         "battis/appmetadata": "^1.0"

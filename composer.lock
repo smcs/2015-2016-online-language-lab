@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "1b06548d45ae06b373d2d6248f108018",
-    "content-hash": "65910b5db52d8162268bfcd22a0f92a2",
+    "hash": "b30119107ef332ddb80d932db8b033a4",
+    "content-hash": "9914b9601219e7a4298c4cea02c3c780",
     "packages": [
         {
             "name": "aoberoi/json-works",
@@ -163,7 +163,7 @@
                 }
             ],
             "description": "Load a configuration XML file for quick use",
-            "time": "2016-05-05 15:35:01"
+            "time": "2016-05-09 19:47:21"
         },
         {
             "name": "battis/data-utilities",
@@ -292,12 +292,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/eternicode/bootstrap-datepicker.git",
-                "reference": "67a348a3bc51b34b1500186bc3a6ec0b18b54b47"
+                "reference": "b7c2fc5117e646098ed59e227aa87313c88e9603"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/eternicode/bootstrap-datepicker/zipball/67a348a3bc51b34b1500186bc3a6ec0b18b54b47",
-                "reference": "67a348a3bc51b34b1500186bc3a6ec0b18b54b47",
+                "url": "https://api.github.com/repos/eternicode/bootstrap-datepicker/zipball/b7c2fc5117e646098ed59e227aa87313c88e9603",
+                "reference": "b7c2fc5117e646098ed59e227aa87313c88e9603",
                 "shasum": ""
             },
             "require": {
@@ -307,7 +307,7 @@
             "extra": {
                 "bower-asset-main": [
                     "dist/css/bootstrap-datepicker3.css",
-                    "dist/js/bootstrap-datepicker.min.js"
+                    "dist/js/bootstrap-datepicker.js"
                 ],
                 "bower-asset-ignore": []
             },
@@ -361,12 +361,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/jquery/jquery-dist.git",
-                "reference": "086d381cd2f3b4b8b0af85ecb2c9593a61e5b4bd"
+                "reference": "af22a351b2ea5801ffb1695abb3bb34d5bed9198"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jquery/jquery-dist/zipball/086d381cd2f3b4b8b0af85ecb2c9593a61e5b4bd",
-                "reference": "086d381cd2f3b4b8b0af85ecb2c9593a61e5b4bd",
+                "url": "https://api.github.com/repos/jquery/jquery-dist/zipball/af22a351b2ea5801ffb1695abb3bb34d5bed9198",
+                "reference": "af22a351b2ea5801ffb1695abb3bb34d5bed9198",
                 "shasum": ""
             },
             "type": "bower-asset-library",
@@ -392,12 +392,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/moment/moment.git",
-                "reference": "b135bf1a6d58ff94287f0a21455bfa6a1ddc7226"
+                "reference": "d6651c21c6131fbb5db891b60971357739015688"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/moment/moment/zipball/b135bf1a6d58ff94287f0a21455bfa6a1ddc7226",
-                "reference": "b135bf1a6d58ff94287f0a21455bfa6a1ddc7226",
+                "url": "https://api.github.com/repos/moment/moment/zipball/d6651c21c6131fbb5db891b60971357739015688",
+                "reference": "d6651c21c6131fbb5db891b60971357739015688",
                 "shasum": ""
             },
             "type": "bower-asset-library",
@@ -686,79 +686,6 @@
             "time": "2016-05-16 16:17:58"
         },
         {
-            "name": "smtech/stmarks-colors",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/smtech/stmarks-colors.git",
-                "reference": "4e36a4f9e76c00d894487dac18a9d85ebcc54c39"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/smtech/stmarks-colors/zipball/4e36a4f9e76c00d894487dac18a9d85ebcc54c39",
-                "reference": "4e36a4f9e76c00d894487dac18a9d85ebcc54c39",
-                "shasum": ""
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "smtech\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "LGPL-3.0"
-            ],
-            "authors": [
-                {
-                    "name": "Seth Battis",
-                    "email": "sethbattis@stmarksschool.org"
-                }
-            ],
-            "description": "An object-ified, consistent set of hex colors for St. Mark’s projects",
-            "time": "2016-03-17 15:26:18"
-        },
-        {
-            "name": "smtech/stmarkssmarty",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/smtech/stmarkssmarty.git",
-                "reference": "ddb27fba830765e3f663b693c7eb79746d97a8d4"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/smtech/stmarkssmarty/zipball/ddb27fba830765e3f663b693c7eb79746d97a8d4",
-                "reference": "ddb27fba830765e3f663b693c7eb79746d97a8d4",
-                "shasum": ""
-            },
-            "require": {
-                "battis/bootstrapsmarty": "^1.1",
-                "smtech/stmarks-colors": "dev-master"
-            },
-            "suggest": {
-                "battis/appmetadata": "MySQL-backed globals array for app metadata storage"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "smtech\\StMarksSmarty\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "LGPL-3.0"
-            ],
-            "authors": [
-                {
-                    "name": "Seth Battis",
-                    "email": "sethbattis@stmarksschool.org"
-                }
-            ],
-            "description": "A standard Smarty install for St. Mark's projects",
-            "time": "2016-03-17 20:07:04"
-        },
-        {
             "name": "spvsoftwareproducts/LTI_Tool_Provider",
             "version": "2.5.01",
             "dist": {
@@ -847,9 +774,7 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "smtech/stmarkssmarty": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],

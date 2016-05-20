@@ -3,7 +3,7 @@
 require_once __DIR__ . '/vendor/autoload.php';
 
 use smtech\LanguageLab\Application;
-use smtech\StMarksSmarty\StMarksSmarty;
+use Battis\BootstrapSmarty\BootstrapSmarty;
 
 session_start();
 
@@ -21,8 +21,7 @@ $_SESSION['app']->metadata['APP_URL'] = (
 		__DIR__
 );
 
-$smarty = StMarksSmarty::getSmarty(__DIR__ . '/templates');
-$smarty->setFramed(true);
+$smarty = BootstrapSmarty::getSmarty(__DIR__ . '/templates');
 
 $smarty->assign('rootURL', $_SESSION['app']->metadata['APP_URL']);
 $smarty->assign('title', 'Language Lab | St. Mark&rsquo;s School');
