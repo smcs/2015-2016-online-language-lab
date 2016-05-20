@@ -8,14 +8,14 @@ Teacher.groupContainerID = 'groups';
 
 Teacher.makeConnection = function() {
     $(document).ready(function() {
-        $.getJSON(Teacher.rootURL + '/api/v1/groups?context=' + Teacher.context, function(response) {
+        $.getJSON(Teacher.rootURL + '/api/groups.php?context=' + Teacher.context, function(response) {
             if (response.groups !== undefined) {
                 for(var i = 0; i < response.groups.length; i++) {
                     Teacher.displayGroup(response.groups[i].group);
                 }
             }
         });
-        $.getJSON(Teacher.rootURL + '/api/v1/session?context=' + Teacher.context + '&user=' + Teacher.user + '&user_name=' + Teacher.userName, function(response) {
+        $.getJSON(Teacher.rootURL + '/api/session.php?context=' + Teacher.context + '&user=' + Teacher.user + '&user_name=' + Teacher.userName, function(response) {
             Teacher.initializeSession(response.api_key, response.session_id, response.token);
         });
     });
@@ -45,9 +45,9 @@ Teacher.displayGroup = function(id) {
                     var groupID = $(ui.item[0]).parent().attr('id');
                     var user = $(ui.item[0]).find('.embed-responsive-item').attr('user');
                     if (groupID === Teacher.thumbnailContainerID) {
-                        $.getJSON(Teacher.rootURL + '/api/v1/group_membership?context=' + Teacher.context + '&user=' + user + '&action=reset');
+                        $.getJSON(Teacher.rootURL + '/api/group_membership.php?context=' + Teacher.context + '&user=' + user + '&action=reset');
                     } else {
-                        $.getJSON(Teacher.rootURL + '/api/v1/group_membership?context=' + Teacher.context + '&user=' + user + '&group=' + groupID)
+                        $.getJSON(Teacher.rootURL + '/api/group_membership.php?context=' + Teacher.context + '&user=' + user + '&group=' + groupID)
                     }
                     // TODO disconnect user from previous session so they will reconnect to new session
                 }
@@ -56,13 +56,13 @@ Teacher.displayGroup = function(id) {
 }
 
 Teacher.addGroup = function() {
-    $.getJSON(Teacher.rootURL + '/api/v1/session?context=' + Teacher.context + '&user=' + Teacher.user + '&user_name=' + Teacher.userName + '&type=group', function(response) {
+    $.getJSON(Teacher.rootURL + '/api/session.php?context=' + Teacher.context + '&user=' + Teacher.user + '&user_name=' + Teacher.userName + '&type=group', function(response) {
         Teacher.displayGroup(response.group);
     });
 }
 
 Teacher.deleteGroup = function (id) {
-    $.getJSON(Teacher.rootURL + '/api/v1/groups?context=' + Teacher.context + '&group=' + id + '&action=delete', function(response) {
+    $.getJSON(Teacher.rootURL + '/api/groups.php?context=' + Teacher.context + '&group=' + id + '&action=delete', function(response) {
         if (response.result) {
             $('#wrapper-' + id).remove();
         } else {
@@ -73,7 +73,7 @@ Teacher.deleteGroup = function (id) {
 
 Teacher.resetGroups = function() {
     // TODO make list of users and OpenTok sessions affected
-    $.getJSON(Teacher.rootURL + '/api/v1/groups?context=' + Teacher.context + '&action=reset', function (response) {
+    $.getJSON(Teacher.rootURL + '/api/groups.php?context=' + Teacher.context + '&action=reset', function (response) {
         if (response.result) {
             $('#' + Teacher.groupContainerID).empty();
         } else {
