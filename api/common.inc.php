@@ -5,6 +5,7 @@ require_once __DIR__ . '/../common.inc.php';
 define('PARAM_TYPE', 'type');
 define('PARAM_CONTEXT', 'context');
 define('PARAM_USER', 'user');
+define('PARAM_USER_NAME', 'user_name');
 define('PARAM_GROUP', 'group');
 define('PARAM_ACTION', 'action');
 

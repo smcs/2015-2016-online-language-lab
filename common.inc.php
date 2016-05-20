@@ -27,6 +27,7 @@ $smarty->setFramed(true);
 $smarty->assign('rootURL', $_SESSION['app']->metadata['APP_URL']);
 $smarty->assign('title', 'Language Lab | St. Mark&rsquo;s School');
 $smarty->assign('category', 'Beta');
+$smarty->addStylesheet('../css/language-lab.css', 'language-lab');
 
 if (!isset($_SESSION['user'])&& !defined('LAUNCHING_LTI')) {
 	$smarty->addMessage('Authentication Error');
@@ -37,4 +38,5 @@ if (!isset($_SESSION['user'])&& !defined('LAUNCHING_LTI')) {
 	$smarty->assign('user', $_SESSION['user']->getId());
 	$smarty->assign('firstName', $_SESSION['user']->firstname);
 	$smarty->assign('lastName', $_SESSION['user']->lastname);
+	$smarty->assign('fullName', $_SESSION['user']->fullname);
 }

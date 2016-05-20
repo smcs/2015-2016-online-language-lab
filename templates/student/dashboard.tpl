@@ -18,7 +18,7 @@
 	<script src="../js/language-lab.js"></script>
 	<script src="../js/student.js"></script>
 	<script>
-		Student.init('{$rootURL}', '{$context}', '{$user}');
+		Student.init('{$rootURL}', '{$context}', '{$user}', '{$fullName}');
 	</script>
 
 {/block}

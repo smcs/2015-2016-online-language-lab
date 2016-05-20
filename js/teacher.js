@@ -15,7 +15,7 @@ Teacher.makeConnection = function() {
                 }
             }
         });
-        $.getJSON(Teacher.rootURL + '/api/v1/session?context=' + Teacher.context + '&user=' + Teacher.user, function(response) {
+        $.getJSON(Teacher.rootURL + '/api/v1/session?context=' + Teacher.context + '&user=' + Teacher.user + '&user_name=' + Teacher.userName, function(response) {
             Teacher.initializeSession(response.api_key, response.session_id, response.token);
         });
     });
@@ -42,18 +42,21 @@ Teacher.displayGroup = function(id) {
                  * (cf. https://forum.jquery.com/topic/sortables-update-callback-and-connectwith#14737000000631169)
                  */
                 if (this === ui.item.parent()[0]) {
-                    // FIXME just delete the user from their group if they are moved back into the class manually
-                    $.getJSON(Teacher.rootURL + '/api/v1/group_membership?context=' + Teacher.context + '&user=' + $(ui.item[0]).find('.embed-responsive-item').attr('user') + '&group=' + $(ui.item[0]).parent().attr('id'), function(response) {
-                        console.log(response);
-                        // TODO disconnect user from previous session so they will reconnect to new session
-                    })
+                    var groupID = $(ui.item[0]).parent().attr('id');
+                    var user = $(ui.item[0]).find('.embed-responsive-item').attr('user');
+                    if (groupID === Teacher.thumbnailContainerID) {
+                        $.getJSON(Teacher.rootURL + '/api/v1/group_membership?context=' + Teacher.context + '&user=' + user + '&action=reset');
+                    } else {
+                        $.getJSON(Teacher.rootURL + '/api/v1/group_membership?context=' + Teacher.context + '&user=' + user + '&group=' + groupID)
+                    }
+                    // TODO disconnect user from previous session so they will reconnect to new session
                 }
             }
         });
 }
 
 Teacher.addGroup = function() {
-    $.getJSON(Teacher.rootURL + '/api/v1/session?context=' + Teacher.context + '&user=' + Teacher.user + '&type=group', function(response) {
+    $.getJSON(Teacher.rootURL + '/api/v1/session?context=' + Teacher.context + '&user=' + Teacher.user + '&user_name=' + Teacher.userName + '&type=group', function(response) {
         Teacher.displayGroup(response.group);
     });
 }

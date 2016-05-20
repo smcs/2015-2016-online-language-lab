@@ -10,6 +10,7 @@ LanguageLab = {
     rootURL: null,
     context: null,
     user: null,
+	userName: null,
 	publishedStreamId: null,
 
 	appendToContainer: function(session, stream) {
@@ -34,10 +35,11 @@ LanguageLab = {
 			var publisher = OT.initPublisher(this.thumbnailPrefix + identifier, options);
 			session.publish(publisher);
 			this.publishedStreamId = publisher.streamId;
-			$('#' + this.thumbnailPrefix + identifier).attr(JSON.parse(session.connection.data));
+			$('#' + this.thumbnailPrefix + identifier).attr(JSON.parse(session.connection.data)).prepend('<span class="label label-danger">' + this.userName + '</span>');
 		} else if(stream !== null) {
 			session.subscribe(stream, this.thumbnailPrefix + stream.streamId, options);
-			$('#' + this.thumbnailPrefix + identifier).attr(JSON.parse(stream.connection.data))
+			var data = JSON.parse(stream.connection.data);
+			$('#' + this.thumbnailPrefix + identifier).attr(data).prepend('<span class="label label-default">' + data.user_name + '</span>');
 		}
 
 
@@ -81,11 +83,12 @@ LanguageLab = {
 
     makeConnection: function() {},
 
-	init: function(rootURL, context, user) {
+	init: function(rootURL, context, user, userName) {
 		"use strict";
         this.rootURL = rootURL;
         this.context = context;
         this.user = user;
+		this.userName = userName;
         this.makeConnection();
     }
 };

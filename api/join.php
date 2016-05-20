@@ -16,7 +16,7 @@ require_once 'common.inc.php';
 
 use OpenTok\Role;
 
-requiredParameters([PARAM_CONTEXT, PARAM_USER]);
+requiredParameters([PARAM_CONTEXT, PARAM_USER, PARAM_USER_NAME]);
 
 $apiResponse = [];
 
@@ -61,7 +61,8 @@ if (!empty($apiResponse[API_SESSION_ID])) {
             'role' => Role::PUBLISHER,
             'data' => json_encode([
                 'context' => $_REQUEST[PARAM_CONTEXT],
-                'user' => $_REQUEST[PARAM_USER]
+                'user' => $_REQUEST[PARAM_USER],
+                'user_name' => $_REQUEST[PARAM_USER_NAME]
             ])
         ]
     );

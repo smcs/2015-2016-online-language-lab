@@ -18,7 +18,7 @@ require_once 'common.inc.php';
 use Battis\BootstrapSmarty\NotificationMessage;
 use OpenTok\Role;
 
-requiredParameters([PARAM_CONTEXT, PARAM_USER]);
+requiredParameters([PARAM_CONTEXT, PARAM_USER, PARAM_USER_NAME]);
 
 /* default to TYPE_CLASS if none (or nonexistent) specified */
 switch (trim(strtolower((empty($_REQUEST[PARAM_TYPE]) ? TYPE_CLASS : $_REQUEST[PARAM_TYPE])))) {
@@ -65,7 +65,8 @@ $apiResponse[API_SESSION_TOKEN] = $_SESSION['app']->opentok->generateToken(
 		'role' => Role::MODERATOR,
 		'data' => json_encode([
 			'context' => $_REQUEST[PARAM_CONTEXT],
-			'user' => $_REQUEST[PARAM_USER]
+			'user' => $_REQUEST[PARAM_USER],
+			'user_name' => $_REQUEST[PARAM_USER_NAME]
 		])
 	]
 );

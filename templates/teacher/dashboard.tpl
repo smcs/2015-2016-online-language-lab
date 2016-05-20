@@ -40,7 +40,7 @@
 		});
 
 		/* fire up the OpenTok app */
-		Teacher.init('{$rootURL}', '{$context}', '{$user}');
+		Teacher.init('{$rootURL}', '{$context}', '{$user}', '{$fullName}');
 	</script>
 
 {/block}
