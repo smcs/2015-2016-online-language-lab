@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "b30119107ef332ddb80d932db8b033a4",
-    "content-hash": "9914b9601219e7a4298c4cea02c3c780",
+    "hash": "2506248d81dc1018c919f9e51bc04d47",
+    "content-hash": "1e83d66ef5a9d73323c7783fef40a53a",
     "packages": [
         {
             "name": "aoberoi/json-works",
@@ -51,39 +51,6 @@
                 "schema"
             ],
             "time": "2015-04-29 05:52:18"
-        },
-        {
-            "name": "battis/appmetadata",
-            "version": "v1.2.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/battis/appmetadata.git",
-                "reference": "a97bdc20627008ed165b638737b618a0d6f606c2"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/battis/appmetadata/zipball/a97bdc20627008ed165b638737b618a0d6f606c2",
-                "reference": "a97bdc20627008ed165b638737b618a0d6f606c2",
-                "shasum": ""
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Battis\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "LGPL-3.0"
-            ],
-            "authors": [
-                {
-                    "name": "Seth Battis",
-                    "email": "seth@battis.net"
-                }
-            ],
-            "description": "An object to store app metadata backed by a MySQL table",
-            "time": "2015-10-22 20:25:29"
         },
         {
             "name": "battis/bootstrapsmarty",
@@ -292,12 +259,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/eternicode/bootstrap-datepicker.git",
-                "reference": "b7c2fc5117e646098ed59e227aa87313c88e9603"
+                "reference": "fb7bf15b389104ccb38b4b89c6d40ca949d0232f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/eternicode/bootstrap-datepicker/zipball/b7c2fc5117e646098ed59e227aa87313c88e9603",
-                "reference": "b7c2fc5117e646098ed59e227aa87313c88e9603",
+                "url": "https://api.github.com/repos/eternicode/bootstrap-datepicker/zipball/fb7bf15b389104ccb38b4b89c6d40ca949d0232f",
+                "reference": "fb7bf15b389104ccb38b4b89c6d40ca949d0232f",
                 "shasum": ""
             },
             "require": {
@@ -307,7 +274,7 @@
             "extra": {
                 "bower-asset-main": [
                     "dist/css/bootstrap-datepicker3.css",
-                    "dist/js/bootstrap-datepicker.js"
+                    "dist/js/bootstrap-datepicker.min.js"
                 ],
                 "bower-asset-ignore": []
             },
@@ -636,12 +603,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/smarty-php/smarty.git",
-                "reference": "dccfc6c2f5f519ff2db1b24de2ccb0283554b8c7"
+                "reference": "1fbf16afed5a62964119df937eb27fa98c8ec186"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/smarty-php/smarty/zipball/dccfc6c2f5f519ff2db1b24de2ccb0283554b8c7",
-                "reference": "dccfc6c2f5f519ff2db1b24de2ccb0283554b8c7",
+                "url": "https://api.github.com/repos/smarty-php/smarty/zipball/1fbf16afed5a62964119df937eb27fa98c8ec186",
+                "reference": "1fbf16afed5a62964119df937eb27fa98c8ec186",
                 "shasum": ""
             },
             "require": {
@@ -683,7 +650,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2016-05-16 16:17:58"
+            "time": "2016-05-10 01:54:56"
         },
         {
             "name": "spvsoftwareproducts/LTI_Tool_Provider",

@@ -1,13 +1,22 @@
 {
-    "name": "smtech/language-lab",
-    "description": "An online, managed video and audioconferencing tool",
+    "name": "smcs/language_lab",
+    "description": "This is app that allows to learn languages",
     "license": "GPL-3.0",
     "authors": [
         {
-            "name": "Seth Battis",
-            "email": "sethbattis@stmarksschool.org"
+            "name": "Aigerim Bishigayeva",
+            "email": "aigerimbishigayeva@stmarksschool.org"
+        },
+        {
+            "name": "Isabelle Kim",
+            "email": "minjaekim@stmarksschool.org"
         }
     ],
+    "autoload": {
+        "psr-4": {
+            "smcs\\language_lab\\": "src/"
+        }
+    },
     "config": {
 		"secure-http": false
 	},
@@ -38,15 +47,9 @@
     ],
     "require": {
         "opentok/opentok": "^2.0",
-        "battis/BootstrapSmarty": "^1.0",
         "spvsoftwareproducts/LTI_Tool_Provider": "^2.5",
-        "battis/configxml": "^1.0",
-        "battis/appmetadata": "^1.0"
+        "battis/bootstrapsmarty": "^1.1",
+        "battis/configxml": "^1.0"
     },
-    "minimum-stability": "dev",
-    "autoload": {
-        "psr-4": {
-            "smtech\\LanguageLab\\": "src/"
-        }
-    }
+    "minimum-stability": "dev"
 }

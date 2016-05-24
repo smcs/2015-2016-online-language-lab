@@ -13,11 +13,14 @@ LanguageLab = {
 	userName: null,
 	publishedStreamId: null,
 
+<<<<<<< HEAD
 	/* Keep session object as element. */
 	session:null,
 
 	publisher: null,
 
+=======
+>>>>>>> d11c5b610b0c768103653073f472c4fd0ceec405
 	appendToContainer: function(session, stream) {
 		"use strict";
 		var options = {
@@ -37,8 +40,13 @@ LanguageLab = {
 		);
 
 		if (stream === undefined) {
+<<<<<<< HEAD
 			publisher = OT.initPublisher(this.thumbnailPrefix + identifier, options);
 			this.publish();
+=======
+			var publisher = OT.initPublisher(this.thumbnailPrefix + identifier, options);
+			session.publish(publisher);
+>>>>>>> d11c5b610b0c768103653073f472c4fd0ceec405
 			this.publishedStreamId = publisher.streamId;
 			$('#' + this.thumbnailPrefix + identifier).attr(JSON.parse(session.connection.data)).prepend('<span class="label label-danger">' + this.userName + '</span>');
 			// TODO store stream id as attribute as well
@@ -61,7 +69,12 @@ LanguageLab = {
 		var self = this;
 
 		/* create a new OpenTok session */
+<<<<<<< HEAD
 		this.session = OT.initSession(apiKey, sessionId);
+=======
+		var session = OT.initSession(apiKey, sessionId);
+		// TODO figure best way of saving (local) session variables as instance variables!
+>>>>>>> d11c5b610b0c768103653073f472c4fd0ceec405
 
 		/* define event-driven session behaviors */
 		session.on('streamCreated', function(event) {
@@ -88,6 +101,7 @@ LanguageLab = {
 		});
 	},
 
+<<<<<<< HEAD
 	publish: function() {
 		this.session.publish(this.publisher);
 	},
@@ -109,6 +123,8 @@ LanguageLab = {
 		});
 	},
 
+=======
+>>>>>>> d11c5b610b0c768103653073f472c4fd0ceec405
     makeConnection: function() {},
 
 	init: function(rootURL, context, user, userName) {
@@ -119,4 +135,8 @@ LanguageLab = {
 		this.userName = userName;
         this.makeConnection();
     }
+<<<<<<< HEAD
 };
+=======
+};
+>>>>>>> d11c5b610b0c768103653073f472c4fd0ceec405

@@ -1,74 +1,93 @@
 <?php
 
+/**
+ * GET {language-lab instance url}/api/v1/session?context={LTI context ID}&user={LTI user ID}[&type={class|group}]
+ *
+ * Returns
+ * {
+ * 	api_key: {OpenTok API key},
+ * 	session_id: {OpenTok session ID},
+ * 	token: {OpenTok moderator token for `session_id`},
+ * 	id: {Database ID for `session_id`}[,
+ * 	group: {Database ID for group}]
+ * }
+ */
+
 require_once 'common.inc.php';
 
 use Battis\BootstrapSmarty\NotificationMessage;
+use OpenTok\Role;
 
-$apiResponse = array();
+requiredParameters([PARAM_CONTEXT, PARAM_USER, PARAM_USER_NAME]);
 
-/* sample API request might look like...
-
-https://roswell.stmarksschool.org/~language-lab/api/session.php?type=main&class=unique-id
-
-*/
-
-/* what type of session to create? ($_REQUEST['type']) */
-/* create that type of session */
-/* store session data in db...
-	if main session, it needs to be associated with this class ($_REQUEST['class']), store into sessions table with type 'main', replacing any other main sessions for this class (and disable/delete old group sessions for this class)
-	if group session, it needs to be associated with this class ($_REQUEST['class']), store into sessions table with type 'group'
-*/
-/* put together AJAX response with apiKey, sessionId, token parameters */
-/* send AJAX response */
-
-if (empty($_REQUEST['id'])) {
-	$session = $opentok->createSession();
-	$result = $sql->query("
-		INSERT INTO `sessions`
-			(
-				`creator`,
-				`tokbox`
-			)
-			VALUES (
-				'-1',
-				'" . $sql->escape_string($session->getSessionId()) . "'
-			)
-	");
-	if ($result == false) {
-		$smarty->addMessage(
-			"Database error {$sql->errno}",
-			$sql->error,
-			NotificationMessage::ERROR
-		);
-		$smarty->display('api/error.tpl');
-	}
-	$apiResponse['apiKey'] = $secrets->toArray('//opentok/key')[0][0];
-	$apiResponse['sessionId'] = $session->getSessionId();
-	$apiResponse['token'] = $opentok->generateToken($session->getSessionId());
-	$apiResponse['id'] = $sql->insert_id;
-} else {
-	$response = $sql->query("
-		SELECT *
-			FROM `sessions`
-			WHERE
-				`id` = '" . $sql->escape_string($_REQUEST['id']) . "'
-	");
-	if ($response) {
-		$session = $response->fetch_assoc();
-		$apiResponse['apiKey'] = $secrets->toArray('//opentok/key')[0][0];
-		$apiResponse['sessionId'] = $session['tokbox'];
-		$apiResponse['token'] = $opentok->generateToken($session['tokbox']);
-		$apiResponse['id'] = $session['id'];
-	} else {
-		$smarty->addMessage(
-			"Database error {$sql->errno}",
-			$sql->error,
-			NotificationMessage::ERROR
-		);
-		$smarty->display('api/error.tpl');
-	}
+/* default to TYPE_CLASS if none (or nonexistent) specified */
+switch (trim(strtolower((empty($_REQUEST[PARAM_TYPE]) ? TYPE_CLASS : $_REQUEST[PARAM_TYPE])))) {
+	case TYPE_GROUP:
+		$type = TYPE_GROUP;
+		break;
+	case TYPE_CLASS:
+	default:
+		$type = TYPE_CLASS;
+		if ($_SESSION['app']->sql->query("
+			DELETE
+				FROM `sessions`
+				WHERE
+					`context` = '" . $_SESSION['app']->sql->escape_string($_REQUEST[PARAM_CONTEXT]) . "' AND
+					`type` = '" . TYPE_CLASS . "'
+		") === false) {
+			databaseError(__LINE__);
+		}
+		break;
 }
 
-header("Access-Control-Allow-Origin: {$_SERVER['SERVER_NAME']}");
-echo json_encode($apiResponse);
-exit;
+// TODO set teacher as moderator
+$openTokSession = $_SESSION['app']->opentok->createSession();
+if ($_SESSION['app']->sql->query("
+	INSERT INTO `sessions`
+		(
+			`context`,
+			`user`,
+			`tokbox`,
+			`type`
+		) VALUES (
+			'" . $_SESSION['app']->sql->escape_string($_REQUEST[PARAM_CONTEXT]) . "',
+			'" . $_SESSION['app']->sql->escape_string($_REQUEST[PARAM_USER]) . "',
+			'" . $_SESSION['app']->sql->escape_string($openTokSession->getSessionId()) . "',
+			'$type'
+		)
+") === false) {
+	databaseError(__LINE__);
+}
+$apiResponse[API_KEY] = $_SESSION['app']->config->toString('//tokbox/key');
+$apiResponse[API_SESSION_ID] = $openTokSession->getSessionId();
+$apiResponse[API_SESSION_TOKEN] = $_SESSION['app']->opentok->generateToken(
+	$openTokSession->getSessionId(), [
+		'role' => Role::MODERATOR,
+		'data' => json_encode([
+			'context' => $_REQUEST[PARAM_CONTEXT],
+			'user' => $_REQUEST[PARAM_USER],
+			'user_name' => $_REQUEST[PARAM_USER_NAME]
+		])
+	]
+);
+$apiResponse[API_DATABASE_ID] = $_SESSION['app']->sql->insert_id;
+
+// TODO deal with residual group sessions (should probably be cleared when class session is created)
+// TODO related: should the teacher be able to query for existing groups to (re)populate the teacher dashboard?
+if ($type === TYPE_GROUP) {
+	if ($_SESSION['app']->sql->query("
+		INSERT INTO `groups`
+			(
+				`context`,
+				`session`
+			) VALUES (
+				'" . $_SESSION['app']->sql->escape_string($_REQUEST[PARAM_CONTEXT]) . "',
+				'" . $apiResponse[API_DATABASE_ID] . "'
+			)
+	") === false) {
+		databaseError(__LINE__);
+	}
+	$apiResponse[API_GROUP_ID] = $_SESSION['app']->sql->insert_id;
+}
+
+sendResponse($apiResponse);

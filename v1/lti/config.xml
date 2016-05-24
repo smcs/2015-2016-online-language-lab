@@ -11,12 +11,12 @@
     <blti:launch_url>https://roswell.stmarksschool.org/~language-lab/lti/launch.php</blti:launch_url>
     <blti:custom></blti:custom>
     <blti:extensions platform="canvas.instructure.com">
-        <lticm:property name="tool_id">smtech_language_lab</lticm:property>
+        <lticm:property name="tool_id">smcs_language_lab</lticm:property>
         <lticm:property name="privacy_level">public</lticm:property>
         <lticm:property name="text">Language Lab</lticm:property>
         <lticm:options name="course_navigation">
             <lticm:property name="enabled">true</lticm:property>
-            <lticm:property name="url">https://area51.stmarksschool.org/sandbox/smtech/language-lab/lti/launch.php</lticm:property>
+            <lticm:property name="url">https://roswell.stmarksschool.org/~language-lab/lti/launch.php</lticm:property>
             <lticm:property name="visibility">public</lticm:property>
         </lticm:options>
     </blti:extensions>
