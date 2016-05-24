@@ -40,7 +40,6 @@ switch (trim(strtolower((empty($_REQUEST[PARAM_TYPE]) ? TYPE_CLASS : $_REQUEST[P
 		break;
 }
 
-// TODO set teacher as moderator
 $openTokSession = $_SESSION['app']->opentok->createSession();
 if ($_SESSION['app']->sql->query("
 	INSERT INTO `sessions`
@@ -73,7 +72,6 @@ $apiResponse[API_SESSION_TOKEN] = $_SESSION['app']->opentok->generateToken(
 $apiResponse[API_DATABASE_ID] = $_SESSION['app']->sql->insert_id;
 
 // TODO deal with residual group sessions (should probably be cleared when class session is created)
-// TODO related: should the teacher be able to query for existing groups to (re)populate the teacher dashboard?
 if ($type === TYPE_GROUP) {
 	if ($_SESSION['app']->sql->query("
 		INSERT INTO `groups`
