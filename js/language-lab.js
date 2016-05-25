@@ -12,15 +12,8 @@ LanguageLab = {
     user: null,
 	userName: null,
 	publishedStreamId: null,
+	session: null,
 
-<<<<<<< HEAD
-	/* Keep session object as element. */
-	session:null,
-
-	publisher: null,
-
-=======
->>>>>>> d11c5b610b0c768103653073f472c4fd0ceec405
 	appendToContainer: function(session, stream) {
 		"use strict";
 		var options = {
@@ -40,13 +33,8 @@ LanguageLab = {
 		);
 
 		if (stream === undefined) {
-<<<<<<< HEAD
-			publisher = OT.initPublisher(this.thumbnailPrefix + identifier, options);
-			this.publish();
-=======
 			var publisher = OT.initPublisher(this.thumbnailPrefix + identifier, options);
 			session.publish(publisher);
->>>>>>> d11c5b610b0c768103653073f472c4fd0ceec405
 			this.publishedStreamId = publisher.streamId;
 			$('#' + this.thumbnailPrefix + identifier).attr(JSON.parse(session.connection.data)).prepend('<span class="label label-danger">' + this.userName + '</span>');
 			// TODO store stream id as attribute as well
@@ -69,30 +57,26 @@ LanguageLab = {
 		var self = this;
 
 		/* create a new OpenTok session */
-<<<<<<< HEAD
 		this.session = OT.initSession(apiKey, sessionId);
-=======
-		var session = OT.initSession(apiKey, sessionId);
 		// TODO figure best way of saving (local) session variables as instance variables!
->>>>>>> d11c5b610b0c768103653073f472c4fd0ceec405
 
 		/* define event-driven session behaviors */
-		session.on('streamCreated', function(event) {
+		this.session.on('streamCreated', function(event) {
 			if (event.stream.streamId !== self.publishedStreamId) {
 				self.appendToContainer(session, event.stream);
 			}
 		});
 
-		session.on('streamDestroyed', function(event) {
+		this.session.on('streamDestroyed', function(event) {
 			$('.' + self.thumbnailClass + ':has(#' + self.thumbnailPrefix + event.stream.streamId + ')').remove();
 		});
 
-		session.on('sessionDisconeected', function(event) {
+		this.session.on('sessionDisconeected', function(event) {
 			console.log('You were disconnected from the session. ', event.reason);
 		});
 
 		/* connect to the session */
-		session.connect(token, function(error) {
+		this.session.connect(token, function(error) {
 			if (!error) {
 				self.appendToContainer(session);
 			} else {
@@ -101,30 +85,6 @@ LanguageLab = {
 		});
 	},
 
-<<<<<<< HEAD
-	publish: function() {
-		this.session.publish(this.publisher);
-	},
-
-	unpublish: function() {
-		//session.unpublish(publisher);
-		this.session.unpublish(this.publisher);
-	},
-
-	forceDisconnect: function() {
-		this.session.forceDisconnect(session.connection, function(event) {
-			console.log("Disconnection is forced. ", event.reason);
-		});
-	},
-
-	forceUnpublish: function() {
-		this.session.connection.forceUnpublish(this.publishedStreamId, function(event) {
-			console.log("Unpublish is forced. ", event.reason);
-		});
-	},
-
-=======
->>>>>>> d11c5b610b0c768103653073f472c4fd0ceec405
     makeConnection: function() {},
 
 	init: function(rootURL, context, user, userName) {
@@ -135,8 +95,4 @@ LanguageLab = {
 		this.userName = userName;
         this.makeConnection();
     }
-<<<<<<< HEAD
 };
-=======
-};
->>>>>>> d11c5b610b0c768103653073f472c4fd0ceec405
