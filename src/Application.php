@@ -67,6 +67,6 @@ class Application extends LTI_Tool_Provider {
     	$_SESSION['user'] = $this->user->getId();
     	$_SESSION['firstName'] = $this->user->firstname;
     	$_SESSION['lastName'] = $this->user->lastname;
-    	$_SESSION['fullname'] = $this->user->fullname;
+    	$_SESSION['fullName'] = $this->user->fullname;
     }
 }
