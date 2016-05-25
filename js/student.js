@@ -18,7 +18,7 @@ Student.joinSession = function() {
 }
 
 Student.initializeSession = function(apiKey, sessionId, token) {
-    this.proto.initializeSession(apiKey, sessionId, token);
+    this.__proto__.initializeSession(apiKey, sessionId, token);
     this.session.on('sessionDisconeected', function(event) {
         // TODO there may be some clean up that we need to do here too!
         this.joinSession();
