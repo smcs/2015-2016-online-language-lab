@@ -27,5 +27,4 @@ Student.initializeSession = function(apiKey, sessionId, token) {
 
 Student.makeConnection = function() {
     $(document).ready(this.joinSession());
-    });
 }
