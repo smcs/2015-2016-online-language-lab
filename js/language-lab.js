@@ -78,7 +78,7 @@ LanguageLab = {
 		/* connect to the session */
 		this.session.connect(token, function(error) {
 			if (!error) {
-				self.appendToContainer(session);
+				self.appendToContainer(self.session);
 			} else {
 				console.log('There was an error connecting to the session: ', error.code, error.message);
 			}
