@@ -11,8 +11,8 @@ LanguageLab = {
     context: null,
     user: null,
 	userName: null,
-	sessions: null,
-	publishedStreams: null,
+	sessions: [],
+	publishedStreams: [],
 
 	appendToContainer: function(session, stream, container) {
 		"use strict";
