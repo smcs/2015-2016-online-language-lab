@@ -1,16 +1,18 @@
 /* directives for http://JSLint.com */
-/*jslint browser, for, this, white, multivar */
-/*global $, OT, console */
+/*jslint devel: true, browser: true, white: true */
+/*global $, OT, console, LanguageLab */
 
 var Teacher = Object.create(LanguageLab);
 
 Teacher.groupContainerID = 'groups';
 
-Teacher.makeConnection = function() {
-    $(document).ready(function() {
-        $.getJSON(Teacher.rootURL + '/api/groups.php?context=' + Teacher.context + '&user=' + Teacher.user + '&user_name=' + Teacher.userName, function(response) {
+Teacher.makeConnection = function () {
+    "use strict";
+    $(document).ready(function () {
+        var i;
+        $.getJSON(Teacher.rootURL + '/api/groups.php?context=' + Teacher.context + '&user=' + Teacher.user + '&user_name=' + Teacher.userName, function (response) {
             if (response.groups !== undefined) {
-                for(var i = 0; i < response.groups.length; i++) {
+                for (i = 0; i < response.groups.length; i = i + 1) {
                     Teacher.displayGroup(response.groups[i].group);
                     Teacher.initializeSession(
                         response.groups[i].api_key,
@@ -21,7 +23,7 @@ Teacher.makeConnection = function() {
                 }
             }
         });
-        $.getJSON(Teacher.rootURL + '/api/session.php?context=' + Teacher.context + '&user=' + Teacher.user + '&user_name=' + Teacher.userName, function(response) {
+        $.getJSON(Teacher.rootURL + '/api/session.php?context=' + Teacher.context + '&user=' + Teacher.user + '&user_name=' + Teacher.userName, function (response) {
             Teacher.initializeSession(
                 response.api_key,
                 response.session_id,
@@ -29,9 +31,10 @@ Teacher.makeConnection = function() {
             );
         });
     });
-}
+};
 
-Teacher.displayGroup = function(id) {
+Teacher.displayGroup = function (id) {
+    "use strict";
     $('#' + Teacher.groupContainerID).append(
         '<div id="wrapper-' + id + '" class="droppable">' +
             '<p class="label label-info">' +
@@ -48,11 +51,13 @@ Teacher.displayGroup = function(id) {
             placeholder: 'placeholder col-xs-4',
             update: Teacher.sortableUpdate
         });
-}
+};
 
 Teacher.sortableUpdate = function(event, ui) {
-    var groupID = $(this).attr('id');
-    var user = $(ui.item[0]).find('.embed-responsive-item').attr('user');
+    "use strict";
+    var thumbnail = $(ui.item[0]).find('embed-responsive-item'),
+        groupID = $(this).attr('id'),
+        user = thumbnail.attr('user');
 
     /*
      * using the 'receive callback' -- won't trigger if position
@@ -64,30 +69,32 @@ Teacher.sortableUpdate = function(event, ui) {
         if (groupID === Teacher.thumbnailContainerID) {
             $.getJSON(Teacher.rootURL + '/api/group_membership.php?context=' + Teacher.context + '&user=' + user + '&action=reset');
         } else {
-            $.getJSON(Teacher.rootURL + '/api/group_membership.php?context=' + Teacher.context + '&user=' + user + '&group=' + groupID)
+            $.getJSON(Teacher.rootURL + '/api/group_membership.php?context=' + Teacher.context + '&user=' + user + '&group=' + groupID);
         }
         // TODO delete this object -- or will that happen automagically when it's unpublished
     } else {
         /* handle event for old list */
         // TODO disconnect user from previous session so they will reconnect to new session
-        Teacher.sessions[groupID].connection.forceUnpublish($(ui.item[0]).find('.embed-responsive-item').attr('stream_id'), function() {
+        Teacher.sessions[groupID].forceUnpublish(thumbnail.attr('stream_id'), function() {
             console.log('Disconnected a ' + user + ' from ' + groupID);
         });
         // need to have the session variable and the stream ID of the user I want to disconnect
     }
-}
+};
 
 Teacher.postInitializeSession = function() {
-
-}
+    "use strict";
+};
 
 Teacher.addGroup = function() {
+    "use strict";
     $.getJSON(Teacher.rootURL + '/api/session.php?context=' + Teacher.context + '&user=' + Teacher.user + '&user_name=' + Teacher.userName + '&type=group', function(response) {
         Teacher.displayGroup(response.group);
     });
-}
+};
 
 Teacher.deleteGroup = function (id) {
+    "use strict";
     $.getJSON(Teacher.rootURL + '/api/groups.php?context=' + Teacher.context + '&group=' + id + '&action=delete', function(response) {
         if (response.result) {
             $('#wrapper-' + id).remove();
@@ -95,9 +102,10 @@ Teacher.deleteGroup = function (id) {
             alert('Error!');
         }
     });
-}
+};
 
 Teacher.resetGroups = function() {
+    "use strict";
     // TODO make list of users and OpenTok sessions affected
     $.getJSON(Teacher.rootURL + '/api/groups.php?context=' + Teacher.context + '&action=reset', function (response) {
         if (response.result) {
@@ -107,4 +115,4 @@ Teacher.resetGroups = function() {
         }
     });
     // TODO disconnect users from their (now deleted) OpenTok sessions, forcing them to reconnect to the class session
-}
+};
