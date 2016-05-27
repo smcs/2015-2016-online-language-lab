@@ -75,7 +75,7 @@ LanguageLab = {
 		this.session.connect(token, function(error) {
 			if (!error) {
 				if (container === undefined) {
-					container = this.thumbnailContainerID;
+					container = self.thumbnailContainerID;
 				}
 
 				self.appendToContainer(self.session, undefined, container);
