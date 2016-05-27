@@ -70,7 +70,7 @@ Teacher.sortableUpdate = function(event, ui) {
     } else {
         /* handle event for old list */
         // TODO disconnect user from previous session so they will reconnect to new session
-        this.sessions[groupID].connection.forceUnpublish($(ui.item[0]).find('.embed-responsive-item').attr('stream_id'), function() {
+        Teacher.sessions[groupID].connection.forceUnpublish($(ui.item[0]).find('.embed-responsive-item').attr('stream_id'), function() {
             console.log('Disconnected a ' + user + ' from ' + groupID);
         });
         // need to have the session variable and the stream ID of the user I want to disconnect
