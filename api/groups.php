@@ -6,6 +6,8 @@
 
 require_once 'common.inc.php';
 
+use OpenTok\Role;
+
 requiredParameters([PARAM_CONTEXT]);
 
 $apiResponse = [];
