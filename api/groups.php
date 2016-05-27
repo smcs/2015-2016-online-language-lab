@@ -92,7 +92,7 @@ switch (trim(strtolower((empty($_REQUEST[PARAM_ACTION]) ? ACTION_LIST : $_REQUES
 					LEFT JOIN `sessions` AS s
 						ON g.`session` = s.`id`
                 WHERE
-                    `context` = '" . $_SESSION['app']->sql->escape_string($_REQUEST[PARAM_CONTEXT]) . "'
+                    g.`context` = '" . $_SESSION['app']->sql->escape_string($_REQUEST[PARAM_CONTEXT]) . "'
                 ORDER BY
                     g.`id` ASC
         ")) === false) {
