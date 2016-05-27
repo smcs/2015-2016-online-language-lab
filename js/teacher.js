@@ -49,7 +49,7 @@ Teacher.displayGroup = function(id) {
 }
 
 Teacher.sortableUpdate = function(event, ui) {
-    var groupID = $(ui.item[0]).parent().attr('id');
+    var groupID = this.parent().attr('id');
     var user = $(ui.item[0]).find('.embed-responsive-item').attr('user');
 
     /*
