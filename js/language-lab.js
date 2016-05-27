@@ -11,8 +11,8 @@ LanguageLab = {
     context: null,
     user: null,
 	userName: null,
-	publishedStreamId: null,
-	session: null,
+	sessions: null,
+	publishedStreams: null,
 
 	appendToContainer: function(session, stream, container) {
 		"use strict";
@@ -32,15 +32,16 @@ LanguageLab = {
 			'</li>'
 		);
 
+		var thumbnail = '#' + this.thumbnailPrefix + identifier;
+
 		if (stream === undefined) {
-			var publisher = OT.initPublisher(this.thumbnailPrefix + identifier, options);
-			session.publish(publisher);
-			this.publishedStreamId = publisher.streamId;
-			$('#' + this.thumbnailPrefix + identifier).attr(JSON.parse(session.connection.data)).attr('stream_id', publisher.streamId).prepend('<span class="label label-danger">' + this.userName + '</span>');
+			this.publishedStreams[container] = OT.initPublisher(this.thumbnailPrefix + identifier, options);
+			session.publish(this.publishedStreams[container]);
+			$(thumbnail).attr(JSON.parse(session.connection.data)).attr('stream_id', publisher.streamId).prepend('<span class="label label-danger">' + this.userName + '</span>');
 		} else if(stream !== null) {
 			session.subscribe(stream, this.thumbnailPrefix + stream.streamId, options);
-			$('#' + this.thumbnailPrefix + identifier).attr(JSON.parse(stream.connection.data)).attr('stream_id', stream.streamId);
-			$('#' + this.thumbnailPrefix + identifier).prepend('<span class="label label-default">' + $('#' + this.thumbnailPrefix + identifier).attr('user_name') + '</span>');
+			$(thumbnail).attr(JSON.parse(stream.connection.data)).attr('stream_id', stream.streamId);
+			$(thumbnail).prepend('<span class="label label-default">' + $(thumbnail).attr('user_name') + '</span>');
 		}
 
 		this.postAppendToContainer();
@@ -54,40 +55,35 @@ LanguageLab = {
 		var self = this;
 
 		/* create a new OpenTok session */
-		this.session = OT.initSession(apiKey, sessionId);
+		if (container === undefined) {
+			container = this.thumbnailContainerID;
+		}
+		this.sessions[container] = OT.initSession(apiKey, sessionId);
 
 		/* define event-driven session behaviors */
-		this.session.on('streamCreated', function(event) {
-			if (event.stream.streamId !== self.publishedStreamId) {
-				self.appendToContainer(self.session, event.stream, container);
+		this.sessions[container].on('streamCreated', function(event) {
+			if (event.stream.streamId !== self.publishedStreams[container].streamId) {
+				self.appendToContainer(self.sessions[container], event.stream, container);
 			}
 		});
 
-		this.session.on('streamDestroyed', function(event) {
+		this.sessions[container].on('streamDestroyed', function(event) {
 			$('.' + self.thumbnailClass + ':has(#' + self.thumbnailPrefix + event.stream.streamId + ')').remove();
 		});
 
-		this.session.on('sessionDisconeected', function(event) {
+		this.sessions[container].on('sessionDisconeected', function(event) {
 			console.log('You were disconnected from the session. ', event.reason);
 		});
 
 		/* connect to the session */
-		this.session.connect(token, function(error) {
+		this.sessions[container].connect(token, function(error) {
 			if (!error) {
-				if (container === undefined) {
-					container = self.thumbnailContainerID;
-				}
-
-				self.appendToContainer(self.session, undefined, container);
+				self.appendToContainer(self.sessions[container], undefined, container);
 			} else {
 				console.log('There was an error connecting to the session: ', error.code, error.message);
 			}
 		});
-
-		this.postInitializeSession();
 	},
-
-	postInitializeSession: function() {},
 
     makeConnection: function() {},
 

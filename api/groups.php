@@ -8,7 +8,7 @@ require_once 'common.inc.php';
 
 use OpenTok\Role;
 
-requiredParameters([PARAM_CONTEXT]);
+requiredParameters([PARAM_CONTEXT, PARAM_USER, PARAM_USER_NAME]);
 
 $apiResponse = [];
 switch (trim(strtolower((empty($_REQUEST[PARAM_ACTION]) ? ACTION_LIST : $_REQUEST[PARAM_ACTION])))) {
@@ -110,10 +110,9 @@ switch (trim(strtolower((empty($_REQUEST[PARAM_ACTION]) ? ACTION_LIST : $_REQUES
 			        [
 			            'role' => Role::PUBLISHER,
 			            'data' => json_encode([
-			                'context' => $_REQUEST[PARAM_CONTEXT]/*,
+			                'context' => $_REQUEST[PARAM_CONTEXT],
 			                'user' => $_REQUEST[PARAM_USER],
-			                'user_name' => $_REQUEST[PARAM_USER_NAME] */
-							// FIXME this makes the teacher anonymous in groups
+			                'user_name' => $_REQUEST[PARAM_USER_NAME]
 			            ])
 			        ]
 			    )

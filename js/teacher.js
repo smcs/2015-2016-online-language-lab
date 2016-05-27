@@ -10,24 +10,27 @@ Teacher.sessions = [];
 
 Teacher.makeConnection = function() {
     $(document).ready(function() {
-        $.getJSON(Teacher.rootURL + '/api/groups.php?context=' + Teacher.context, function(response) {
+        $.getJSON(Teacher.rootURL + '/api/groups.php?context=' + Teacher.context + '&user=' + Teacher.user + '&user_name=' + Teacher.userName, function(response) {
             if (response.groups !== undefined) {
                 for(var i = 0; i < response.groups.length; i++) {
-                    Teacher.group = response.groups[i].group;
                     Teacher.displayGroup(Teacher.group);
-                    Teacher.initializeSession(response.groups[i].api_key, response.groups[i].session_id, response.groups[i].token, Teacher.group);
+                    Teacher.initializeSession(
+                        response.groups[i].api_key,
+                        response.groups[i].session_id,
+                        response.groups[i].token,
+                        Teacher.group
+                    );
                 }
             }
         });
-        Teacher.group = Teacher.thumbnailContainerID;
         $.getJSON(Teacher.rootURL + '/api/session.php?context=' + Teacher.context + '&user=' + Teacher.user + '&user_name=' + Teacher.userName, function(response) {
-            Teacher.initializeSession(response.api_key, response.session_id, response.token);
+            Teacher.initializeSession(
+                response.api_key,
+                response.session_id,
+                response.token
+            );
         });
     });
-}
-
-Teacher.postInitializeSession = function() {
-    this.sessions[this.group] = this.session;
 }
 
 Teacher.displayGroup = function(id) {
@@ -58,14 +61,14 @@ Teacher.sortableUpdate = function(event, ui) {
      * within list is changed only if the list it is in changes
      * (cf. https://forum.jquery.com/topic/sortables-update-callback-and-connectwith#14737000000631169)
      */
-    if (this === ui.item.parent()[0]) {
+    if (this === ui.item[0].parent()) {
         /* handle event for new list */
         if (groupID === Teacher.thumbnailContainerID) {
             $.getJSON(Teacher.rootURL + '/api/group_membership.php?context=' + Teacher.context + '&user=' + user + '&action=reset');
         } else {
             $.getJSON(Teacher.rootURL + '/api/group_membership.php?context=' + Teacher.context + '&user=' + user + '&group=' + groupID)
         }
-        // TODO delete this object
+        // TODO delete this object -- or will that happen automagically when it's unpublished
     } else {
         /* handle event for old list */
         // TODO disconnect user from previous session so they will reconnect to new session
