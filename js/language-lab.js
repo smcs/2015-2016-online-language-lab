@@ -13,7 +13,7 @@ LanguageLab = {
 	userName: null,
 	sessions: [],
 	publishedStreams: [],
-	streams: [];
+	streams: [],
 
 	appendToContainer: function(stream, container) {
 		"use strict";
