@@ -6,8 +6,6 @@ var Teacher = Object.create(LanguageLab);
 
 Teacher.groupContainerID = 'groups';
 
-Teacher.sessions = [];
-
 Teacher.makeConnection = function() {
     $(document).ready(function() {
         $.getJSON(Teacher.rootURL + '/api/groups.php?context=' + Teacher.context + '&user=' + Teacher.user + '&user_name=' + Teacher.userName, function(response) {
