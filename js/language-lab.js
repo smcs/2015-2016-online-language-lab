@@ -40,7 +40,8 @@ LanguageLab = {
 			// TODO store stream id as attribute as well
 		} else if(stream !== null) {
 			session.subscribe(stream, this.thumbnailPrefix + stream.streamId, options);
-			$('#' + this.thumbnailPrefix + identifier).attr(JSON.parse(stream.connection.data)).prepend('<span class="label label-default">' + data.user_name + '</span>');
+			$('#' + this.thumbnailPrefix + identifier).attr(JSON.parse(stream.connection.data))
+			$('#' + this.thumbnailPrefix + identifier).prepend('<span class="label label-default">' + $('#' + this.thumbnailPrefix + identifier).attr('user_name') + '</span>');
 			// TODO store stream id as attribute as well
 		}
 
