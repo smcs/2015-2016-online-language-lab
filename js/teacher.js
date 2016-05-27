@@ -16,7 +16,7 @@ Teacher.makeConnection = function() {
                     Teacher.sessions[response.groups[i].group.id] = response.groups[i].group.session;
                     Teacher.displayGroup(response.groups[i].group);
                     Teacher.group = response.groups[i].group;
-                    Teacher.initializeSession(apiKey, response.groups[i].session, token, response.group[i].group
+                    Teacher.initializeSession(apiKey, response.groups[i].session, token, response.group[i].group);
                 }
             }
         });
