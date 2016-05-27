@@ -13,10 +13,9 @@ Teacher.makeConnection = function() {
         $.getJSON(Teacher.rootURL + '/api/groups.php?context=' + Teacher.context, function(response) {
             if (response.groups !== undefined) {
                 for(var i = 0; i < response.groups.length; i++) {
-                    Teacher.sessions[response.groups[i].group.id] = response.groups[i].group.session;
-                    Teacher.displayGroup(response.groups[i].group);
                     Teacher.group = response.groups[i].group;
-                    Teacher.initializeSession(apiKey, response.groups[i].session, token, response.group[i].group);
+                    Teacher.displayGroup(Teacher.group);
+                    Teacher.initializeSession(response.groups[i].api_key, response.groups[i].session_id, response.groups[i].token, Teacher.group);
                 }
             }
         });

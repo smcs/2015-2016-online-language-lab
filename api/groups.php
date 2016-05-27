@@ -100,8 +100,21 @@ switch (trim(strtolower((empty($_REQUEST[PARAM_ACTION]) ? ACTION_LIST : $_REQUES
         }
         while ($group = $existingGroups->fetch_assoc()) {
             $apiResponse['groups'][] = [
-				'group' => $group['id'],
-				'session' => $group['tokbox']
+				API_KEY => $_SESSION['app']->config->toString('//tokbox/key'),
+				API_GROUP_ID => $group['id'],
+				API_SESSION_ID => $group['tokbox'],
+				API_SESSION_TOKEN => $_SESSION['app']->opentok->generateToken(
+			        $group['tokbox'],
+			        [
+			            'role' => Role::PUBLISHER,
+			            'data' => json_encode([
+			                'context' => $_REQUEST[PARAM_CONTEXT]/*,
+			                'user' => $_REQUEST[PARAM_USER],
+			                'user_name' => $_REQUEST[PARAM_USER_NAME] */
+							// FIXME this makes the teacher anonymous in groups
+			            ])
+			        ]
+			    )
 			];
         }
 		break;
