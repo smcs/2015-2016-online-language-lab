@@ -22,7 +22,6 @@ Teacher.makeConnection = function() {
 }
 
 Teacher.displayGroup = function(id) {
-    // FIXME should really be displaying an OpenTok session for this group
     $('#' + Teacher.groupContainerID).append(
         '<div id="wrapper-' + id + '" class="droppable">' +
             '<p class="label label-info">' +
@@ -32,6 +31,7 @@ Teacher.displayGroup = function(id) {
             '<ul id="' + id + '" class="connected"></ul>' +
         '</div>'
         );
+
         $('.connected').sortable({
             connectWith: '.connected',
             opacity: 0.5,
@@ -62,6 +62,10 @@ Teacher.sortableUpdate = function(event, ui) {
         // session.connection.forceUnpublish(streamId, function() {})
         // need to have the session variable and the stream ID of the user I want to disconnect
     }
+}
+
+Teacher.postInitializeSession = function() {
+
 }
 
 Teacher.addGroup = function() {

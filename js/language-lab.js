@@ -14,7 +14,7 @@ LanguageLab = {
 	publishedStreamId: null,
 	session: null,
 
-	appendToContainer: function(session, stream) {
+	appendToContainer: function(session, stream, container) {
 		"use strict";
 		var options = {
 			insertMode: 'append',
@@ -24,7 +24,11 @@ LanguageLab = {
 
 		var identifier = (stream === undefined ? 'publisher' : stream.streamId);
 
-		var obj = $('#' + this.thumbnailContainerID).append('' +
+		if (container === undefined) {
+			container = this.thumbnailContainerID;
+		}
+
+		var obj = $('#' + container).append('' +
 			'<li class="' +  this.thumbnailClass + ' col-xs-4">' +
 				'<div class="embed-responsive embed-responsive-4by3">' +
 					'<div id="' + this.thumbnailPrefix + identifier + '" class="embed-responsive-item"></div>' +
@@ -36,13 +40,11 @@ LanguageLab = {
 			var publisher = OT.initPublisher(this.thumbnailPrefix + identifier, options);
 			session.publish(publisher);
 			this.publishedStreamId = publisher.streamId;
-			$('#' + this.thumbnailPrefix + identifier).attr(JSON.parse(session.connection.data)).prepend('<span class="label label-danger">' + this.userName + '</span>');
-			// TODO store stream id as attribute as well
+			$('#' + this.thumbnailPrefix + identifier).attr(JSON.parse(session.connection.data)).attr('stream_id', publisher.streamId).prepend('<span class="label label-danger">' + this.userName + '</span>');
 		} else if(stream !== null) {
 			session.subscribe(stream, this.thumbnailPrefix + stream.streamId, options);
-			$('#' + this.thumbnailPrefix + identifier).attr(JSON.parse(stream.connection.data))
+			$('#' + this.thumbnailPrefix + identifier).attr(JSON.parse(stream.connection.data)).attr('stream_id', stream.streamId);
 			$('#' + this.thumbnailPrefix + identifier).prepend('<span class="label label-default">' + $('#' + this.thumbnailPrefix + identifier).attr('user_name') + '</span>');
-			// TODO store stream id as attribute as well
 		}
 
 		this.postAppendToContainer();
@@ -57,7 +59,6 @@ LanguageLab = {
 
 		/* create a new OpenTok session */
 		this.session = OT.initSession(apiKey, sessionId);
-		// TODO figure best way of saving (local) session variables as instance variables!
 
 		/* define event-driven session behaviors */
 		this.session.on('streamCreated', function(event) {
@@ -82,7 +83,11 @@ LanguageLab = {
 				console.log('There was an error connecting to the session: ', error.code, error.message);
 			}
 		});
+
+		this.postInitializeSession();
 	},
+
+	postInitializeSession: function() {},
 
     makeConnection: function() {},
 

@@ -87,17 +87,22 @@ switch (trim(strtolower((empty($_REQUEST[PARAM_ACTION]) ? ACTION_LIST : $_REQUES
 	case ACTION_LIST:
 	default:
         if (($existingGroups = $_SESSION['app']->sql->query("
-            SELECT *
-                FROM `groups`
+            SELECT g.`id`, s.`tokbox`
+                FROM `groups` AS g
+					LEFT JOIN `sessions` AS s
+						ON g.`session` = s.`id`
                 WHERE
                     `context` = '" . $_SESSION['app']->sql->escape_string($_REQUEST[PARAM_CONTEXT]) . "'
                 ORDER BY
-                    `created` ASC
+                    g.`id` ASC
         ")) === false) {
             databaseError(__LINE__);
         }
         while ($group = $existingGroups->fetch_assoc()) {
-            $apiResponse['groups'][] = ['group' => $group['id']];
+            $apiResponse['groups'][] = [
+				'group' => $group['id'],
+				'session' => $group['tokbox']
+			];
         }
 		break;
 }
