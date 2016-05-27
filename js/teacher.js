@@ -59,7 +59,7 @@ Teacher.sortableUpdate = function(event, ui) {
      * within list is changed only if the list it is in changes
      * (cf. https://forum.jquery.com/topic/sortables-update-callback-and-connectwith#14737000000631169)
      */
-    if (this === ui.item[0].parent()) {
+    if (this === ui.item.parent()[0]) {
         /* handle event for new list */
         if (groupID === Teacher.thumbnailContainerID) {
             $.getJSON(Teacher.rootURL + '/api/group_membership.php?context=' + Teacher.context + '&user=' + user + '&action=reset');
