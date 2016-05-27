@@ -15,6 +15,8 @@ Teacher.makeConnection = function() {
                 for(var i = 0; i < response.groups.length; i++) {
                     Teacher.sessions[response.groups[i].group.id] = response.groups[i].group.session;
                     Teacher.displayGroup(response.groups[i].group);
+                    Teacher.group = response.groups[i].group;
+                    Teacher.initializeSession(apiKey, response.groups[i].session, token, response.group[i].group
                 }
             }
         });
@@ -22,6 +24,10 @@ Teacher.makeConnection = function() {
             Teacher.initializeSession(response.api_key, response.session_id, response.token);
         });
     });
+}
+
+Teacher.postInitializeSession = function() {
+    this.sessions[this.group] = this.session;
 }
 
 Teacher.displayGroup = function(id) {
@@ -34,8 +40,6 @@ Teacher.displayGroup = function(id) {
             '<ul id="' + id + '" class="connected"></ul>' +
         '</div>'
         );
-
-        this.appendToContainer(this.sessions[id], undefined, id);
 
         $('.connected').sortable({
             connectWith: '.connected',

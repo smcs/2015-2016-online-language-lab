@@ -24,10 +24,6 @@ LanguageLab = {
 
 		var identifier = (stream === undefined ? 'publisher' : stream.streamId);
 
-		if (container === undefined) {
-			container = this.thumbnailContainerID;
-		}
-
 		var obj = $('#' + container).append('' +
 			'<li class="' +  this.thumbnailClass + ' col-xs-4">' +
 				'<div class="embed-responsive embed-responsive-4by3">' +
@@ -52,7 +48,7 @@ LanguageLab = {
 
 	postAppendToContainer: function() {},
 
-	initializeSession: function(apiKey, sessionId, token) {
+	initializeSession: function(apiKey, sessionId, token, container) {
 		"use strict";
 
 		var self = this;
@@ -78,7 +74,11 @@ LanguageLab = {
 		/* connect to the session */
 		this.session.connect(token, function(error) {
 			if (!error) {
-				self.appendToContainer(self.session);
+				if (container === undefined) {
+					container = this.thumbnailContainerID;
+				}
+
+				self.appendToContainer(self.session, undefined, container);
 			} else {
 				console.log('There was an error connecting to the session: ', error.code, error.message);
 			}
