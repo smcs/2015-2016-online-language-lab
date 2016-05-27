@@ -11,12 +11,12 @@ Teacher.makeConnection = function() {
         $.getJSON(Teacher.rootURL + '/api/groups.php?context=' + Teacher.context + '&user=' + Teacher.user + '&user_name=' + Teacher.userName, function(response) {
             if (response.groups !== undefined) {
                 for(var i = 0; i < response.groups.length; i++) {
-                    Teacher.displayGroup(Teacher.group);
+                    Teacher.displayGroup(response.groups[i].group);
                     Teacher.initializeSession(
                         response.groups[i].api_key,
                         response.groups[i].session_id,
                         response.groups[i].token,
-                        Teacher.group
+                        response.groups[i].group
                     );
                 }
             }
