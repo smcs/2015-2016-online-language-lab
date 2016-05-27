@@ -19,6 +19,7 @@ Teacher.makeConnection = function() {
                 }
             }
         });
+        Teacher.group = Teacher.thumbnailContainerID;
         $.getJSON(Teacher.rootURL + '/api/session.php?context=' + Teacher.context + '&user=' + Teacher.user + '&user_name=' + Teacher.userName, function(response) {
             Teacher.initializeSession(response.api_key, response.session_id, response.token);
         });
