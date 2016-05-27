@@ -59,6 +59,9 @@ LanguageLab = {
 			container = this.thumbnailContainerID;
 		}
 		this.sessions[container] = OT.initSession(apiKey, sessionId);
+		if(this.sessions[container].connection === undefined) {
+			console.log('No session connection for container ' + container);
+		}
 
 		/* define event-driven session behaviors */
 		this.sessions[container].on('streamCreated', function(event) {
