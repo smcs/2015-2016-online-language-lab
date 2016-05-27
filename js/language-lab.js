@@ -14,7 +14,7 @@ LanguageLab = {
 	sessions: [],
 	publishedStreams: [],
 
-	appendToContainer: function(session, stream, container) {
+	appendToContainer: function(stream, container) {
 		"use strict";
 		var options = {
 			insertMode: 'append',
@@ -36,10 +36,10 @@ LanguageLab = {
 
 		if (stream === undefined) {
 			this.publishedStreams[container] = OT.initPublisher(this.thumbnailPrefix + identifier, options);
-			session.publish(this.publishedStreams[container]);
-			$(thumbnail).attr(JSON.parse(session.connection.data)).attr('stream_id', this.publishedStreams[container].streamId).prepend('<span class="label label-danger">' + this.userName + '</span>');
+			this.sessions[container].publish(this.publishedStreams[container]);
+			$(thumbnail).attr(JSON.parse(this.sessions[container].connection.data)).attr('stream_id', this.publishedStreams[container].streamId).prepend('<span class="label label-danger">' + this.userName + '</span>');
 		} else if(stream !== null) {
-			session.subscribe(stream, this.thumbnailPrefix + stream.streamId, options);
+			this.sessions[container].subscribe(stream, this.thumbnailPrefix + stream.streamId, options);
 			$(thumbnail).attr(JSON.parse(stream.connection.data)).attr('stream_id', stream.streamId);
 			$(thumbnail).prepend('<span class="label label-default">' + $(thumbnail).attr('user_name') + '</span>');
 		}
@@ -63,7 +63,7 @@ LanguageLab = {
 		/* define event-driven session behaviors */
 		this.sessions[container].on('streamCreated', function(event) {
 			if (event.stream.streamId !== self.publishedStreams[container].streamId) {
-				self.appendToContainer(self.sessions[container], event.stream, container);
+				self.appendToContainer(event.stream, container);
 			}
 		});
 
@@ -78,7 +78,7 @@ LanguageLab = {
 		/* connect to the session */
 		this.sessions[container].connect(token, function(error) {
 			if (!error) {
-				self.appendToContainer(self.sessions[container], undefined, container);
+				self.appendToContainer(undefined, container);
 			} else {
 				console.log('There was an error connecting to the session: ', error.code, error.message);
 			}
