@@ -59,7 +59,7 @@ LanguageLab = {
 		/* define event-driven session behaviors */
 		this.session.on('streamCreated', function(event) {
 			if (event.stream.streamId !== self.publishedStreamId) {
-				self.appendToContainer(self.session, event.stream);
+				self.appendToContainer(self.session, event.stream, container);
 			}
 		});
 
