@@ -49,6 +49,9 @@ Teacher.displayGroup = function(id) {
 }
 
 Teacher.sortableUpdate = function(event, ui) {
+    var groupID = $(ui.item[0]).parent().attr('id');
+    var user = $(ui.item[0]).find('.embed-responsive-item').attr('user');
+
     /*
      * using the 'receive callback' -- won't trigger if position
      * within list is changed only if the list it is in changes
@@ -56,8 +59,6 @@ Teacher.sortableUpdate = function(event, ui) {
      */
     if (this === ui.item.parent()[0]) {
         /* handle event for new list */
-        var groupID = $(ui.item[0]).parent().attr('id');
-        var user = $(ui.item[0]).find('.embed-responsive-item').attr('user');
         if (groupID === Teacher.thumbnailContainerID) {
             $.getJSON(Teacher.rootURL + '/api/group_membership.php?context=' + Teacher.context + '&user=' + user + '&action=reset');
         } else {
@@ -67,7 +68,9 @@ Teacher.sortableUpdate = function(event, ui) {
     } else {
         /* handle event for old list */
         // TODO disconnect user from previous session so they will reconnect to new session
-        // session.connection.forceUnpublish(streamId, function() {})
+        this.sessions[groupID].connection.forceUnpublish($(ui.item[0]).find('.embed-responsive-item').attr('stream_id'), function() {
+            console.log('Disconnected a ' + user + ' from ' + groupID);
+        });
         // need to have the session variable and the stream ID of the user I want to disconnect
     }
 }
