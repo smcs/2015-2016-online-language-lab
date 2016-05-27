@@ -23,7 +23,6 @@ LanguageLab = {
 		};
 
 		var identifier = (stream === undefined ? 'publisher' : stream.streamId);
-		var data = JSON.parse(stream.connection.data);
 
 		var obj = $('#' + this.thumbnailContainerID).append('' +
 			'<li class="' +  this.thumbnailClass + ' col-xs-4">' +
@@ -37,14 +36,13 @@ LanguageLab = {
 			var publisher = OT.initPublisher(this.thumbnailPrefix + identifier, options);
 			session.publish(publisher);
 			this.publishedStreamId = publisher.streamId;
-			$('#' + this.thumbnailPrefix + identifier).attr(JSON.parse(session.connection.data)).prepend('<span class="label label-danger">' + data.userName + '</span>');
+			$('#' + this.thumbnailPrefix + identifier).attr(JSON.parse(session.connection.data)).prepend('<span class="label label-danger">' + this.userName + '</span>');
 			// TODO store stream id as attribute as well
 		} else if(stream !== null) {
 			session.subscribe(stream, this.thumbnailPrefix + stream.streamId, options);
-			$('#' + this.thumbnailPrefix + identifier).attr(data).prepend('<span class="label label-default">' + data.user_name + '</span>');
+			$('#' + this.thumbnailPrefix + identifier).attr(JSON.parse(stream.connection.data)).prepend('<span class="label label-default">' + data.user_name + '</span>');
 			// TODO store stream id as attribute as well
 		}
-
 
 		this.postAppendToContainer();
 	},
