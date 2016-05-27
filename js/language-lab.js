@@ -37,7 +37,7 @@ LanguageLab = {
 		if (stream === undefined) {
 			this.publishedStreams[container] = OT.initPublisher(this.thumbnailPrefix + identifier, options);
 			session.publish(this.publishedStreams[container]);
-			$(thumbnail).attr(JSON.parse(session.connection.data)).attr('stream_id', publisher.streamId).prepend('<span class="label label-danger">' + this.userName + '</span>');
+			$(thumbnail).attr(JSON.parse(session.connection.data)).attr('stream_id', this.publishedStreams[container].streamId).prepend('<span class="label label-danger">' + this.userName + '</span>');
 		} else if(stream !== null) {
 			session.subscribe(stream, this.thumbnailPrefix + stream.streamId, options);
 			$(thumbnail).attr(JSON.parse(stream.connection.data)).attr('stream_id', stream.streamId);
