@@ -6,11 +6,14 @@ var Teacher = Object.create(LanguageLab);
 
 Teacher.groupContainerID = 'groups';
 
+Teacher.sessions = [];
+
 Teacher.makeConnection = function() {
     $(document).ready(function() {
         $.getJSON(Teacher.rootURL + '/api/groups.php?context=' + Teacher.context, function(response) {
             if (response.groups !== undefined) {
                 for(var i = 0; i < response.groups.length; i++) {
+                    Teacher.sessions[response.groups[i].group.id] = response.groups[i].group.session;
                     Teacher.displayGroup(response.groups[i].group);
                 }
             }
@@ -31,6 +34,8 @@ Teacher.displayGroup = function(id) {
             '<ul id="' + id + '" class="connected"></ul>' +
         '</div>'
         );
+
+        this.appendToContainer(this.sessions[id], undefined, id);
 
         $('.connected').sortable({
             connectWith: '.connected',
