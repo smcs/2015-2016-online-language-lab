@@ -68,6 +68,7 @@ Teacher.sortableUpdate = function(event, ui) {
             sourceGroupID = $(this).attr('id'),
             destinationGroupID = $(ui.item[0]).parent().attr('id');
 
+        console.log(ui);
         console.log(thumbnail);
         console.log(thumbnail.attr('user'));
         console.log(thumbnail.attr('stream_id'));
