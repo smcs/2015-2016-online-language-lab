@@ -22,6 +22,7 @@ Student.initializeSession = function(apiKey, sessionId, token) {
     "use strict";
     this.__proto__.initializeSession(apiKey, sessionId, token);
     /* FIXME I think this works okay, but I'm worried that it may rely on too many assumptions */
+    console.log(this);
     this.sessions[this.sessions.length - 1].on('sessionDisconnected', function(event) {
         // TODO there may be some clean up that we need to do here too!
         this.joinSession();
