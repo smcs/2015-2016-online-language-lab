@@ -55,30 +55,32 @@ Teacher.displayGroup = function (id) {
 
 Teacher.sortableUpdate = function(event, ui) {
     "use strict";
-    var thumbnail = $(ui.item[0]).find('embed-responsive-item'),
-        groupID = $(this).attr('id'),
-        user = thumbnail.attr('user');
+    console.log(Teacher);
 
     /*
      * using the 'receive callback' -- won't trigger if position
      * within list is changed only if the list it is in changes
      * (cf. https://forum.jquery.com/topic/sortables-update-callback-and-connectwith#14737000000631169)
      */
-    if (this === ui.item.parent()[0]) {
+    if (this !== ui.item.parent()[0]) {
         /* handle event for new list */
+
+        var thumbnail = $(ui.item[0]).find('embed-responsive-item'),
+            sourceGroupID = $(this).attr('id'),
+            destinationGroupID = $(ui.item.parent()[0].attr('id'))
+            user = thumbnail.attr('user');
+
+        /* update group memberships via API */
         if (groupID === Teacher.thumbnailContainerID) {
             $.getJSON(Teacher.rootURL + '/api/group_membership.php?context=' + Teacher.context + '&user=' + user + '&action=reset');
         } else {
-            $.getJSON(Teacher.rootURL + '/api/group_membership.php?context=' + Teacher.context + '&user=' + user + '&group=' + groupID);
+            $.getJSON(Teacher.rootURL + '/api/group_membership.php?context=' + Teacher.context + '&user=' + user + '&group=' + destinationGroupID);
         }
-        // TODO delete this object -- or will that happen automagically when it's unpublished
-    } else {
-        /* handle event for old list */
-        // TODO disconnect user from previous session so they will reconnect to new session
-        Teacher.sessions[groupID].forceUnpublish(Teacher.streams[groupID][thumbnail.attr('stream_id')], function() {
-            console.log('Disconnected a ' + user + ' from ' + groupID);
+
+        /* locally disconnect dragged user from source group, forcing a reconnect */
+        Teacher.sessions[sourceGroupID].forceUnpublish(Teacher.streams[sourceGroupID][thumbnail.attr('stream_id')], function() {
+            console.log('Disconnected a ' + user + ' from ' + sourceGroupID);
         });
-        // need to have the session variable and the stream ID of the user I want to disconnect
     }
 };
 
