@@ -23,7 +23,7 @@ Student.initializeSession = function(apiKey, sessionId, token) {
     this.__proto__.initializeSession(apiKey, sessionId, token);
     /* FIXME I think this works okay, but I'm worried that it may rely on too many assumptions */
     this.sessions[(this.sessions.length > 0 ? this.sessions.length - 1 : 'ot-streams')].on('sessionDisconeected', function(event) {
-        console.log('Disconnected. Cleaning up and rejoining.');
+        console.log('Disconnected (' + event.reason + '). Cleaning up and rejoining.');
         $('#' + Student.thumbnailContainerID).empty();
         Student.__proto__.sessions = [];
         Student.__proto__.publishedStreams = [];
