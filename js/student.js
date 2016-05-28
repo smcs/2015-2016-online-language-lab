@@ -26,9 +26,9 @@ Student.initializeSession = function(apiKey, sessionId, token) {
     this.sessions[(this.sessions.length > 0 ? this.sessions.length - 1 : 'ot-streams')].on('sessionDisconeected', function(event) {
         console.log('Disconnected. Cleaning up and rejoining.');
         $('#' + Student.thumbnailContainerID).empty();
-        Student.sessions = [];
-        Student.publishedStreams = [];
-        Student.streams = [];
+        Student.__proto__.sessions = [];
+        Student.__proto__.publishedStreams = [];
+        Student.__proto__.streams = [];
         Student.joinSession();
     });
 };
