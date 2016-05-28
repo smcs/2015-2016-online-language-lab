@@ -64,7 +64,7 @@ Teacher.sortableUpdate = function(event, ui) {
     if (this !== ui.item.parent()[0]) {
         /* handle event for new list */
 
-        var thumbnail = $(ui.item[0]).find('embed-responsive-item'),
+        var thumbnail = ui.item.find('embed-responsive-item')[0],
             sourceGroupID = $(this).attr('id'),
             destinationGroupID = $(ui.item[0]).parent().attr('id');
 
