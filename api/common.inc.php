@@ -24,6 +24,7 @@ define('API_DATABASE_ID', 'id');
 define('API_GROUP_ID', 'group');
 define('API_USER_ID', 'user');
 define('API_ACTION_RESULT', 'result');
+define('API_MEMBERSHIP_ID', API_DATABASE_ID);
 
 function requiredParameters($parameters) {
     global $smarty;
