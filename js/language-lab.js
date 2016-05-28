@@ -37,7 +37,10 @@ LanguageLab = {
 
 		if (stream === undefined) {
 			this.publishedStreams[container] = OT.initPublisher(this.thumbnailPrefix + identifier, options);
-			this.sessions[container].publish(this.publishedStreams[container]);
+			this.sessions[container].publish(this.publishedStreams[container]).on('StreamEvent', function (event) {
+				console.log('Stream event:');
+				console.log(event);
+			});
 			$(thumbnail).attr(JSON.parse(this.sessions[container].connection.data)).attr('stream_id', this.publishedStreams[container].streamId).prepend('<span class="label label-danger">' + this.userName + '</span>');
 		} else if(stream !== null) {
 			this.streams[container][stream.streamId] = stream;
@@ -74,7 +77,7 @@ LanguageLab = {
 			$('.' + self.thumbnailClass + ':has(#' + self.thumbnailPrefix + event.stream.streamId + ')').remove();
 		});
 
-		this.sessions[container].on('sessionDisconeected', function(event) {
+		this.sessions[container].on('sessionDisconnected', function(event) {
 			console.log('You were disconnected from the session. ', event.reason);
 		});
 
