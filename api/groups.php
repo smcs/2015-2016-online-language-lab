@@ -108,7 +108,7 @@ switch (trim(strtolower((empty($_REQUEST[PARAM_ACTION]) ? ACTION_LIST : $_REQUES
 				API_SESSION_TOKEN => $_SESSION['app']->opentok->generateToken(
 			        $group['tokbox'],
 			        [
-			            'role' => Role::PUBLISHER,
+			            'role' => Role::MODERATOR,
 			            'data' => json_encode([
 			                'context' => $_REQUEST[PARAM_CONTEXT],
 			                'user' => $_REQUEST[PARAM_USER],
