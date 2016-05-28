@@ -67,7 +67,7 @@ Teacher.sortableUpdate = function(event, ui) {
 
         var thumbnail = $(ui.item[0]).find('embed-responsive-item'),
             sourceGroupID = $(this).attr('id'),
-            destinationGroupID = $(ui.item.parent()[0].attr('id')),
+            destinationGroupID = $(ui.item[0]).parent().attr('id'),
             user = thumbnail.attr('user');
 
         /* update group memberships via API */
