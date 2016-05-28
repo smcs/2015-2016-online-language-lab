@@ -110,7 +110,7 @@ Teacher.deleteGroup = function (id) {
 Teacher.resetGroups = function() {
     "use strict";
     // TODO make list of users and OpenTok sessions affected
-    $.getJSON(Teacher.rootURL + '/api/groups.php?context=' + Teacher.context + '&action=reset', function (response) {
+    $.getJSON(Teacher.rootURL + '/api/groups.php?context=' + Teacher.context + '&user=' + Teacher.user + '&user_name=' + Teacher.user_name + '&action=reset', function (response) {
         if (response.result) {
             $('#' + Teacher.groupContainerID).empty();
         } else {
