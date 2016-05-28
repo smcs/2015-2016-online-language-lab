@@ -66,21 +66,21 @@ Teacher.sortableUpdate = function(event, ui) {
 
         var thumbnail = $(ui.item[0]).find('embed-responsive-item'),
             sourceGroupID = $(this).attr('id'),
-            destinationGroupID = $(ui.item[0]).parent().attr('id'),
-            user = $(ui.item[0]).find('embed-responsive-item').attr('user');
+            destinationGroupID = $(ui.item[0]).parent().attr('id');
 
-        console.log(thumbnail, user, this, ui);
+        console.log(thumbnail);
+        console.log(thumbnail.attr());
 
         /* update group memberships via API */
         if (destinationGroupID === Teacher.thumbnailContainerID) {
-            $.getJSON(Teacher.rootURL + '/api/group_membership.php?context=' + Teacher.context + '&user=' + user + '&action=reset');
+            $.getJSON(Teacher.rootURL + '/api/group_membership.php?context=' + Teacher.context + '&user=' + thumbnail.attr('user') + '&action=reset');
         } else {
-            $.getJSON(Teacher.rootURL + '/api/group_membership.php?context=' + Teacher.context + '&user=' + user + '&group=' + destinationGroupID);
+            $.getJSON(Teacher.rootURL + '/api/group_membership.php?context=' + Teacher.context + '&user=' + thumbnail.attr('user') + '&group=' + destinationGroupID);
         }
 
         /* locally disconnect dragged user from source group, forcing a reconnect */
         Teacher.sessions[sourceGroupID].forceUnpublish(Teacher.streams[sourceGroupID][thumbnail.attr('stream_id')], function() {
-            console.log('Disconnected a ' + user + ' from ' + sourceGroupID);
+            console.log('Disconnected a ' + thumbnail.attr('user') + ' from ' + sourceGroupID);
         });
     }
 };
