@@ -68,7 +68,7 @@ Teacher.sortableUpdate = function(event, ui) {
             sourceGroupID = $(this).attr('id'),
             destinationGroupID = $(ui.item[0]).parent().attr('id'),
 			streamID;
-		streamId = thumbnail.attr('stream_id');
+		streamID = thumbnail.attr('stream_id');
 
         /* update group memberships via API */
         if (destinationGroupID === Teacher.thumbnailContainerID) {
