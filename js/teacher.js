@@ -67,11 +67,11 @@ Teacher.sortableUpdate = function(event, ui) {
 
         var thumbnail = $(ui.item[0]).find('embed-responsive-item'),
             sourceGroupID = $(this).attr('id'),
-            destinationGroupID = $(ui.item.parent()[0].attr('id'))
+            destinationGroupID = $(ui.item.parent()[0].attr('id')),
             user = thumbnail.attr('user');
 
         /* update group memberships via API */
-        if (groupID === Teacher.thumbnailContainerID) {
+        if (destinationGroupID === Teacher.thumbnailContainerID) {
             $.getJSON(Teacher.rootURL + '/api/group_membership.php?context=' + Teacher.context + '&user=' + user + '&action=reset');
         } else {
             $.getJSON(Teacher.rootURL + '/api/group_membership.php?context=' + Teacher.context + '&user=' + user + '&group=' + destinationGroupID);
