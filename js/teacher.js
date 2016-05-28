@@ -55,7 +55,6 @@ Teacher.displayGroup = function (id) {
 
 Teacher.sortableUpdate = function(event, ui) {
     "use strict";
-    console.log(Teacher);
 
     /*
      * using the 'receive callback' -- won't trigger if position
@@ -69,6 +68,8 @@ Teacher.sortableUpdate = function(event, ui) {
             sourceGroupID = $(this).attr('id'),
             destinationGroupID = $(ui.item[0]).parent().attr('id'),
             user = thumbnail.attr('user');
+
+        console.log(thumbnail, sourceGroupID, destinationGroupID, user, this, Teacher);
 
         /* update group memberships via API */
         if (destinationGroupID === Teacher.thumbnailContainerID) {
