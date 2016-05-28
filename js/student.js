@@ -1,12 +1,13 @@
 /* directives for http://JSLint.com */
-/*jslint browser, for, this, white, multivar */
-/*global $, OT, console */
+/*jslint browser:true, white: true */
+/*global $, OT, console, LanguageLab */
 
 var Student = Object.create(LanguageLab);
 
 Student.joinTimeOut = 1000;
 
 Student.joinSession = function() {
+    "use strict";
     $.getJSON(Student.rootURL + '/api/join.php?context=' + Student.context + '&user=' + Student.user + '&user_name=' + Student.userName, function(response) {
         if (response.session_id !== undefined) {
             $('#' + Student.thumbnailContainerID + '-placeholder').remove();
@@ -15,16 +16,19 @@ Student.joinSession = function() {
             window.setTimeout(Student.makeConnection, Student.joinTimeOut);
         }
     });
-}
+};
 
 Student.initializeSession = function(apiKey, sessionId, token) {
+    "use strict";
     this.__proto__.initializeSession(apiKey, sessionId, token);
-    this.session.on('sessionDisconeected', function(event) {
+    /* FIXME I think this works okay, but I'm worried that it may rely on too many assumptions */
+    this.sessions[this.sessions.length - 1].on('sessionDisconnected', function(event) {
         // TODO there may be some clean up that we need to do here too!
         this.joinSession();
     });
-}
+};
 
 Student.makeConnection = function() {
+    "use strict";
     $(document).ready(this.joinSession());
-}
+};
