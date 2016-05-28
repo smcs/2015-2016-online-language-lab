@@ -66,12 +66,9 @@ Teacher.sortableUpdate = function(event, ui) {
 
         var thumbnail = $(ui.item[0]).find('.embed-responsive-item'),
             sourceGroupID = $(this).attr('id'),
-            destinationGroupID = $(ui.item[0]).parent().attr('id');
-
-        console.log(ui);
-        console.log(thumbnail);
-        console.log(thumbnail.attr('user'));
-        console.log(thumbnail.attr('stream_id'));
+            destinationGroupID = $(ui.item[0]).parent().attr('id'),
+			streamID;
+		streamId = thumbnail.attr('stream_id');
 
         /* update group memberships via API */
         if (destinationGroupID === Teacher.thumbnailContainerID) {
@@ -81,9 +78,13 @@ Teacher.sortableUpdate = function(event, ui) {
         }
 
         /* locally disconnect dragged user from source group, forcing a reconnect */
-        Teacher.sessions[sourceGroupID].forceUnpublish(Teacher.streams[sourceGroupID][thumbnail.attr('stream_id')], function() {
-            console.log('Disconnected a ' + thumbnail.attr('user') + ' from ' + sourceGroupID);
+        Teacher.sessions[sourceGroupID].forceUnpublish(Teacher.streams[sourceGroupID][streamID], function() {
+            console.log('Force unpublished a ' + thumbnail.attr('user') + ' from ' + sourceGroupID);
         });
+        Teacher.sessions[sourceGroupID].forceDisconnect(Teacher.streams[sourceGroupID][streamID], function() {
+            console.log('Force disconnected a ' + thumbnail.attr('user') + ' from ' + sourceGroupID);
+        });
+		delete Teacher.streams[sourceGroupID][streamID];
     }
 };
 
