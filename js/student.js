@@ -30,7 +30,6 @@ Student.initializeSession = function(apiKey, sessionId, token) {
         Student.__proto__.streams = [];
         Student.joinSession();
     });
-    console.log(this);
 };
 
 Student.makeConnection = function() {
